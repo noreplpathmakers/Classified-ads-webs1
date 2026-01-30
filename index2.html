@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DealSquare - Calm Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Pre-load Theme & Direction
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedDir = localStorage.getItem('dir') || 'ltr';
+
+        const html = document.documentElement;
+        html.dir = savedDir;
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('rtl', 'html[dir="rtl"] &');
+                }
+            ]
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-[#fdfcf9] dark:bg-zinc-950 transition-colors duration-500 bg-home-v2 relative">
+    <canvas id="snow-canvas"></canvas>
+
+    <!-- Navbar (Standard) -->
+    <nav
+        class="sticky top-0 z-[100] bg-white/60 dark:bg-zinc-950/60 backdrop-blur-xl border-b border-white/50 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <!-- Logo (Forced LTR for brand consistency) -->
+                    <a href="index.html" class="flex flex-row items-center gap-3 group flex-shrink-0" dir="ltr">
+                        <div
+                            class="w-12 h-12 bg-zinc-900 dark:bg-white rounded-2xl flex items-center justify-center text-white dark:text-zinc-900 font-bold text-2xl shadow-xl group-hover:rotate-6 transition-transform">
+                            DS</div>
+                        <span
+                            class="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-white hidden sm:block whitespace-nowrap">Deal<span
+                                class="text-blue-900">Square</span></span>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-1">
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Home</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="index.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Home
+                                    1</a>
+                                <a href="index2.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Home
+                                    2</a>
+                            </div>
+                        </div>
+
+                        <a href="about.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                        <a href="services.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Dashboards</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="user_dashboard.html"
+                                    class="flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                                    <i data-lucide="user" class="w-4 h-4"></i>
+                                    <span>User Dashboard</span>
+                                </a>
+                                <a href="admin_dashboard.html"
+                                    class="flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    <span>Admin Control</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center gap-4 sm:gap-6">
+                    <a href="login.html"
+                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
+                        In</a>
+                    <button id="dir-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm flex-shrink-0">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm flex-shrink-0">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 flex-shrink-0">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="login.html#register"
+                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 bg-black/60 z-[190] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm lg:hidden">
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-zinc-950 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
+
+        <div class="flex items-center justify-between p-4 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="font-black text-xl tracking-tighter dark:text-white">Menu</span>
+            <button id="mobile-menu-close-btn"
+                class="p-2 text-zinc-500 hover:text-fuchsia-500 transition-colors rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="p-4 space-y-4">
+            <a href="index.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                1</a>
+            <a href="index2.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                2</a>
+            <a href="about.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">About
+                Us</a>
+            <a href="services.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Services</a>
+            <a href="contact.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Contact</a>
+
+            <div class="border-t border-zinc-100 dark:border-zinc-800 pt-4 mt-2">
+                <a href="user_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="user" class="w-4 h-4"></i><span>User Dashboard</span>
+                </a>
+                <a href="admin_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i><span>Admin Dashboard</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                <a href="login.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                    Log In
+                </a>
+                <a href="signup.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ambient Light Effects -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-200/20 dark:bg-purple-900/10 rounded-full blur-[100px] animate-pulse">
+        </div>
+        <div class="absolute top-[20%] right-[-5%] w-[30%] h-[30%] bg-cyan-200/20 dark:bg-cyan-900/10 rounded-full blur-[100px] animate-pulse"
+            style="animation-delay: 2s"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[30%] h-[30%] bg-teal-200/20 dark:bg-teal-900/10 rounded-full blur-[100px] animate-pulse"
+            style="animation-delay: 4s"></div>
+    </div>
+
+    <!-- Electric Hero -->
+    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <!-- Background Image removed as per user request, relying on canvas/body bg -->
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/80">
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 text-center relative z-10 animate-fade-in-up">
+            <span
+                class="inline-block py-2 px-6 rounded-full bg-cyan-900/30 text-cyan-400 font-bold tracking-[0.3em] uppercase text-xs mb-8 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-pulse">
+                System Online: Thunder Mode
+            </span>
+            <h1
+                class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black italic text-white leading-[0.9] mb-8 tracking-tighter drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]">
+                STRIKE <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-cyan-400 bg-[length:200%_auto] animate-shine">WITH
+                    POWER.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-cyan-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                The world's first <span
+                    class="font-bold text-white shadow-[0_0_10px_rgba(255,255,255,0.5)]">high-voltage
+                    marketplace</span>.
+                Secure assets, flash deals, and
+                <span class="font-bold text-cyan-400 border-b-2 border-cyan-400">instant transfers.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+                <button
+                    class="group px-12 py-6 bg-cyan-600 text-white font-black rounded-full border-2 border-cyan-400 hover:bg-cyan-500 hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(6,182,212,0.6)] text-lg uppercase tracking-wider">
+                    <span class="relative z-10 flex items-center gap-3">Ignite Search <i data-lucide="zap"
+                            class="w-6 h-6 fill-white group-hover:animate-bounce"></i></span>
+                </button>
+                <button
+                    class="px-12 py-6 bg-transparent text-white font-black rounded-full border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all text-lg uppercase tracking-wider backdrop-blur-md">
+                    Upload Asset
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Power Search -->
+    <section class="max-w-4xl mx-auto px-4 pt-12 relative z-20 pb-12">
+
+
+        <div
+            class="bg-zinc-900/40 backdrop-blur-xl p-3 md:p-4 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-cyan-500/30 flex items-center gap-4 transition-all hover:border-cyan-500/60 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)]">
+            <i data-lucide="search" class="w-6 h-6 text-cyan-400 ml-4"></i>
+            <input type="text" placeholder="Scan for targets..."
+                class="flex-1 bg-transparent outline-none text-lg md:text-xl font-bold text-white placeholder-cyan-500/50 h-14">
+            <button
+                class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(6,182,212,0.8)]">
+                <i data-lucide="arrow-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Rotating Category Text -->
+    <section class="max-w-7xl mx-auto px-6 pt-12 pb-4 text-center">
+        <h3 class="text-2xl font-light text-zinc-400 dark:text-zinc-500 flex justify-center items-center gap-2">
+            Explore:
+            <span
+                class="font-serif italic text-zinc-800 dark:text-white rotating-text-container h-[1.5em] overflow-hidden block text-left w-48">
+                <span class="block animate-slide-up-fade">Mid-Century Layouts</span>
+                <span class="block animate-slide-up-fade" style="animation-delay: 2s">Vintage Cameras</span>
+                <span class="block animate-slide-up-fade" style="animation-delay: 4s">Artisan Ceramics</span>
+                <span class="block animate-slide-up-fade" style="animation-delay: 6s">Rare Books</span>
+            </span>
+        </h3>
+    </section>
+
+    <!-- Brand Philosophy -->
+    <section class="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1 relative animate-on-scroll opacity-0">
+                <div
+                    class="absolute -top-10 -left-10 w-32 h-32 bg-cyan-100 dark:bg-cyan-900/30 rounded-full blur-2xl opacity-60">
+                </div>
+                <img src="Assets/4.jpeg"
+                    class="rounded-[2rem] shadow-2xl relative z-10 w-full object-cover h-[600px] grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                    alt="Philosophy">
+                <div
+                    class="absolute -bottom-6 -right-6 w-full h-full border-2 border-cyan-100 dark:border-zinc-800 rounded-[2rem] -z-0">
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 lg:pl-10 rtl:lg:pl-0 rtl:lg:pr-10 animate-on-scroll opacity-0">
+                <span class="text-cyan-500 font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Our
+                    Philosophy</span>
+                <h2 class="text-5xl md:text-6xl font-serif italic text-zinc-800 dark:text-white mb-8 leading-tight">
+                    Curating for the <br><span class="text-cyan-600 dark:text-cyan-400">Mindful Eye.</span>
+                </h2>
+                <div class="space-y-6 text-lg text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
+                    <p>
+                        DealSquare isn’t just a marketplace; it’s a
+                        collection of stories, a gallery of intentional objects that bring joy and utility to your life.
+                    </p>
+                    <p>
+                        We believe that buying second-hand is the most sophisticated form of consumption—honoring the
+                        past while preserving the future.
+                    </p>
+                </div>
+                <div class="mt-10 flex items-center gap-4">
+                    <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
+                    <span class="font-serif italic text-zinc-400 text-xl">Est. 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Category Highlights Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex justify-between items-end mb-12">
+            <h2 class="text-3xl md:text-4xl font-serif italic text-zinc-800 dark:text-white">Curated Categories</h2>
+            <a href="#" class="text-cyan-600 font-bold hover:underline flex items-center gap-1">View All <i
+                    data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <!-- Cat 1 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-cyan-50 dark:bg-zinc-800 flex items-center justify-center text-cyan-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="car" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Motors</h3>
+                <span class="text-xs text-zinc-500">2.4k Listings</span>
+            </a>
+            <!-- Cat 2 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-teal-50 dark:bg-zinc-800 flex items-center justify-center text-teal-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="briefcase" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Jobs</h3>
+                <span class="text-xs text-zinc-500">850 Openings</span>
+            </a>
+            <!-- Cat 3 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-fuchsia-50 dark:bg-zinc-800 flex items-center justify-center text-fuchsia-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="home" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Estates</h3>
+                <span class="text-xs text-zinc-500">1.2k Homes</span>
+            </a>
+            <!-- Cat 4 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-zinc-800 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="smartphone" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Tech</h3>
+                <span class="text-xs text-zinc-500">5k+ Gadgets</span>
+            </a>
+            <!-- Cat 5 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-purple-50 dark:bg-zinc-800 flex items-center justify-center text-purple-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="wrench" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Services</h3>
+                <span class="text-xs text-zinc-500">Pro Help</span>
+            </a>
+            <!-- Cat 6 -->
+            <a href="#"
+                class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+                <div
+                    class="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-zinc-800 flex items-center justify-center text-emerald-600 mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-bold text-zinc-800 dark:text-white mb-1">Fashion</h3>
+                <span class="text-xs text-zinc-500">New Styles</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- System Protocols (Features) -->
+    <section class="py-12 bg-zinc-900/40 relative overflow-hidden text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Left Column: Image -->
+                <div
+                    class="relative animate-on-scroll opacity-0 scale-95 transition-all duration-1000 max-w-sm mx-auto lg:mr-auto lg:ml-0 group w-full">
+                    <div
+                        class="absolute inset-0 bg-cyan-500/20 rounded-[2.5rem] blur-xl group-hover:bg-cyan-500/30 transition-all">
+                    </div>
+                    <img src="Assets/5.jpeg"
+                        class="rounded-[2.5rem] shadow-2xl relative z-10 w-full aspect-square object-cover rotate-2 h-auto group-hover:rotate-0 transition-transform duration-500 border border-white/10 group-hover:border-cyan-500">
+                </div>
+
+                <!-- Right Column: Text Content -->
+                <div class="space-y-6">
+                    <h2
+                        class="text-3xl md:text-4xl font-black italic text-white mb-2 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                        SYSTEM PROTOCOLS</h2>
+
+                    <div class="space-y-4">
+                        <!-- Item 1 -->
+                        <div class="flex gap-4 animate-on-scroll opacity-0 translate-y-4 transition-all duration-500">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 shadow-md flex items-center justify-center text-cyan-400 flex-shrink-0 group-hover:text-cyan-300">
+                                <i data-lucide="search-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Quantum Sort</h3>
+                                <p class="text-sm text-zinc-300 leading-relaxed">Neural engines <span
+                                        class="text-cyan-400 font-bold">predict</span> exactly what you need.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div
+                            class="flex gap-4 animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 delay-100">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 shadow-md flex items-center justify-center text-white flex-shrink-0">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Titanium Grade</h3>
+                                <p class="text-sm text-zinc-300 leading-relaxed"><span
+                                        class="text-white font-bold">Encrypted</span> seller identities for maximum
+                                    safety.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div
+                            class="flex gap-4 animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 delay-200">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 shadow-md flex items-center justify-center text-purple-400 flex-shrink-0">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-1">Warp Speed</h3>
+                                <p class="text-sm text-zinc-300 leading-relaxed">Zero-latency negotiations via <span
+                                        class="text-purple-400 font-bold">Direct-Link</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elite Inventory (Gallery) -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-4xl font-black text-white italic drop-shadow-lg">ELITE <span
+                        class="text-cyan-500">INVENTORY</span></h2>
+                <div class="h-1 bg-zinc-800 flex-1 ml-8 relative top-[-10px] hidden md:block overflow-hidden">
+                    <div class="h-full bg-cyan-500 w-1/3 animate-loading-bar"></div>
+                </div>
+            </div>
+            <!-- Adjusted for exactly 5 items -->
+            <div class="flex flex-wrap justify-center gap-10">
+                <!-- Item 1 -->
+                <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
+                    <div
+                        class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
+                        <div
+                            class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-cyan-500/30">
+                            <i data-lucide="star" class="w-4 h-4 text-cyan-400 fill-cyan-400"></i>
+                        </div>
+                        <img src="Assets/6.jpeg"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            alt="Item">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 truncate">Neo-Tokyo Kicks</h3>
+                    <p class="text-sm text-cyan-400 font-mono">$120.00 <span
+                            class="text-zinc-500 line-through text-xs ml-2">$300</span></p>
+                </div>
+                <!-- Item 2 -->
+                <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
+                    <div
+                        class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
+                        <img src="Assets/7.jpeg"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            alt="Item">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 truncate">Cyber-Deck v2</h3>
+                    <p class="text-sm text-cyan-400 font-mono">$850.00</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
+                    <div
+                        class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
+                            <span class="text-xs text-white font-bold uppercase tracking-wider">Rare Find</span>
+                        </div>
+                        <img src="Assets/8.jpeg"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            alt="Item">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 truncate">Holo-Emitter</h3>
+                    <p class="text-sm text-cyan-400 font-mono">$1,210.00</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
+                    <div
+                        class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
+                        <img src="Assets/9.jpeg"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            alt="Item">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 truncate">Smart-Fibre Pack</h3>
+                    <p class="text-sm text-cyan-400 font-mono">$140.00</p>
+                </div>
+                <!-- Item 5 -->
+                <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
+                    <div
+                        class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
+                        <img src="Assets/10.jpeg"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                            alt="Item">
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1 truncate">Zero-G Vase</h3>
+                    <p class="text-sm text-cyan-400 font-mono">$65.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hyper-Spotlight Parallax -->
+    <section class="relative py-32 bg-fixed bg-cover bg-center my-12 group overflow-hidden"
+        style="background-image: url('https://picsum.photos/seed/cyber-city/1920/1080');">
+        <div
+            class="absolute inset-0 bg-zinc-950/70 backdrop-blur-[2px] group-hover:backdrop-blur-none transition-all duration-1000">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/50 to-purple-900/50 mix-blend-overlay"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center animate-on-scroll opacity-0">
+            <span
+                class="inline-block py-2 px-6 rounded-full bg-black/50 backdrop-blur-md border border-cyan-500 text-cyan-400 font-bold tracking-widest text-xs uppercase mb-6 shadow-[0_0_20px_rgba(6,182,212,0.4)] animate-pulse">
+                System Recommendation
+            </span>
+            <h2
+                class="text-6xl md:text-7xl font-black text-white italic mb-8 drop-shadow-[0_0_30px_rgba(0,0,0,1)] uppercase tracking-tighter">
+                The Neon Collection
+            </h2>
+            <p class="text-xl text-cyan-100 max-w-2xl mx-auto mb-10 font-light drop-shadow-md">
+                Synthesized materials, reactive lighting, and pure aesthetic dominance. Upgrade your sector today.
+            </p>
+            <button
+                class="px-12 py-5 bg-cyan-600 text-white font-black rounded-full border border-cyan-400 hover:bg-cyan-500 hover:scale-110 active:scale-95 transition-all shadow-[0_0_40px_rgba(6,182,212,0.6)]">
+                ACCESS NOW
+            </button>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Why Choose Us (Expandable) -->
+    <section class="max-w-4xl mx-auto px-6 py-24">
+        <div class="text-center mb-16">
+            <span class="text-cyan-600 dark:text-cyan-400 font-bold tracking-widest uppercase text-sm mb-4 block">The
+                Advantage</span>
+            <h2 class="text-4xl md:text-5xl font-serif italic text-zinc-800 dark:text-white">Why Choose DealSquare?
+            </h2>
+        </div>
+        <div class="space-y-4">
+            <!-- Item 1 -->
+            <div
+                class="border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 group">
+                <button
+                    class="w-full flex justify-between items-center p-8 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    onclick="{ let content=this.nextElementSibling; content.classList.toggle('hidden'); content.classList.contains('hidden')?null:content.scrollIntoView({behavior:'smooth',block:'nearest'}); this.querySelector('.icon-plus').classList.toggle('rotate-45'); }">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center text-cyan-600">
+                            <i data-lucide="shield" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-zinc-800 dark:text-white">Enterprise-Grade Security</h3>
+                    </div>
+                    <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
+                </button>
+                <div
+                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                    <p class="pl-[4.5rem]">We employ advanced encryption and fraud detection algorithms to ensure every
+                        interaction on our platform is safe. Your data is our top priority.</p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div
+                class="border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 group">
+                <button
+                    class="w-full flex justify-between items-center p-8 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    onclick="{ let content=this.nextElementSibling; content.classList.toggle('hidden'); content.classList.contains('hidden')?null:content.scrollIntoView({behavior:'smooth',block:'nearest'}); this.querySelector('.icon-plus').classList.toggle('rotate-45'); }">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center text-teal-600">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-zinc-800 dark:text-white">Global Reach, Local Feel</h3>
+                    </div>
+                    <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
+                </button>
+                <div
+                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                    <p class="pl-[4.5rem]">With presence in over 50 countries, we connect you to a worldwide audience
+                        while providing hyper-local filters to find exactly what's next door.</p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div
+                class="border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 group">
+                <button
+                    class="w-full flex justify-between items-center p-8 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                    onclick="{ let content=this.nextElementSibling; content.classList.toggle('hidden'); content.classList.contains('hidden')?null:content.scrollIntoView({behavior:'smooth',block:'nearest'}); this.querySelector('.icon-plus').classList.toggle('rotate-45'); }">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-fuchsia-100 dark:bg-fuchsia-900/50 flex items-center justify-center text-fuchsia-600">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-zinc-800 dark:text-white">Community First</h3>
+                    </div>
+                    <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
+                </button>
+                <div
+                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                    <p class="pl-[4.5rem]">We are more than a platform; we are a collective of enthusiasts. Our
+                        community guidelines ensure respectful and meaningful exchanges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending & New Listings (Carousel Style) - Forced Dark Mode -->
+    <section class="py-24 bg-zinc-900 text-white overflow-hidden relative">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-white font-bold tracking-widest uppercase text-xs mb-2 block animate-pulse">Live
+                        Feed</span>
+                    <h2 class="text-4xl md:text-5xl font-serif italic text-white"
+                        style="color: white !important; text-shadow: 0 0 15px rgba(0,0,0,0.9);">
+                        Trending Now</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button
+                        class="p-3 rounded-full border border-zinc-700 bg-zinc-800 text-white hover:bg-white hover:text-zinc-900 transition-colors"><i
+                            data-lucide="arrow-left" class="w-5 h-5"></i></button>
+                    <button
+                        class="p-3 rounded-full border border-zinc-700 bg-zinc-800 text-white hover:bg-white hover:text-zinc-900 transition-colors"><i
+                            data-lucide="arrow-right" class="w-5 h-5"></i></button>
+                </div>
+            </div>
+            <!-- Scroll Container -->
+            <div class="flex overflow-x-auto gap-8 pb-8 scrollbar-hide snap-x">
+                <!-- Card 1 -->
+                <div class="flex-shrink-0 w-80 snap-center">
+                    <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                        <img src="Assets/11.jpeg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Hot</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h4 class="text-xl font-bold mb-1 text-white">Vintage Leica M3</h4>
+                            <p class="text-zinc-200 text-sm">$2,400</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex-shrink-0 w-80 snap-center">
+                    <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                        <img src="Assets/12.jpeg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">New</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h4 class="text-xl font-bold mb-1 text-white">Eames Lounge Chair</h4>
+                            <p class="text-zinc-200 text-sm">$4,800</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex-shrink-0 w-80 snap-center">
+                    <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                        <img src="Assets/13.jpeg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h4 class="text-xl font-bold mb-1 text-white">Macbook Pro M3</h4>
+                            <p class="text-zinc-200 text-sm">$1,900</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="flex-shrink-0 w-80 snap-center">
+                    <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
+                        <img src="Assets/14.jpeg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                            <h4 class="text-xl font-bold mb-1 text-white">Gibson Les Paul</h4>
+                            <p class="text-zinc-200 text-sm">$3,200</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Safety Section -->
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="bg-cyan-600 rounded-[3rem] p-12 md:p-20 relative overflow-hidden text-center md:text-left">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-cyan-500 skew-x-12 translate-x-32 hidden md:block">
+            </div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif italic text-white mb-8">Safe. Secure. Confident.</h2>
+
+                    <ul class="space-y-4 mb-10 max-w-md mx-auto md:mx-0 text-left">
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            Every listing manually verified
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            Secure payment protection
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            24/7 Dispute resolution support
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            Identity-checked community
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            End-to-end Data Privacy
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            Strict Community Guidelines
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            Transparent Fee Structure
+                        </li>
+                        <li class="flex items-center gap-3 text-cyan-100 text-lg">
+                            <div class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.5)]"></div>
+                            24/7 Priority Support
+                        </li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-6 justify-center md:justify-start">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">Buyer Protection</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">Verified Identities</span>
+                        </div>
+                        <!-- New Badges -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="lock" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">Escrow Service</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="headphones" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">24/7 Support</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="database" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">Data Encryption</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                <i data-lucide="user-check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-white font-bold">Community Mods</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="Assets/15.jpeg"
+                        class="rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 border-4 border-white/20">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="max-w-5xl mx-auto px-6 pb-24 text-center">
+        <div class="relative py-20">
+            <!-- Glow Effects -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-teal-500/20 blur-[80px] rounded-full pointer-events-none">
+            </div>
+
+            <h2 class="text-5xl md:text-7xl font-serif italic text-zinc-900 dark:text-white mb-8 relative z-10">Start
+                Your Journey</h2>
+            <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-12 max-w-2xl mx-auto relative z-10">Join thousands
+                of curators, collectors, and creators. The marketplace for the mindful.</p>
+
+            <button
+                class="group px-12 py-6 bg-white/50 dark:bg-zinc-800/50 backdrop-blur-md text-zinc-700 dark:text-zinc-200 rounded-full font-bold text-xl border border-zinc-200 dark:border-zinc-700 hover:bg-white dark:hover:bg-zinc-800 transition-all hover:shadow-lg">
+                <span class="relative z-10 flex items-center gap-2 justify-center">Create Account <i
+                        data-lucide="arrow-right"
+                        class="w-6 h-6 group-hover:translate-x-1 transition-transform"></i></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- How It Works (Steps) - Simplified version kept for flow -->
+    <section class="py-12 bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-serif italic text-zinc-800 dark:text-white text-center mb-16 opacity-50">It's
+                simple.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+
+                <div
+                    class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-zinc-200 dark:bg-zinc-800 pointer-events-none">
+                </div>
+                <!-- Step 1 -->
+                <div class="relative flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        1</div>
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Discover</h3>
+                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Browse through our curated collection
+                        of high-quality items from trusted sellers.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        2</div>
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Connect</h3>
+                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Reach out to sellers directly through
+                        our calm, distraction-free messaging system.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        3</div>
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Exchange</h3>
+                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Complete the trade securely and enjoy
+                        your new unique possession.</p>
+                </div>
+            </div>
+
+            <!-- Accordion FAQs -->
+            <div class="max-w-3xl mx-auto px-4 mt-20 space-y-4">
+                <h3 class="text-center text-2xl font-serif italic text-zinc-800 dark:text-white mb-8">Common Questions
+                </h3>
+                <!-- Item 1 -->
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 bg-white dark:bg-zinc-900 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                        <span class="font-bold text-zinc-800 dark:text-white">Is shipping insured?</span>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="hidden p-6 bg-zinc-50 dark:bg-zinc-950/50 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-zinc-800">
+                        Yes, all premium listings include fully insured shipping to ensure your unique items arrive
+                        safely and
+                        securely.
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full flex justify-between items-center p-6 bg-white dark:bg-zinc-900 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                        onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                        <span class="font-bold text-zinc-800 dark:text-white">How does verification work?</span>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="hidden p-6 bg-zinc-50 dark:bg-zinc-950/50 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-zinc-800">
+                        Our team of experts manually reviews each listing to verify authenticity and condition before it
+                        goes
+                        live on our platform.
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Simple Typewriter Effect
+                document.addEventListener('DOMContentLoaded', () => {
+                    const typeTextElement = document.querySelector('.typewriter-text');
+                    if (typeTextElement) {
+                        const words = JSON.parse(typeTextElement.getAttribute('data-words'));
+                        let wordIndex = 0;
+                        let charIndex = 0;
+                        let isDeleting = false;
+                        const type = () => {
+                            const currentWord = words[wordIndex];
+                            if (isDeleting) {
+                                typeTextElement.textContent = currentWord.substring(0, charIndex - 1);
+                                charIndex--;
+                            } else {
+                                typeTextElement.textContent = currentWord.substring(0, charIndex + 1);
+                                charIndex++;
+                            }
+
+                            if (!isDeleting && charIndex === currentWord.length) {
+                                isDeleting = true;
+                                setTimeout(type, 2000);
+                            } else if (isDeleting && charIndex === 0) {
+                                isDeleting = false;
+                                wordIndex = (wordIndex + 1) % words.length;
+                                setTimeout(type, 500);
+                            } else {
+                                setTimeout(type, isDeleting ? 50 : 100);
+                            }
+                        }
+                        type();
+                    }
+
+                    // Rotating Text Animation
+                    const rotatingContainer = document.querySelector('.rotating-text-container');
+                    if (rotatingContainer) {
+                        const items = rotatingContainer.querySelectorAll('span');
+                        let currentIndex = 0;
+
+                        setInterval(() => {
+                            items.forEach(item => item.style.display = 'none');
+                            items[currentIndex].style.display = 'block';
+                            items[currentIndex].classList.remove('animate-slide-up-fade');
+                            void items[currentIndex].offsetWidth; // trigger reflow
+                            items[currentIndex].classList.add('animate-slide-up-fade');
+                            currentIndex = (currentIndex + 1) % items.length;
+                        }, 3000);
+                        // init
+                        items.forEach((item, index) => { if (index !== 0) item.style.display = 'none'; });
+                    }
+
+                    // Intersection Observer for highlight on scroll
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('active-highlight');
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    document.querySelectorAll('.highlight-on-scroll').forEach(el => observer.observe(el));
+                });
+            </script>
+            <style>
+                .highlight-on-scroll {
+                    background: linear-gradient(120deg, rgba(99, 102, 241, 0) 0%, rgba(99, 102, 241, 0) 100%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 0.2em;
+                    background-position: 0 88%;
+                    transition: background-size 1s ease-in;
+                }
+
+                .highlight-on-scroll.active-highlight {
+                    background-image: linear-gradient(120deg, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
+                    background-size: 100% 40%;
+                }
+
+                @keyframes pulse-slow {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0.8;
+                    }
+                }
+
+                .animate-pulse-slow {
+                    animation: pulse-slow 3s infinite ease-in-out;
+                }
+
+                @keyframes glow {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 10px #818cf8;
+                    }
+                }
+
+                .animate-glow {
+                    animation: glow 3s infinite;
+                }
+
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .scrollbar-hide {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Trust Stats -->
+    <section class="py-16 bg-cyan-50 dark:bg-zinc-900/30 border-y border-cyan-100 dark:border-zinc-800" id="counters">
+        <div class="max-w-7xl mx-auto px-6 animate-on-scroll opacity-0">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x rtl:divide-x-reverse divide-cyan-200 dark:divide-zinc-800">
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                        data-target="15000" data-suffix="+">0</div>
+                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Active Listings</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                        data-target="98" data-suffix="%">0</div>
+                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Satisfaction</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                        data-target="2500" data-suffix="+">0</div>
+                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Verified Sellers</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                        data-target="4" data-suffix="M+">0</div>
+                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Community Value</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Collections (Scrollable Tabbed Content for Home 2) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-zinc-100 dark:border-zinc-800">
+        <h2 class="text-4xl font-serif italic text-zinc-800 dark:text-white mb-10 text-center">Curated Collections</h2>
+
+        <!-- Centered Tab Chips -->
+        <div class="flex justify-center flex-wrap gap-4 mb-16">
+            <button
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border border-transparent shadow-lg transition-transform hover:scale-105 active:scale-95"
+                data-tab-target="#collection-minimal">Minimalist</button>
+            <button
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                data-tab-target="#collection-vintage">Vintage</button>
+            <button
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                data-tab-target="#collection-artisan">Artisan</button>
+            <button
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                data-tab-target="#collection-audio">Audiophile</button>
+        </div>
+
+        <!-- Tab Content: Minimalist -->
+        <div id="collection-minimal" class="tab-content grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <!-- 5 Minimal Items -->
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/16.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Concrete Lamp</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Lighting</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/17.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">White Vase</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Decor</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/18.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Oak Chair</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Furniture</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/19.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Glass Carafe</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Dining</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/20.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Linen Throw</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Textile</p>
+            </div>
+        </div>
+
+        <!-- Tab Content: Vintage -->
+        <div id="collection-vintage" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/21.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Typewriter</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">1950s</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/22.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Film Camera</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Photography</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/23.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Leather Trunk</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Travel</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/24.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Desk Fan</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Industrial</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/25.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Brass Telescope</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Nautical</p>
+            </div>
+        </div>
+
+        <!-- Tab Content: Artisan -->
+        <div id="collection-artisan" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/26.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Ceramic Bowl</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Handmade</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/27.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Woven Basket</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Craft</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/28.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Wooden Spoon</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Kitchen</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/29.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Clay Mug</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Drinkware</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/30.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Wall Hanging</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Art</p>
+            </div>
+        </div>
+
+        <!-- Tab Content: Audio -->
+        <div id="collection-audio" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/31.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Turntable</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">High Fidelity</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/32.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Headphones</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Studio</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/33.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Speaker</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Wireless</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/34.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Amplifier</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Tube</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
+                    <img src="Assets/35.jpeg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                </div>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Microphone</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Recording</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Elite Members -->
+    <section class="py-20 bg-zinc-50 dark:bg-zinc-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-5xl font-serif italic text-zinc-800 dark:text-white mb-16">Distinguished Collectors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member 1 -->
+                <div class="text-center group">
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
+                        <img src="Assets/36.jpeg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Eleanor P.</h4>
+                    <p class="text-cyan-500 font-serif italic text-sm">Antique Specialist</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="text-center group">
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
+                        <img src="Assets/37.jpeg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Marcus T.</h4>
+                    <p class="text-cyan-500 font-serif italic text-sm">Horology Expert</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="text-center group">
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
+                        <img src="Assets/38.jpeg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Julia R.</h4>
+                    <p class="text-cyan-500 font-serif italic text-sm">Design Curator</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="text-center group">
+                    <div
+                        class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
+                        <img src="Assets/39.jpeg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-zinc-800 dark:text-white">David B.</h4>
+                    <p class="text-cyan-500 font-serif italic text-sm">Automotive</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section class="py-24 overflow-hidden relative">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-100/40 via-transparent to-transparent dark:from-cyan-900/20">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2
+                class="text-center text-4xl font-serif italic text-zinc-800 dark:text-white mb-16 animate-on-scroll opacity-0">
+                Voices of the
+                Community</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll opacity-0">
+                <!-- Review 1 -->
+                <div
+                    class="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-8 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center gap-1 text-cyan-500 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                    </div>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"I found a rare vintage
+                        Eames chair that I've been hunting for years. The transaction was seamless and the seller was
+                        incredibly knowledgeable."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="Assets/40.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Sarah Jenkins</h4>
+                            <p class="text-cyan-500 text-xs uppercase tracking-wider">Interior Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div
+                    class="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-8 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all duration-300 group hover:-translate-y-2">
+                    <div class="flex items-center gap-1 text-cyan-500 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                    </div>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"DealSquare feels
+                        different. It's not just a marketplace; it feels like a gallery. Selling my camera collection
+                        here felt respectful to the items."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="Assets/41.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Michael Chen</h4>
+                            <p class="text-cyan-500 text-xs uppercase tracking-wider">Photographer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div
+                    class="bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl p-8 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center gap-1 text-cyan-500 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
+                    </div>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"Finally, a platform
+                        that values aesthetics and trust. I've bought three pieces of art here and each experience was
+                        delightful."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="Assets/42.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Emma Wilson</h4>
+                            <p class="text-cyan-500 text-xs uppercase tracking-wider">Collector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Insights (Blog) -->
+    <section class="py-20 bg-white dark:bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-5xl font-serif italic text-zinc-800 dark:text-white">Market Insights</h2>
+                <a href="#"
+                    class="text-zinc-600 dark:text-zinc-200 hover:text-cyan-600 border-b border-transparent hover:border-cyan-600 transition-all">Read
+                    Journal</a>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Article 1 -->
+                <div class="group flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/2 aspect-[4/3] rounded-[2rem] overflow-hidden">
+                        <img src="Assets/1.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="flex-1 py-4">
+                        <span class="text-xs font-bold tracking-widest uppercase text-cyan-500 mb-4 block">Trends</span>
+                        <h3
+                            class="text-2xl font-serif text-zinc-800 dark:text-white mb-4 group-hover:text-cyan-600 transition-colors">
+                            The Return of Analog</h3>
+                        <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed mb-6">Why film cameras and vinyl
+                            records are seeing a massive resurgence in 2026.</p>
+                        <button
+                            class="text-zinc-900 dark:text-white font-bold text-sm underline decoration-zinc-300 hover:decoration-cyan-600 underline-offset-4 transition-all">Read
+                            Story</button>
+                    </div>
+                </div>
+                <!-- Article 2 -->
+                <div class="group flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-1/2 aspect-[4/3] rounded-[2rem] overflow-hidden">
+                        <img src="Assets/2.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="flex-1 py-4">
+                        <span class="text-xs font-bold tracking-widest uppercase text-cyan-500 mb-4 block">Guide</span>
+                        <h3
+                            class="text-2xl font-serif text-zinc-800 dark:text-white mb-4 group-hover:text-cyan-600 transition-colors">
+                            Investing in Design</h3>
+                        <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed mb-6">How to spot future classics
+                            in furniture and mid-century lighting.</p>
+                        <button
+                            class="text-zinc-900 dark:text-white font-bold text-sm underline decoration-zinc-300 hover:decoration-cyan-600 underline-offset-4 transition-all">Read
+                            Story</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal CTA -->
+    <section class="py-20 bg-zinc-100 dark:bg-zinc-900/30 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-4xl font-serif italic text-zinc-800 dark:text-white mb-12">DealSquare Curated</h3>
+            <div class="flex justify-center gap-8 text-zinc-400">
+                <i data-lucide="heart" class="w-5 h-5"></i>
+                <i data-lucide="leaf" class="w-5 h-5"></i>
+                <i data-lucide="wind" class="w-5 h-5"></i>
+                <i data-lucide="trees" class="w-5 h-5"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer same as main -->
+    <!-- Standardized Global Footer -->
+    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <!-- Brand -->
+                <div class="space-y-6 animate-fade-in-up brand-glow cursor-default">
+                    <div class="flex items-center gap-3">
+                        <div class="logo-bg bg-cyan-600 p-3 rounded-xl transition-all duration-300">
+                            <span class="text-white font-black text-2xl">DS</span>
+                        </div>
+                        <span class="text-2xl font-black text-white tracking-tight">DealSquare</span>
+                    </div>
+                    <p class="text-white text-sm leading-relaxed max-w-xs">
+                        The world’s most modern classified ads platform. Sell your items, find services, and connect
+                        with your community.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="animate-fade-in-up delay-200">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Quick Links <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="footer-link block">Home Page</a></li>
+                        <li><a href="about.html" class="footer-link block">About Us</a></li>
+                        <li><a href="services.html" class="footer-link block">Our Services</a></li>
+                        <li><a href="contact.html" class="footer-link block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account -->
+                <div class="animate-fade-in-up delay-400">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Account <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="user_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="layout-dashboard"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                User Dashboard</a></li>
+                        <li><a href="admin_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="shield"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Admin Dashboard</a></li>
+                        <li><a href="login.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="log-in"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Login / Sign Up</a></li>
+                        <li><a href="#" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="file-text"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="animate-fade-in-up delay-600">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Newsletter <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <p class="text-white text-sm mb-4">Stay updated with the latest ads.</p>
+                    <div class="relative group">
+                        <input type="email" placeholder="Email address"
+                            class="bg-zinc-800/50 border border-zinc-700 text-white text-sm rounded-xl w-full pl-4 pr-16 rtl:pl-16 rtl:pr-4 py-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all placeholder-zinc-500 group-hover:bg-zinc-800">
+                        <button
+                            class="absolute right-1 rtl:right-auto rtl:left-1 top-1 bottom-1 bg-cyan-600 text-white px-4 rounded-lg font-bold hover:bg-cyan-500 transition-all hover:scale-105 active:scale-95 shadow-lg">Go</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-zinc-400 animate-fade-in-up delay-600">
+                <p>© 2026 DealSquare Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script src="snow.js"></script>
+    <style>
+        /* Apply glow to all buttons... */
+        .bg-home-v2 button {
+            border: 1px solid rgba(0, 0, 0, 0.8) !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .bg-home-v2 button:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* ...EXCEPT navbar buttons */
+        .bg-home-v2 nav button {
+            border: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</body>
+
+</html>

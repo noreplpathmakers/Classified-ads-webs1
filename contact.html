@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DealSquare - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Pre-load Theme & Direction
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedDir = localStorage.getItem('dir') || 'ltr';
+
+        const html = document.documentElement;
+        html.dir = savedDir;
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('rtl', 'html[dir="rtl"] &');
+                }
+            ]
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-white dark:bg-zinc-950 transition-colors duration-300 bg-contact">
+
+
+
+    <!-- Navbar (Standard) -->
+    <nav
+        class="sticky top-0 z-[100] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
+                        <div
+                            class="w-12 h-12 bg-cyan-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
+                            DS</div>
+                        <span class="text-2xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                                class="text-blue-900">Square</span></span>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-4">
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Home</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="index.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    1</a>
+                                <a href="index2.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    2</a>
+                            </div>
+                        </div>
+
+                        <a href="about.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                        <a href="services.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Dashboards</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="user_dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    <i data-lucide="user" class="w-4 h-4"></i>
+                                    <span>User Dashboard</span>
+                                </a>
+                                <a href="admin_dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    <span>Admin Control</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 sm:gap-6">
+                    <a href="login.html"
+                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
+                        In</a>
+                    <button id="dir-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="login.html#register"
+                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 bg-black/60 z-[190] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm lg:hidden">
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-zinc-950 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
+
+        <div class="flex items-center justify-between p-4 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="font-black text-xl tracking-tighter dark:text-white">Menu</span>
+            <button id="mobile-menu-close-btn"
+                class="p-2 text-zinc-500 hover:text-fuchsia-500 transition-colors rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="p-4 space-y-4">
+            <a href="index.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                1</a>
+            <a href="index2.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                2</a>
+            <a href="about.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">About
+                Us</a>
+            <a href="services.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Services</a>
+            <a href="contact.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Contact</a>
+
+            <div class="border-t border-zinc-100 dark:border-zinc-800 pt-4 mt-2">
+                <a href="user_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="user" class="w-4 h-4"></i><span>User Dashboard</span>
+                </a>
+                <a href="admin_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i><span>Admin Dashboard</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                <a href="login.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                    Log In
+                </a>
+                <a href="signup.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Hero Section -->
+    <div class="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-white to-fuchsia-50/50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 pointer-events-none">
+        </div>
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-bold tracking-widest uppercase mb-6 animate-fade-in-up">Contact
+                Us</span>
+            <h1
+                class="text-4xl sm:text-6xl md:text-7xl font-black text-zinc-900 dark:text-white tracking-tight mb-8 font-outfit animate-fade-in-up delay-100">
+                Let's Start a <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-fuchsia-600">Conversation.</span>
+            </h1>
+            <p
+                class="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+                We're here to help you scale. Reach out for support, inquiries, or just to say hello. Our global team is
+                ready to assist.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Content Wrapper -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Items: Contact Info Cards (Left Col) -->
+            <div class="lg:col-span-1 space-y-6 animate-fade-in-up delay-300">
+                <!-- Info Card 1 -->
+                <div
+                    class="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-cyan-500/30 transition-all group">
+                    <div
+                        class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">Email Us</h3>
+                    <p class="text-zinc-500 text-sm mb-4">For general inquiries and support.</p>
+                    <a href="mailto:hello@dealsquare.com"
+                        class="text-cyan-600 font-bold hover:underline">hello@dealsquare.com</a>
+                </div>
+
+                <!-- Info Card 2 -->
+                <div
+                    class="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-fuchsia-500/30 transition-all group">
+                    <div
+                        class="w-12 h-12 bg-fuchsia-100 dark:bg-fuchsia-900/30 rounded-2xl flex items-center justify-center text-fuchsia-600 dark:text-fuchsia-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">Call Us</h3>
+                    <p class="text-zinc-500 text-sm mb-4">Mon-Fri from 8am to 6pm.</p>
+                    <a href="tel:+15551234567" class="text-fuchsia-600 font-bold hover:underline">+1 (555) 123-4567</a>
+                </div>
+
+                <!-- Info Card 3 -->
+                <div
+                    class="bg-white dark:bg-zinc-900 p-8 rounded-3xl shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-emerald-500/30 transition-all group">
+                    <div
+                        class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">Visit HQ</h3>
+                    <p class="text-zinc-500 text-sm mb-4">123 Market St, San Francisco, CA</p>
+                    <a href="#" class="text-emerald-600 font-bold hover:underline">Get Directions</a>
+                </div>
+            </div>
+
+            <!-- Contact Form (Right Col - Spans 2) -->
+            <div class="lg:col-span-2 animate-fade-in-up delay-400">
+                <div
+                    class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-zinc-200 dark:border-zinc-700/50 h-full relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-fuchsia-500/5 pointer-events-none">
+                    </div>
+
+                    <h2 class="text-3xl font-black text-zinc-900 dark:text-white mb-8">Send a Message</h2>
+
+                    <form class="space-y-6 relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">Your
+                                    Name</label>
+                                <input type="text" placeholder="John Doe"
+                                    class="w-full px-5 py-4 bg-zinc-50 dark:bg-zinc-800 rounded-xl border-none outline-none focus:ring-2 focus:ring-cyan-500 text-zinc-900 dark:text-white font-medium transition-all placeholder:text-zinc-400">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">Email
+                                    Address</label>
+                                <input type="email" placeholder="john@example.com"
+                                    class="w-full px-5 py-4 bg-zinc-50 dark:bg-zinc-800 rounded-xl border-none outline-none focus:ring-2 focus:ring-cyan-500 text-zinc-900 dark:text-white font-medium transition-all placeholder:text-zinc-400">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">Subject</label>
+                            <select
+                                class="w-full px-5 py-4 bg-zinc-50 dark:bg-zinc-800 rounded-xl border-none outline-none focus:ring-2 focus:ring-cyan-500 text-zinc-900 dark:text-white font-medium transition-all">
+                                <option>General Inquiry</option>
+                                <option>Support Request</option>
+                                <option>Partnership</option>
+                                <option>Billing Issue</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">Message</label>
+                            <textarea rows="5" placeholder="How can we help you?"
+                                class="w-full px-5 py-4 bg-zinc-50 dark:bg-zinc-800 rounded-xl border-none outline-none focus:ring-2 focus:ring-cyan-500 text-zinc-900 dark:text-white font-medium transition-all placeholder:text-zinc-400 resize-none"></textarea>
+                        </div>
+
+                        <button type="button"
+                            class="w-full py-5 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-black text-lg rounded-xl shadow-lg shadow-cyan-500/20 transform hover:-translate-y-1 transition-all active:scale-95">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="mb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-fade-in-up delay-500">
+        <div
+            class="bg-zinc-100 dark:bg-zinc-900 rounded-[2.5rem] overflow-hidden h-96 relative shadow-inner border border-zinc-200 dark:border-zinc-800">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.507640!3d37.757815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1709400000000!5m2!1sen!2sus"
+                width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) opacity(0.7);"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div
+                class="absolute bottom-6 left-6 bg-white dark:bg-zinc-950 px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4 border border-zinc-100 dark:border-zinc-800/50">
+                <div
+                    class="w-10 h-10 bg-cyan-100 dark:bg-cyan-900/30 rounded-full flex items-center justify-center text-cyan-600 dark:text-cyan-400 animate-pulse">
+                    <div class="w-3 h-3 bg-cyan-600 dark:bg-cyan-400 rounded-full"></div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-zinc-900 dark:text-white">Global Headquarters</h4>
+                    <p class="text-xs text-zinc-500">San Francisco, CA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab Switching Logic for Regional Maps
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... existing tab logic ...
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-cyan-600', 'text-white');
+                        t.classList.add('text-zinc-700', 'dark:text-zinc-200', 'hover:text-cyan-600');
+                    });
+
+                    // Add active class to clicked tab
+                    tab.classList.remove('text-zinc-700', 'dark:text-zinc-200', 'hover:text-cyan-600');
+                    tab.classList.add('bg-cyan-600', 'text-white');
+
+                    // Hide all content
+                    contents.forEach(c => c.classList.add('hidden'));
+
+                    // Show target content
+                    const target = document.querySelector(tab.dataset.tabTarget);
+                    if (target) {
+                        target.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // ==========================================
+            // FAQ Accordion Logic
+            // ==========================================
+            const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const content = trigger.nextElementSibling;
+                    const icon = trigger.querySelector('.faq-icon');
+                    const parent = trigger.parentElement;
+                    const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                    // 1. Close ALL other FAQ items first (Accordion behavior)
+                    document.querySelectorAll('.faq-content').forEach(otherContent => {
+                        if (otherContent !== content) {
+                            otherContent.style.maxHeight = null;
+                            otherContent.parentElement.classList.remove('border-cyan-600', 'dark:border-cyan-500', 'ring-1', 'ring-cyan-600/20');
+                            const otherIcon = otherContent.parentElement.querySelector('.faq-icon');
+                            if (otherIcon) otherIcon.classList.remove('rotate-180');
+                        }
+                    });
+
+                    // 2. Toggle Current
+                    if (!isExpanded) {
+                        // Open
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                        // Optional: Highlight active container
+                        parent.classList.add('border-cyan-600', 'dark:border-cyan-500', 'ring-1', 'ring-cyan-600/20');
+                    } else {
+                        // Close
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                        parent.classList.remove('border-cyan-600', 'dark:border-cyan-500', 'ring-1', 'ring-cyan-600/20');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <!-- Brand -->
+                <div class="space-y-6 animate-fade-in-up brand-glow cursor-default">
+                    <div class="flex items-center gap-3">
+                        <div class="logo-bg bg-cyan-600 p-3 rounded-xl transition-all duration-300">
+                            <span class="text-white font-black text-2xl">DS</span>
+                        </div>
+                        <span class="text-2xl font-black text-white tracking-tight">DealSquare</span>
+                    </div>
+                    <p class="text-white text-sm leading-relaxed max-w-xs">
+                        The world’s most modern classified ads platform. Sell your items, find services, and connect
+                        with your community.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="animate-fade-in-up delay-200">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Quick Links <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="footer-link block">Home Page</a></li>
+                        <li><a href="about.html" class="footer-link block">About Us</a></li>
+                        <li><a href="services.html" class="footer-link block">Our Services</a></li>
+                        <li><a href="contact.html" class="footer-link block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account -->
+                <div class="animate-fade-in-up delay-400">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Account <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="user_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="layout-dashboard"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                User Dashboard</a></li>
+                        <li><a href="admin_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="shield"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Admin Dashboard</a></li>
+                        <li><a href="login.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="log-in"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Login / Sign Up</a></li>
+                        <li><a href="#" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="file-text"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="animate-fade-in-up delay-600">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Newsletter <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <p class="text-white text-sm mb-4">Stay updated with the latest ads.</p>
+                    <div class="relative group">
+                        <input type="email" placeholder="Email address"
+                            class="bg-zinc-800/50 border border-zinc-700 text-white text-sm rounded-xl w-full pl-4 pr-16 rtl:pl-16 rtl:pr-4 py-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all placeholder-zinc-500 group-hover:bg-zinc-800">
+                        <button
+                            class="absolute right-1 rtl:right-auto rtl:left-1 top-1 bottom-1 bg-cyan-600 text-white px-4 rounded-lg font-bold hover:bg-cyan-500 transition-all hover:scale-105 active:scale-95 shadow-lg">Go</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-zinc-400 animate-fade-in-up delay-600">
+                <p>© 2026 DealSquare Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>

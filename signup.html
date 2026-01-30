@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DealSquare - Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Pre-load Theme & Direction
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedDir = localStorage.getItem('dir') || 'ltr';
+
+        const html = document.documentElement;
+        html.dir = savedDir;
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('rtl', 'html[dir="rtl"] &');
+                }
+            ]
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-cyan-50 dark:bg-zinc-950 transition-colors duration-300 bg-login">
+
+    <!-- Navbar -->
+    <nav
+        class="sticky top-0 z-[100] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-8">
+                    <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
+                        <div
+                            class="w-12 h-12 bg-cyan-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
+                            DS</div>
+                        <span class="text-2xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                                class="text-blue-900">Square</span></span>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-1">
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Home</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="index.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
+                                    1</a>
+                                <a href="index2.html"
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
+                                    2</a>
+                            </div>
+                        </div>
+
+                        <a href="about.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                        <a href="services.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                        <a href="contact.html"
+                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+
+                        <div class="relative group">
+                            <button
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                <span>Dashboards</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                <a href="user_dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
+                                    <i data-lucide="user" class="w-4 h-4"></i>
+                                    <span>User Dashboard</span>
+                                </a>
+                                <a href="admin_dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    <span>Admin Control</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 sm:gap-6">
+                    <a href="login.html"
+                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
+                        In</a>
+                    <button id="dir-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="signup.html"
+                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 bg-black/60 z-[190] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm lg:hidden">
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu"
+        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-zinc-950 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
+
+        <div class="flex items-center justify-between p-4 border-b border-zinc-100 dark:border-zinc-800">
+            <span class="font-black text-xl tracking-tighter dark:text-white">Menu</span>
+            <button id="mobile-menu-close-btn"
+                class="p-2 text-zinc-500 hover:text-fuchsia-500 transition-colors rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="p-4 space-y-4">
+            <a href="index.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                1</a>
+            <a href="index2.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Home
+                2</a>
+            <a href="about.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">About
+                Us</a>
+            <a href="services.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Services</a>
+            <a href="contact.html"
+                class="block px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">Contact</a>
+
+            <div class="border-t border-zinc-100 dark:border-zinc-800 pt-4 mt-2">
+                <a href="user_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="user" class="w-4 h-4"></i><span>User Dashboard</span>
+                </a>
+                <a href="admin_dashboard.html"
+                    class="flex items-center space-x-2 px-4 py-3 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 font-bold dark:text-white transition-colors">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i><span>Admin Dashboard</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                <a href="login.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                    Log In
+                </a>
+                <a href="signup.html"
+                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="min-h-screen flex items-center justify-center py-20 px-4 bg-gradient-to-br from-fuchsia-50 to-purple-100 dark:from-zinc-950 dark:to-purple-950/20">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Left Column: Registration Form (Swapped) -->
+            <div
+                class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl p-8 md:p-12 rounded-[3rem] shadow-2xl border border-white/50 dark:border-zinc-800 relative overflow-hidden animate-fade-in-left order-2 lg:order-1">
+                <div class="absolute top-0 right-0 p-8 opacity-20 pointer-events-none">
+                    <i data-lucide="user-plus" class="w-24 h-24 text-fuchsia-500"></i>
+                </div>
+
+                <div class="mb-10 relative z-10">
+                    <span class="text-xs font-black tracking-widest text-fuchsia-600 uppercase mb-2 block">New
+                        Account</span>
+                    <h2 class="text-4xl font-black text-zinc-900 dark:text-white tracking-tight">Create Profile</h2>
+                    <p class="text-zinc-500 font-medium mt-2">Start your journey in the digital marketplace.</p>
+                </div>
+
+                <form class="space-y-5 relative z-10"
+                    onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+                    <div class="group">
+                        <label
+                            class="block text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-2 group-focus-within:text-fuchsia-600 transition-colors">Full
+                            Legal Name</label>
+                        <div class="relative">
+                            <input type="text"
+                                class="w-full pl-12 pr-6 py-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-500/10 dark:text-white transition-all font-bold outline-none"
+                                placeholder="John Doe">
+                            <i data-lucide="user"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <label
+                            class="block text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-2 group-focus-within:text-fuchsia-600 transition-colors">Email
+                            Address</label>
+                        <div class="relative">
+                            <input type="email"
+                                class="w-full pl-12 pr-6 py-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-500/10 dark:text-white transition-all font-bold outline-none"
+                                placeholder="john@pro.com">
+                            <i data-lucide="mail"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <label
+                            class="block text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-2 group-focus-within:text-fuchsia-600 transition-colors">Secure
+                            Password</label>
+                        <div class="relative">
+                            <input type="password" dir="ltr"
+                                class="w-full pl-12 pr-6 py-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-500/10 dark:text-white transition-all font-bold outline-none"
+                                placeholder="••••••••">
+                            <i data-lucide="lock"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button
+                            class="w-full py-5 bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white rounded-xl font-black text-lg shadow-lg shadow-fuchsia-600/25 hover:shadow-fuchsia-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            <span>Initialize Account</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <div class="text-center pt-6 border-t border-zinc-100 dark:border-zinc-800 mt-6">
+                        <p class="text-sm text-zinc-500 font-semibold mb-2">Already a member?</p>
+                        <a href="login.html"
+                            class="inline-flex items-center gap-2 text-fuchsia-600 font-bold hover:text-fuchsia-700 transition-colors">
+                            <span>Log in to your Account</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Column: Visuals (Swapped) -->
+            <div class="hidden lg:block space-y-8 animate-fade-in-right order-1 lg:order-2">
+                <h1
+                    class="text-4xl sm:text-6xl lg:text-7xl font-black dark:text-white tracking-tighter font-outfit leading-[0.9]">
+                    UNLOCK <br /> <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-600">THE
+                        FUTURE.</span>
+                </h1>
+
+                <p class="text-xl text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed max-w-md">
+                    Join the world's most advanced digital marketplace. <span class="text-fuchsia-600 font-bold">Zero
+                        latency.</span> Infinite possibilities.
+                </p>
+
+                <div class="relative w-full aspect-square max-h-[500px]">
+                    <!-- Main Image Container -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-fuchsia-600/20 to-purple-600/20 rounded-[3rem] blur-3xl transform rotate-6">
+                    </div>
+
+                    <div
+                        class="relative w-full h-full bg-zinc-900 rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl ring-1 ring-white/10 group">
+                        <img src="Assets/signup_hero.png"
+                            class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-1000"
+                            alt="Future Network">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent">
+                        </div>
+
+                        <!-- Floating Tech Badges -->
+                        <div
+                            class="absolute top-8 left-8 p-4 bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-white/10 animate-float shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-fuchsia-500/20 flex items-center justify-center">
+                                    <i data-lucide="zap" class="w-5 h-5 text-fuchsia-400"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-zinc-400 font-bold uppercase tracking-wider">Speed</div>
+                                    <div class="text-white font-black">1ms Latency</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-8 right-8 p-4 bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-white/10 animate-float shadow-xl"
+                            style="animation-delay: 1.5s">
+                            <div class="flex items-center gap-3">
+                                <div>
+                                    <div class="text-xs text-zinc-400 font-bold uppercase tracking-wider text-right">
+                                        Security</div>
+                                    <div class="text-white font-black">AES-256 Encrypted</div>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-5 h-5 text-purple-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Central Status -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-xl p-6 rounded-full border border-white/20 animate-pulse-slow">
+                            <div
+                                class="w-16 h-16 bg-fuchsia-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(232,121,249,0.5)]">
+                                <i data-lucide="fingerprint" class="w-8 h-8 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standardized Global Footer -->
+    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <!-- Brand -->
+                <div class="space-y-6 animate-fade-in-up brand-glow cursor-default">
+                    <div class="flex items-center gap-3">
+                        <div class="logo-bg bg-cyan-600 p-3 rounded-xl transition-all duration-300">
+                            <span class="text-white font-black text-2xl">DS</span>
+                        </div>
+                        <span class="text-2xl font-black text-white tracking-tight">DealSquare</span>
+                    </div>
+                    <p class="text-white text-sm leading-relaxed max-w-xs">
+                        The world’s most modern classified ads platform. Sell your items, find services, and connect
+                        with your community.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="animate-fade-in-up delay-200">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Quick Links <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="footer-link block">Home Page</a></li>
+                        <li><a href="about.html" class="footer-link block">About Us</a></li>
+                        <li><a href="services.html" class="footer-link block">Our Services</a></li>
+                        <li><a href="contact.html" class="footer-link block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account -->
+                <div class="animate-fade-in-up delay-400">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Account <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="user_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="layout-dashboard"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                User Dashboard</a></li>
+                        <li><a href="admin_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="shield"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Admin Dashboard</a></li>
+                        <li><a href="login.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="log-in"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Login / Sign Up</a></li>
+                        <li><a href="#" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="file-text"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="animate-fade-in-up delay-600">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Newsletter <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <p class="text-white text-sm mb-4">Stay updated with the latest ads.</p>
+                    <div class="relative group">
+                        <input type="email" placeholder="Email address"
+                            class="bg-zinc-800/50 border border-zinc-700 text-white text-sm rounded-xl w-full pl-4 pr-16 rtl:pl-16 rtl:pr-4 py-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all placeholder-zinc-500 group-hover:bg-zinc-800">
+                        <button
+                            class="absolute right-1 rtl:right-auto rtl:left-1 top-1 bottom-1 bg-cyan-600 text-white px-4 rounded-lg font-bold hover:bg-cyan-500 transition-all hover:scale-105 active:scale-95 shadow-lg">Go</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-zinc-400 animate-fade-in-up delay-600">
+                <p>© 2026 DealSquare Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <!-- Toggle Logic Removed -->
+</body>
+
+</html>
