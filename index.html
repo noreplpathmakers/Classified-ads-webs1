@@ -41,19 +41,20 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="bg-[#fafafa] dark:bg-zinc-950 transition-colors duration-300 bg-home-v1">
+<body class="bg-[#fafafa] dark:bg-blue-900 transition-colors duration-300 bg-home-v1">
 
     <!-- Navbar -->
-    <nav
-        class="sticky top-0 z-[100] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+    <!-- Navbar (Floating Container) -->
+    <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
+        <div
+            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
                     <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
                         <div
-                            class="w-12 h-12 bg-cyan-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
+                            class="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
                             DS</div>
-                        <span class="text-2xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                        <span class="text-xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
                                 class="text-blue-900">Square</span></span>
                     </a>
 
@@ -61,13 +62,13 @@
                     <div class="hidden lg:flex items-center gap-1">
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Home</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50">
                                 <a href="index.html"
                                     class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
@@ -78,21 +79,21 @@
                         </div>
 
                         <a href="about.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
                         <a href="services.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
                         <a href="contact.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
 
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Dashboards</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50">
                                 <a href="user_dashboard.html"
                                     class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="user" class="w-4 h-4"></i>
@@ -108,31 +109,39 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-3">
+                    <!-- REORDERED: Login -> Get Started -> Theme -> RTL -->
+
                     <a href="login.html"
-                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
-                        In</a>
-                    <button id="dir-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+                        class="hidden md:block px-5 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all hover:text-cyan-600 dark:hover:text-cyan-400">
+                        Log In
+                    </a>
+
                     <a href="signup.html"
-                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        class="hidden md:block px-5 py-2 bg-cyan-600 text-white text-sm font-bold rounded-full hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95">
                         Get Started
                     </a>
+
+                    <div class="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-1 hidden md:block"></div>
+
+                    <button id="theme-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+
+                    <button id="dir-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2.5 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95 ml-2">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
-
     </nav>
 
     <!-- Mobile Menu Overlay -->
@@ -178,16 +187,7 @@
                 </a>
             </div>
 
-            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                <a href="login.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                    Log In
-                </a>
-                <a href="signup.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
-                    Get Started
-                </a>
-            </div>
+
         </div>
     </div>
 
@@ -203,7 +203,7 @@
     <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none bold-pattern"></div>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-32 px-4 overflow-hidden min-h-screen flex items-center justify-center">
+    <section class="relative pt-32 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
         <!-- Background Elements -->
         <div class="absolute inset-0 z-0">
             <div
@@ -214,50 +214,22 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto w-full relative z-10 text-center">
+        <div class="max-w-[90%] w-full relative z-10 ps-4 md:ps-10">
 
             <!-- Grid Container -->
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
 
-                <!-- Left Column: Image -->
-                <div class="relative w-full perspective-[2000px] group order-1 lg:order-1">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600 rounded-[2rem] blur opacity-30 group-hover:opacity-60 transition duration-1000">
-                    </div>
-                    <img src="Assets/neo-hero.png"
-                        class="relative rounded-[2rem] shadow-2xl border border-white/10 w-full transform rotate-y-12 group-hover:rotate-y-0 transition-all duration-700 ease-out glass-panel tilt-card"
-                        alt="Neon Dashboard">
-
-                    <!-- Floating Elements -->
-                    <div
-                        class="absolute -top-10 -right-10 p-4 glass-panel rounded-2xl animate-float-slow hidden md:block border-l-4 border-cyan-500">
-                        <div class="flex items-center gap-3">
-                            <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
-                            <span class="font-bold text-zinc-800 dark:text-white">Live: +45% Growth</span>
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-10 -left-10 p-4 glass-panel rounded-2xl animate-float-slow hidden md:block border-l-4 border-fuchsia-500"
-                        style="animation-delay: 1s;">
-                        <div class="flex items-center gap-3">
-                            <div class="p-2 bg-fuchsia-500/20 rounded-lg">
-                                <i data-lucide="shield-check" class="w-5 h-5 text-fuchsia-500"></i>
-                            </div>
-                            <span class="font-bold text-zinc-800 dark:text-white">Verified Secure</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Text -->
-                <div class="animate-fade-in-up order-2 lg:order-2 text-left">
+                <!-- Left Column: Text -->
+                <div class="animate-fade-in-up order-2 lg:order-1 text-start">
                     <span
                         class="inline-block px-6 py-2 bg-gradient-to-r from-fuchsia-600 to-cyan-500 text-white rounded-full font-black text-xs uppercase tracking-[0.2em] mb-8 shadow-lg shadow-cyan-500/20 border border-white/20">
                         Next Gen 2026
                     </span>
 
                     <h1
-                        class="text-4xl sm:text-6xl md:text-8xl lg:text-8xl font-black text-zinc-900 dark:text-white tracking-tighter leading-[0.9] mb-8 font-outfit drop-shadow-xl neon-text">
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-zinc-900 dark:text-white tracking-tighter leading-[0.9] mb-8 font-outfit drop-shadow-xl neon-text">
                         DISCOVER <br /> <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">THE
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 block decoration-clone leading-tight pb-2 break-all sm:break-normal">THE
                             EXTRAORDINARY</span><br />
                     </h1>
 
@@ -278,6 +250,34 @@
                             <i data-lucide="play-circle" class="w-6 h-6"></i>
                             <span>Watch Demo</span>
                         </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Image -->
+                <div class="relative w-full perspective-[2000px] group order-1 lg:order-2">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-fuchsia-600 rounded-[2rem] blur opacity-30 group-hover:opacity-60 transition duration-1000">
+                    </div>
+                    <img src="Assets/hom1 image.jpg"
+                        class="relative rounded-[2rem] shadow-2xl border border-white/10 w-full transform rotate-y-[12deg] rtl:rotate-y-[-12deg] group-hover:rotate-y-0 transition-all duration-700 ease-out glass-panel tilt-card"
+                        alt="Neon Dashboard">
+
+                    <!-- Floating Elements -->
+                    <div
+                        class="absolute -top-10 -right-10 p-4 glass-panel rounded-2xl animate-float-slow hidden md:block border-l-4 border-cyan-500">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                            <span class="font-bold text-zinc-800 dark:text-white">Live: +45% Growth</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 p-4 glass-panel rounded-2xl animate-float-slow hidden md:block border-l-4 border-fuchsia-500"
+                        style="animation-delay: 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-fuchsia-500/20 rounded-lg">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-fuchsia-500"></i>
+                            </div>
+                            <span class="font-bold text-zinc-800 dark:text-white">Verified Secure</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -401,7 +401,7 @@
             <!-- Card 1: Cybernetics (Tech) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-cyan-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="cpu"
                         class="w-12 h-12 text-cyan-500/20 group-hover:text-cyan-500 transition-colors"></i>
                 </div>
@@ -418,7 +418,7 @@
             <!-- Card 2: Habitats (Real Estate) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-fuchsia-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="home"
                         class="w-12 h-12 text-fuchsia-500/20 group-hover:text-fuchsia-500 transition-colors"></i>
                 </div>
@@ -435,7 +435,7 @@
             <!-- Card 3: Transport (Autos) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-green-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="car"
                         class="w-12 h-12 text-green-500/20 group-hover:text-green-500 transition-colors"></i>
                 </div>
@@ -452,7 +452,7 @@
             <!-- Card 4: Apparel (Fashion) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-yellow-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="shirt"
                         class="w-12 h-12 text-yellow-500/20 group-hover:text-yellow-500 transition-colors"></i>
                 </div>
@@ -469,7 +469,7 @@
             <!-- Card 5: Missions (Jobs) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="briefcase"
                         class="w-12 h-12 text-purple-500/20 group-hover:text-purple-500 transition-colors"></i>
                 </div>
@@ -486,7 +486,7 @@
             <!-- Card 6: Sanctuary (Home) -->
             <a href="#"
                 class="group glass-panel p-8 rounded-[2rem] hover:border-pink-500 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 end-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <i data-lucide="lamp"
                         class="w-12 h-12 text-pink-500/20 group-hover:text-pink-500 transition-colors"></i>
                 </div>
@@ -532,74 +532,75 @@
         <!-- Tab Contents -->
         <div id="tab-all" class="tab-content sushi-container">
             <div class="sushi-track">
+                <div class="colorful-rope"></div>
                 <!-- Original Set -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/9.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Gaming Console</h4>
                     <p class="text-cyan-600 font-black text-xs">$299</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/12.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Chronos Dial</h4>
                     <p class="text-cyan-600 font-black text-xs">$120</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/10.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Hover Cycle</h4>
                     <p class="text-cyan-600 font-black text-xs">$450</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/11.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Holo-Light</h4>
                     <p class="text-cyan-600 font-black text-xs">$89</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/13.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Smart-Pack</h4>
                     <p class="text-cyan-600 font-black text-xs">$150</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/14.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Stealth Drone</h4>
                     <p class="text-cyan-600 font-black text-xs">$699</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/15.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Command Station</h4>
                     <p class="text-cyan-600 font-black text-xs">$110</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/16.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Sonic Axe</h4>
                     <p class="text-cyan-600 font-black text-xs">$340</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/17.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Nutri-Synth</h4>
                     <p class="text-cyan-600 font-black text-xs">$45</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/18.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Grav-Boots</h4>
                     <p class="text-cyan-600 font-black text-xs">$89</p>
                 </div>
@@ -608,70 +609,70 @@
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/9.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Gaming Console</h4>
                     <p class="text-cyan-600 font-black text-xs">$299</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/12.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Chronos Dial</h4>
                     <p class="text-cyan-600 font-black text-xs">$120</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/10.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Hover Cycle</h4>
                     <p class="text-cyan-600 font-black text-xs">$450</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/11.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Holo-Light</h4>
                     <p class="text-cyan-600 font-black text-xs">$89</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/13.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Smart-Pack</h4>
                     <p class="text-cyan-600 font-black text-xs">$150</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/14.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Stealth Drone</h4>
                     <p class="text-cyan-600 font-black text-xs">$699</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/15.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Command Station</h4>
                     <p class="text-cyan-600 font-black text-xs">$110</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/16.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Sonic Axe</h4>
                     <p class="text-cyan-600 font-black text-xs">$340</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/17.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Nutri-Synth</h4>
                     <p class="text-cyan-600 font-black text-xs">$45</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/18.jpeg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm truncate">Grav-Boots</h4>
                     <p class="text-cyan-600 font-black text-xs">$89</p>
                 </div>
@@ -681,94 +682,149 @@
         <!-- Tab Content: Tech -->
         <div id="tab-tech" class="tab-content hidden sushi-container">
             <div class="sushi-track">
-                <!-- Original Set -->
+                <div class="colorful-rope"></div>
+                <!-- Original Set (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/19.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Neural Visor</h4>
                     <p class="text-cyan-600 font-black text-xs">$399</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/20.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Nexus Core</h4>
                     <p class="text-cyan-600 font-black text-xs">$129</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/21.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Audio-Implants</h4>
                     <p class="text-cyan-600 font-black text-xs">$159</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/22.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Tactile Board</h4>
                     <p class="text-cyan-600 font-black text-xs">$109</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Deck</h4>
+                    <p class="text-cyan-600 font-black text-xs">$899</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Data Spike</h4>
+                    <p class="text-cyan-600 font-black text-xs">$45</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Port-Mod</h4>
+                    <p class="text-cyan-600 font-black text-xs">$220</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Tracker</h4>
+                    <p class="text-cyan-600 font-black text-xs">$150</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Omni-Link</h4>
+                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Ghost Shell</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,100</p>
                 </div>
 
-                <!-- Duplicate 1 -->
+                <!-- Duplicate Set for Rolling Loop (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/19.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Neural Visor</h4>
                     <p class="text-cyan-600 font-black text-xs">$399</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/20.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Nexus Core</h4>
                     <p class="text-cyan-600 font-black text-xs">$129</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/21.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Audio-Implants</h4>
                     <p class="text-cyan-600 font-black text-xs">$159</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/22.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Tactile Board</h4>
                     <p class="text-cyan-600 font-black text-xs">$109</p>
                 </div>
-
-                <!-- Duplicate 2 -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/19.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Neural Visor</h4>
-                    <p class="text-cyan-600 font-black text-xs">$399</p>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Deck</h4>
+                    <p class="text-cyan-600 font-black text-xs">$899</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/20.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Nexus Core</h4>
-                    <p class="text-cyan-600 font-black text-xs">$129</p>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Data Spike</h4>
+                    <p class="text-cyan-600 font-black text-xs">$45</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/21.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Audio-Implants</h4>
-                    <p class="text-cyan-600 font-black text-xs">$159</p>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Port-Mod</h4>
+                    <p class="text-cyan-600 font-black text-xs">$220</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/22.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Tactile Board</h4>
-                    <p class="text-cyan-600 font-black text-xs">$109</p>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Tracker</h4>
+                    <p class="text-cyan-600 font-black text-xs">$150</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Omni-Link</h4>
+                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Ghost Shell</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,100</p>
                 </div>
             </div>
         </div>
@@ -776,297 +832,595 @@
         <!-- Tab Content: Motors -->
         <div id="tab-auto" class="tab-content hidden sushi-container">
             <div class="sushi-track">
-                <!-- Original Set -->
+                <div class="colorful-rope"></div>
+                <!-- Original Set (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/23.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Retro-Hover Car</h4>
                     <p class="text-cyan-600 font-black text-xs">$25,000</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/24.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Light Cycle</h4>
                     <p class="text-cyan-600 font-black text-xs">$8,500</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/25.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Mobile Pod</h4>
                     <p class="text-cyan-600 font-black text-xs">$15,000</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/26.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Traction Mods</h4>
                     <p class="text-cyan-600 font-black text-xs">$400</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Aero-Bike</h4>
+                    <p class="text-cyan-600 font-black text-xs">$3,200</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Turbo Wing</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,500</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Fusion Engine</h4>
+                    <p class="text-cyan-600 font-black text-xs">$5,000</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Nitro Cell</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Glass Canopy</h4>
+                    <p class="text-cyan-600 font-black text-xs">$800</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Mag-Lev Rim</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
                 </div>
 
-                <!-- Duplicate 1 -->
+                <!-- Duplicate Set for Rolling Loop (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/23.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Retro-Hover Car</h4>
                     <p class="text-cyan-600 font-black text-xs">$25,000</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/24.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Light Cycle</h4>
                     <p class="text-cyan-600 font-black text-xs">$8,500</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/25.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Mobile Pod</h4>
                     <p class="text-cyan-600 font-black text-xs">$15,000</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/26.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Traction Mods</h4>
                     <p class="text-cyan-600 font-black text-xs">$400</p>
                 </div>
-
-                <!-- Duplicate 2 -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/23.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Retro-Hover Car</h4>
-                    <p class="text-cyan-600 font-black text-xs">$25,000</p>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Aero-Bike</h4>
+                    <p class="text-cyan-600 font-black text-xs">$3,200</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/24.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Light Cycle</h4>
-                    <p class="text-cyan-600 font-black text-xs">$8,500</p>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Turbo Wing</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,500</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/25.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Mobile Pod</h4>
-                    <p class="text-cyan-600 font-black text-xs">$15,000</p>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Fusion Engine</h4>
+                    <p class="text-cyan-600 font-black text-xs">$5,000</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/26.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Traction Mods</h4>
-                    <p class="text-cyan-600 font-black text-xs">$400</p>
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Nitro Cell</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Glass Canopy</h4>
+                    <p class="text-cyan-600 font-black text-xs">$800</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Mag-Lev Rim</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
                 </div>
             </div>
         </div>
         <!-- Tab Content: Fashion -->
         <div id="tab-fashion" class="tab-content hidden sushi-container">
             <div class="sushi-track">
-                <!-- Original Set -->
+                <div class="colorful-rope"></div>
+                <!-- Original Set (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/27.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Synth-Leather Jacket</h4>
                     <p class="text-cyan-600 font-black text-xs">$120</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/28.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Zero-G Kicks</h4>
                     <p class="text-cyan-600 font-black text-xs">$220</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Neon Visor</h4>
+                    <p class="text-cyan-600 font-black text-xs">$60</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Cyber Pants</h4>
+                    <p class="text-cyan-600 font-black text-xs">$150</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">LED Hoodie</h4>
+                    <p class="text-cyan-600 font-black text-xs">$110</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Reactive Gloves</h4>
+                    <p class="text-cyan-600 font-black text-xs">$45</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Scarf</h4>
+                    <p class="text-cyan-600 font-black text-xs">$85</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Watch</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Pulse Ring</h4>
+                    <p class="text-cyan-600 font-black text-xs">$300</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Loom Suit</h4>
+                    <p class="text-cyan-600 font-black text-xs">$2,500</p>
                 </div>
 
-                <!-- Duplicate 1 -->
+                <!-- Duplicate Set for Rolling Loop (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/27.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Synth-Leather Jacket</h4>
                     <p class="text-cyan-600 font-black text-xs">$120</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/28.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Zero-G Kicks</h4>
                     <p class="text-cyan-600 font-black text-xs">$220</p>
                 </div>
-
-                <!-- Duplicate 2 -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/27.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Synth-Leather Jacket</h4>
-                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Neon Visor</h4>
+                    <p class="text-cyan-600 font-black text-xs">$60</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/28.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Zero-G Kicks</h4>
-                    <p class="text-cyan-600 font-black text-xs">$220</p>
-                </div>
-
-                <!-- Duplicate 3 -->
-                <div
-                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
-                    <div class="glitter-overlay"></div>
-                    <img src="Assets/27.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Synth-Leather Jacket</h4>
-                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Cyber Pants</h4>
+                    <p class="text-cyan-600 font-black text-xs">$150</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/28.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Zero-G Kicks</h4>
-                    <p class="text-cyan-600 font-black text-xs">$220</p>
-                </div>
-
-                <!-- Duplicate 4 -->
-                <div
-                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
-                    <div class="glitter-overlay"></div>
-                    <img src="Assets/27.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Synth-Leather Jacket</h4>
-                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">LED Hoodie</h4>
+                    <p class="text-cyan-600 font-black text-xs">$110</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/28.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Zero-G Kicks</h4>
-                    <p class="text-cyan-600 font-black text-xs">$220</p>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Reactive Gloves</h4>
+                    <p class="text-cyan-600 font-black text-xs">$45</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Scarf</h4>
+                    <p class="text-cyan-600 font-black text-xs">$85</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Watch</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Pulse Ring</h4>
+                    <p class="text-cyan-600 font-black text-xs">$300</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Loom Suit</h4>
+                    <p class="text-cyan-600 font-black text-xs">$2,500</p>
                 </div>
             </div>
         </div>
         <!-- Tab Content: Home -->
         <div id="tab-home" class="tab-content hidden sushi-container">
             <div class="sushi-track">
-                <!-- Original Set -->
+                <div class="colorful-rope"></div>
+                <!-- Original Set (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
-                    <p class="text-cyan-600 font-black text-xs">$550</p>
-                </div>
-                <!-- Loop x6 -->
-                <div
-                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
-                    <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
                     <p class="text-cyan-600 font-black text-xs">$550</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Mirror</h4>
+                    <p class="text-cyan-600 font-black text-xs">$299</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Kitchen-Bot</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,500</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Aero-Bed</h4>
+                    <p class="text-cyan-600 font-black text-xs">$2,200</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Ozone Purifier</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Display</h4>
+                    <p class="text-cyan-600 font-black text-xs">$750</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Solar Shades</h4>
+                    <p class="text-cyan-600 font-black text-xs">$300</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Zen Fountain</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Nano-Rug</h4>
+                    <p class="text-cyan-600 font-black text-xs">$55</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Climate Orb</h4>
+                    <p class="text-cyan-600 font-black text-xs">$89</p>
+                </div>
+
+                <!-- Duplicate Set for Rolling Loop (10 items) -->
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
                     <p class="text-cyan-600 font-black text-xs">$550</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
-                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart Mirror</h4>
+                    <p class="text-cyan-600 font-black text-xs">$299</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
-                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Kitchen-Bot</h4>
+                    <p class="text-cyan-600 font-black text-xs">$1,500</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
-                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Aero-Bed</h4>
+                    <p class="text-cyan-600 font-black text-xs">$2,200</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/29.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Levitation Lounge</h4>
-                    <p class="text-cyan-600 font-black text-xs">$550</p>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Ozone Purifier</h4>
+                    <p class="text-cyan-600 font-black text-xs">$450</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Display</h4>
+                    <p class="text-cyan-600 font-black text-xs">$750</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Solar Shades</h4>
+                    <p class="text-cyan-600 font-black text-xs">$300</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Zen Fountain</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Nano-Rug</h4>
+                    <p class="text-cyan-600 font-black text-xs">$55</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Climate Orb</h4>
+                    <p class="text-cyan-600 font-black text-xs">$89</p>
                 </div>
             </div>
         </div>
         <!-- Tab Content: Jobs -->
         <div id="tab-jobs" class="tab-content hidden sushi-container">
             <div class="sushi-track">
-                <!-- Original Set -->
+                <div class="colorful-rope"></div>
+                <!-- Original Set (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/30.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Net Architect</h4>
                     <p class="text-cyan-600 font-black text-xs">Remote</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/31.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Holo-Artist</h4>
+                    <p class="text-cyan-600 font-black text-xs">Freelance</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Cyber Security</h4>
+                    <p class="text-cyan-600 font-black text-xs">$80/hr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Drone Pilot</h4>
+                    <p class="text-cyan-600 font-black text-xs">Contract</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Data Miner</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120k/yr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Engineer</h4>
+                    <p class="text-cyan-600 font-black text-xs">Full-time</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">UI/UX Visionary</h4>
+                    <p class="text-cyan-600 font-black text-xs">Hybrid</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart City Op</h4>
+                    <p class="text-cyan-600 font-black text-xs">$95k/yr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Neural Coder</h4>
+                    <p class="text-cyan-600 font-black text-xs">Remote</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Designer</h4>
                     <p class="text-cyan-600 font-black text-xs">Freelance</p>
                 </div>
 
-                <!-- Loop x3 -->
+                <!-- Duplicate Set for Rolling Loop (10 items) -->
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/30.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore2.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Net Architect</h4>
                     <p class="text-cyan-600 font-black text-xs">Remote</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/31.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
+                    <img src="Assets/explore3.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
                     <h4 class="font-bold dark:text-white text-sm">Holo-Artist</h4>
                     <p class="text-cyan-600 font-black text-xs">Freelance</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/30.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Net Architect</h4>
+                    <img src="Assets/explore4.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Cyber Security</h4>
+                    <p class="text-cyan-600 font-black text-xs">$80/hr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore5.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Drone Pilot</h4>
+                    <p class="text-cyan-600 font-black text-xs">Contract</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore6.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Data Miner</h4>
+                    <p class="text-cyan-600 font-black text-xs">$120k/yr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore7.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Bio-Engineer</h4>
+                    <p class="text-cyan-600 font-black text-xs">Full-time</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore8.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">UI/UX Visionary</h4>
+                    <p class="text-cyan-600 font-black text-xs">Hybrid</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore9.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Smart City Op</h4>
+                    <p class="text-cyan-600 font-black text-xs">$95k/yr</p>
+                </div>
+                <div
+                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="glitter-overlay"></div>
+                    <img src="Assets/explore10.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Neural Coder</h4>
                     <p class="text-cyan-600 font-black text-xs">Remote</p>
                 </div>
                 <div
                     class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
                     <div class="glitter-overlay"></div>
-                    <img src="Assets/31.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Holo-Artist</h4>
-                    <p class="text-cyan-600 font-black text-xs">Freelance</p>
-                </div>
-                <div
-                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
-                    <div class="glitter-overlay"></div>
-                    <img src="Assets/30.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Net Architect</h4>
-                    <p class="text-cyan-600 font-black text-xs">Remote</p>
-                </div>
-                <div
-                    class="hanging-card bg-white dark:bg-zinc-800 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:shadow-lg transition-all group cursor-pointer">
-                    <div class="glitter-overlay"></div>
-                    <img src="Assets/31.jpeg" class="w-full h-32 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold dark:text-white text-sm">Holo-Artist</h4>
+                    <img src="Assets/explore1.jpg" class="w-full h-32 object-cover rounded-xl mb-3 dark:brightness-90">
+                    <h4 class="font-bold dark:text-white text-sm">Holo-Designer</h4>
                     <p class="text-cyan-600 font-black text-xs">Freelance</p>
                 </div>
             </div>
@@ -1098,7 +1452,7 @@
                 class="tilt-card group relative rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 p-4 hover:border-cyan-500/50 transition-all duration-300 w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] shadow-2xl">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <img src="Assets/32.jpeg"
+                    <img src="Assets/1.jpeg"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         alt="Neural Interface">
                     <span
@@ -1123,7 +1477,7 @@
                 class="tilt-card group relative rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 p-4 hover:border-fuchsia-500/50 transition-all duration-300 w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] shadow-2xl">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <img src="Assets/33.jpeg"
+                    <img src="Assets/2.jpeg"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         alt="Quantum Core">
                     <span
@@ -1148,7 +1502,7 @@
                 class="tilt-card group relative rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 p-4 hover:border-green-500/50 transition-all duration-300 w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] shadow-2xl">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <img src="Assets/34.jpeg"
+                    <img src="Assets/3.jpeg"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         alt="Stealth Drone">
                     <span
@@ -1173,7 +1527,7 @@
                 class="tilt-card group relative rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 p-4 hover:border-yellow-500/50 transition-all duration-300 w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] shadow-2xl">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <img src="Assets/35.jpeg"
+                    <img src="Assets/4.jpeg"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         alt="Holo-Projector">
                     <span
@@ -1198,7 +1552,7 @@
                 class="tilt-card group relative rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 p-4 hover:border-purple-500/50 transition-all duration-300 w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.33%-1.7rem)] shadow-2xl">
                 <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-6 relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <img src="Assets/36.jpeg"
+                    <img src="Assets/5.jpeg"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         alt="Exo-Gauntlet">
                     <span
@@ -1238,7 +1592,7 @@
                 <div
                     class="min-w-[300px] md:min-w-[400px] bg-white dark:bg-zinc-900 p-8 rounded-[2rem] shadow-xl border border-zinc-100 dark:border-zinc-700">
                     <div class="flex items-center space-x-4 mb-6">
-                        <img src="Assets/37.jpeg"
+                        <img src="Assets/profile1.jpg"
                             class="w-16 h-16 rounded-full object-cover border-4 border-cyan-100 dark:border-cyan-900">
                         <div>
                             <h4 class="font-bold text-lg dark:text-white">Sarah Jenkins</h4>
@@ -1253,7 +1607,7 @@
                 <div
                     class="min-w-[300px] md:min-w-[400px] bg-white dark:bg-zinc-900 p-8 rounded-[2rem] shadow-xl border border-zinc-100 dark:border-zinc-700">
                     <div class="flex items-center space-x-4 mb-6">
-                        <img src="Assets/38.jpeg"
+                        <img src="Assets/profile2.jpg"
                             class="w-16 h-16 rounded-full object-cover border-4 border-cyan-100 dark:border-cyan-900">
                         <div>
                             <h4 class="font-bold text-lg dark:text-white">Mike Ross</h4>
@@ -1268,7 +1622,7 @@
                 <div
                     class="min-w-[300px] md:min-w-[400px] bg-white dark:bg-zinc-900 p-8 rounded-[2rem] shadow-xl border border-zinc-100 dark:border-zinc-700">
                     <div class="flex items-center space-x-4 mb-6">
-                        <img src="Assets/39.jpeg"
+                        <img src="Assets/profile3.jpg"
                             class="w-16 h-16 rounded-full object-cover border-4 border-cyan-100 dark:border-cyan-900">
                         <div>
                             <h4 class="font-bold text-lg dark:text-white">Jessica Pearson</h4>
@@ -1295,7 +1649,7 @@
                     <!-- The Hidden Answer (Back) -->
                     <div class="cupboard-content">
                         <p
-                            class="text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed text-lg w-full text-center">
+                            class="text-zinc-600 dark:text-zinc-300 font-medium leading-relaxed text-lg w-full text-center rtl:text-center">
                             Yes! You can list up to 10 items for free every month. For unlimited listings and premium
                             features, upgrade to Pro.
                         </p>
@@ -1305,7 +1659,7 @@
                     <div class="cupboard-doors">
                         <!-- Left Door: Question Text -->
                         <div class="door-left">
-                            <span class="door-text mr-4">Is it free to list items?</span>
+                            <span class="door-text mr-4 rtl:mr-0 rtl:ml-4">Is it free to list items?</span>
                         </div>
 
                         <!-- Right Door: Icon/Handle -->
@@ -1329,7 +1683,7 @@
                     </div>
                     <div class="cupboard-doors">
                         <div class="door-left">
-                            <span class="door-text mr-4">How does secure payment work?</span>
+                            <span class="door-text mr-4 rtl:mr-0 rtl:ml-4">How does secure payment work?</span>
                         </div>
                         <div class="door-right justify-start">
                             <div

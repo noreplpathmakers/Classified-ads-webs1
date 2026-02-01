@@ -159,20 +159,19 @@
     </style>
 </head>
 
-<body
-    class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 transition-colors duration-300 font-inter bg-admin-dash">
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 transition-colors duration-300 font-inter">
 
-    <!-- Navbar (Global) -->
-    <nav
-        class="sticky top-0 z-[100] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+    <!-- Navbar (Floating Container) -->
+    <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
+        <div
+            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
                     <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
                         <div
-                            class="w-12 h-12 bg-cyan-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
+                            class="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
                             DS</div>
-                        <span class="text-2xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                        <span class="text-xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
                                 class="text-blue-900">Square</span></span>
                     </a>
 
@@ -180,45 +179,45 @@
                     <div class="hidden lg:flex items-center gap-1">
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Home</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full start-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="index.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
                                 <a href="index2.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     2</a>
                             </div>
                         </div>
 
                         <a href="about.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
                         <a href="services.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
                         <a href="contact.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
 
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Dashboards</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full start-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="user_dashboard.html"
-                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="user" class="w-4 h-4"></i>
                                     <span>User Dashboard</span>
                                 </a>
                                 <a href="admin_dashboard.html"
-                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="shield-check" class="w-4 h-4"></i>
                                     <span>Admin Control</span>
                                 </a>
@@ -227,28 +226,36 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-3">
+                    <!-- REORDERED: Login -> Get Started -> Theme -> RTL -->
+
                     <a href="login.html"
-                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
-                        In</a>
-                    <button id="dir-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                    </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+                        class="hidden md:block px-5 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all hover:text-cyan-600 dark:hover:text-cyan-400">
+                        Log In
+                    </a>
+
                     <a href="signup.html"
-                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        class="hidden md:block px-5 py-2 bg-cyan-600 text-white text-sm font-bold rounded-full hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95">
                         Get Started
                     </a>
+
+                    <div class="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-1 hidden md:block"></div>
+
+                    <button id="theme-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+
+                    <button id="dir-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2.5 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95 ml-2">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -333,12 +340,12 @@
         </div>
     </div>
 
-    <!-- Dashboard Layout -->
-    <div class="flex h-[calc(100vh-80px)] overflow-hidden">
+    <!-- Dashboard Layout (Global Scroll) -->
+    <div class="flex min-h-[calc(100vh-112px)] pt-28">
 
-        <!-- Sidebar -->
+        <!-- Sidebar (Sticky on LG) -->
         <aside id="sidebar"
-            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-zinc-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:static lg:z-auto lg:h-full shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
+            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-zinc-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:sticky lg:top-28 lg:h-[calc(100vh-112px)] shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
             <div class="p-4 flex flex-col h-full">
                 <!-- Mobile Close Button & User Info -->
                 <div class="flex flex-col gap-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/50 pb-4">
@@ -406,463 +413,505 @@
             class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[105] lg:hidden hidden transition-opacity opacity-0">
         </div>
 
-        <!-- Main Content (Scrollable) -->
-        <main class="flex-1 overflow-y-auto relative bg-zinc-50 dark:bg-zinc-950">
-            <!-- Mobile Sidebar Toggle -->
-            <div class="lg:hidden p-4 flex items-center gap-2">
-                <button id="mobileMenuBtn"
-                    class="p-2 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <span class="font-bold text-zinc-800 dark:text-white">Admin Dashboard</span>
-            </div>
+        <!-- Main Content -->
+        <main id="mainContent" class="flex-1 relative bg-zinc-50 dark:bg-zinc-950">
+            <div class="pt-8">
+                <!-- Mobile Sidebar Toggle -->
+                <div class="lg:hidden p-4 flex items-center gap-2">
+                    <button id="mobileMenuBtn"
+                        class="p-2 rounded-lg bg-white dark:bg-zinc-800 shadow-sm border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-300">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <span class="font-bold text-zinc-800 dark:text-white">Admin Dashboard</span>
+                </div>
 
-            <div id="view-overview"
-                class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-8 pb-20 animate-fade-in-up scroll-mt-24">
+                <div id="view-overview"
+                    class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-8 pb-20 animate-fade-in-up scroll-mt-24">
 
-                <!-- Welcome Header -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 animate-fade-in-up"
-                    style="animation-delay: 0.1s;">
-                    <div>
-                        <h1 class="text-3xl font-black text-zinc-800 dark:text-white mb-2 flex items-center gap-2">
-                            Admin Overview <span class="animate-pulse">🚀</span>
-                        </h1>
-                        <p class="text-zinc-700 dark:text-zinc-200">Deep dive into platform performance and metrics.
-                        </p>
+                    <!-- Welcome Header -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 animate-fade-in-up"
+                        style="animation-delay: 0.1s;">
+                        <div>
+                            <h1 class="text-3xl font-black text-zinc-800 dark:text-white mb-2 flex items-center gap-2">
+                                Admin Overview <span class="animate-pulse">🚀</span>
+                            </h1>
+                            <p class="text-zinc-700 dark:text-zinc-200">Deep dive into platform performance and metrics.
+                            </p>
+                        </div>
+                        <div class="flex gap-3">
+                            <button id="btn-refresh-data"
+                                class="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-xl font-bold shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-all flex items-center gap-2">
+                                <i data-lucide="refresh-cw" class="w-4 h-4"></i> <span
+                                    class="hidden sm:inline">Refresh</span>
+                            </button>
+                            <button id="btn-export-report"
+                                class="px-4 py-2 bg-cyan-600 text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-cyan-700 transition-all flex items-center gap-2">
+                                <i data-lucide="download" class="w-4 h-4"></i> Export Report
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex gap-3">
-                        <button id="btn-refresh-data"
-                            class="px-4 py-2 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-xl font-bold shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-all flex items-center gap-2">
-                            <i data-lucide="refresh-cw" class="w-4 h-4"></i> <span
-                                class="hidden sm:inline">Refresh</span>
-                        </button>
-                        <button id="btn-export-report"
-                            class="px-4 py-2 bg-cyan-600 text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-cyan-700 transition-all flex items-center gap-2">
-                            <i data-lucide="download" class="w-4 h-4"></i> Export Report
-                        </button>
+
+                    <!-- 10 Charts Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+                        <!-- 1. Line Chart: Revenue -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.2s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Monthly Revenue</h3>
+                            <div id="revenueLineChart"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 2. Stacked Bar: Category Sales -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.25s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Sales by Category</h3>
+                            <div id="categoryStackedBar"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 3. Area Chart: Traffic Growth -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.3s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Growth</h3>
+                            <div id="trafficAreaChart"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 4. Multi-Line: User vs Seller -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.35s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User vs Seller Growth</h3>
+                            <div id="userSellerLineChart"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 5. Heatmap: Activity -->
+                        <div class="col-span-1 md:col-span-2 card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.4s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Activity Heatmap</h3>
+                            <div id="activityHeatmap"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 6. Funnel: Onboarding -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.45s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Conversion Funnel</h3>
+                            <div id="conversionFunnel"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 7. Scatter: Price vs Demand -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.5s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Price vs Demand Analysis</h3>
+                            <div id="priceDemandScatter"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 8. Horizontal Bar: Top Categories -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.55s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Top Performing Categories</h3>
+                            <div id="topCategoriesBar"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+                        <!-- 9. Gauge: System Health -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.6s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health</h3>
+                            <div id="systemHealthGauge"
+                                class="h-64 flex items-center justify-center chart-container opacity-0 transition-opacity duration-1000">
+                            </div>
+                        </div>
+
+                        <!-- 10. Radar Chart: Performance Metrics -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.65s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Platform Metrics</h3>
+                            <div id="performanceRadar"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+
+
+                        <!-- 11. Pie Chart: Device Distribution -->
+                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            style="animation-delay: 0.7s;">
+                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            </div>
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Device Distribution</h3>
+                            <div id="devicePieChart"
+                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
+                        </div>
+                    </div>
+                    <!-- Advanced Analytics II (New Section) -->
+                    <div class="mt-12 mb-8">
+                        <h2 class="text-2xl font-bold dark:text-white mb-2">Advanced Analytics II</h2>
+                        <p class="text-zinc-500">Deeper insights into platform performance.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+                        <!-- 1. Revenue Stream (Area) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Revenue Stream</h3>
+                            <div id="advRevenueArea" class="h-64"></div>
+                        </div>
+                        <!-- 2. User Acquisition (Bar) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Acquisition</h3>
+                            <div id="advUserAcqBar" class="h-64"></div>
+                        </div>
+                        <!-- 3. Category Distribution (Donut) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Category Distribution</h3>
+                            <div id="advCatDonut" class="h-64"></div>
+                        </div>
+                        <!-- 4. System Health (Radial) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health (Radial)</h3>
+                            <div id="advSysHealthRadial" class="h-64"></div>
+                        </div>
+                        <!-- 5. Traffic Sources (Polar) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Sources</h3>
+                            <div id="advTrafficPolar" class="h-64"></div>
+                        </div>
+                        <!-- 6. Ticket Volume (Line) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Ticket Volume</h3>
+                            <div id="advTicketLine" class="h-64"></div>
+                        </div>
+                        <!-- 7. Ad Postings vs Sales (Double Line) -->
+                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Postings vs Sales</h3>
+                            <div id="advPostSalesLine" class="h-64"></div>
+                        </div>
+                        <!-- 8. Server Load (Gauge) -->
+                        <div class="dashboard-card rounded-2xl p-6">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Server Load</h3>
+                            <div id="advServerGauge"
+                                class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
+                            </div>
+                        </div>
+                        <!-- 9. User Demographics (Stacked Bar) -->
+                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Demographics</h3>
+                            <div id="advDemoStacked" class="h-64"></div>
+                        </div>
+                        <!-- 10. Peak Activity (Heatmap) -->
+                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
+                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Peak Activity Times</h3>
+                            <div id="advPeakHeatmap" class="h-64"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 10 Charts Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
-                    <!-- 1. Line Chart: Revenue -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.2s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Monthly Revenue</h3>
-                        <div id="revenueLineChart"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 2. Stacked Bar: Category Sales -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.25s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Sales by Category</h3>
-                        <div id="categoryStackedBar"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 3. Area Chart: Traffic Growth -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.3s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Growth</h3>
-                        <div id="trafficAreaChart"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 4. Multi-Line: User vs Seller -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.35s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User vs Seller Growth</h3>
-                        <div id="userSellerLineChart"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 5. Heatmap: Activity -->
-                    <div class="col-span-1 md:col-span-2 card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.4s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Activity Heatmap</h3>
-                        <div id="activityHeatmap"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 6. Funnel: Onboarding -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.45s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Conversion Funnel</h3>
-                        <div id="conversionFunnel"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 7. Scatter: Price vs Demand -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.5s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Price vs Demand Analysis</h3>
-                        <div id="priceDemandScatter"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 8. Horizontal Bar: Top Categories -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.55s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Top Performing Categories</h3>
-                        <div id="topCategoriesBar"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-                    <!-- 9. Gauge: System Health -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.6s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health</h3>
-                        <div id="systemHealthGauge"
-                            class="h-64 flex items-center justify-center chart-container opacity-0 transition-opacity duration-1000">
+                <!-- View: Users -->
+                <div id="view-users"
+                    class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-white">User Management</h2>
+                            <p class="text-zinc-400">Manage all registered users.</p>
                         </div>
                     </div>
-
-                    <!-- 10. Radar Chart: Performance Metrics -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.65s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Platform Metrics</h3>
-                        <div id="performanceRadar"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-
-
-                    <!-- 11. Pie Chart: Device Distribution -->
-                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                        style="animation-delay: 0.7s;">
-                        <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                            <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
-                        </div>
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Device Distribution</h3>
-                        <div id="devicePieChart"
-                            class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                    </div>
-                </div>
-                <!-- Advanced Analytics II (New Section) -->
-                <div class="mt-12 mb-8">
-                    <h2 class="text-2xl font-bold dark:text-white mb-2">Advanced Analytics II</h2>
-                    <p class="text-zinc-500">Deeper insights into platform performance.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
-                    <!-- 1. Revenue Stream (Area) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Revenue Stream</h3>
-                        <div id="advRevenueArea" class="h-64"></div>
-                    </div>
-                    <!-- 2. User Acquisition (Bar) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Acquisition</h3>
-                        <div id="advUserAcqBar" class="h-64"></div>
-                    </div>
-                    <!-- 3. Category Distribution (Donut) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Category Distribution</h3>
-                        <div id="advCatDonut" class="h-64"></div>
-                    </div>
-                    <!-- 4. System Health (Radial) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health (Radial)</h3>
-                        <div id="advSysHealthRadial" class="h-64"></div>
-                    </div>
-                    <!-- 5. Traffic Sources (Polar) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Sources</h3>
-                        <div id="advTrafficPolar" class="h-64"></div>
-                    </div>
-                    <!-- 6. Ticket Volume (Line) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Ticket Volume</h3>
-                        <div id="advTicketLine" class="h-64"></div>
-                    </div>
-                    <!-- 7. Ad Postings vs Sales (Double Line) -->
-                    <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Postings vs Sales</h3>
-                        <div id="advPostSalesLine" class="h-64"></div>
-                    </div>
-                    <!-- 8. Server Load (Gauge) -->
-                    <div class="dashboard-card rounded-2xl p-6">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Server Load</h3>
-                        <div id="advServerGauge"
-                            class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
-                        </div>
-                    </div>
-                    <!-- 9. User Demographics (Stacked Bar) -->
-                    <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Demographics</h3>
-                        <div id="advDemoStacked" class="h-64"></div>
-                    </div>
-                    <!-- 10. Peak Activity (Heatmap) -->
-                    <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
-                        <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Peak Activity Times</h3>
-                        <div id="advPeakHeatmap" class="h-64"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View: Users -->
-            <div id="view-users"
-                class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
-                <div class="flex justify-between items-center mb-6">
-                    <div>
-                        <h2 class="text-2xl font-bold dark:text-white">User Management</h2>
-                        <p class="text-zinc-400">Manage all registered users.</p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead class="bg-zinc-50 dark:bg-zinc-800/50">
-                            <tr>
-                                <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">User</th>
-                                <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Status</th>
-                                <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Joined</th>
-                                <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
-                            <tr>
-                                <td class="p-4">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600 font-bold">
-                                            A</div>
-                                        <div>
-                                            <p class="font-bold dark:text-white">Alice Cooper</p>
-                                            <p class="text-xs text-zinc-700">alice@example.com</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="p-4"><span
-                                        class="px-2 py-1 rounded-lg text-xs font-bold bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">Active</span>
-                                </td>
-                                <td class="p-4 text-sm dark:text-zinc-300">Jan 12, 2024</td>
-                                <td class="p-4"><button class="text-zinc-400 hover:text-cyan-500"><i
-                                            data-lucide="more-horizontal" class="w-4 h-4"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td class="p-4">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 font-bold">
-                                            B</div>
-                                        <div>
-                                            <p class="font-bold dark:text-white">Bob Smith</p>
-                                            <p class="text-xs text-zinc-700">bob@example.com</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="p-4"><span
-                                        class="px-2 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">Pending</span>
-                                </td>
-                                <td class="p-4 text-sm dark:text-zinc-300">Jan 10, 2024</td>
-                                <td class="p-4"><button class="text-zinc-400 hover:text-cyan-500"><i
-                                            data-lucide="more-horizontal" class="w-4 h-4"></i></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- View: Listings -->
-            <div id="view-listings"
-                class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
-                <div class="flex justify-between items-center mb-6">
-                    <div>
-                        <h2 class="text-2xl font-bold dark:text-white">All Listings</h2>
-                        <p class="text-zinc-400">Review and moderate ads.</p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-zinc-900 rounded-2xl p-4 border border-zinc-200 dark:border-zinc-800">
-                        <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 rounded-lg mb-4 relative">
-                            <span
-                                class="absolute top-2 right-2 px-2 py-1 bg-fuchsia-500 text-white text-xs font-bold rounded">Reported</span>
-                        </div>
-                        <h3 class="font-bold dark:text-white mb-1">Suspicious Ad Item</h3>
-                        <p class="text-xs text-zinc-700 mb-4">Posted by Unknown</p>
-                        <div class="flex gap-2">
-                            <button
-                                class="flex-1 py-2 bg-fuchsia-50 text-fuchsia-600 dark:bg-fuchsia-900/20 dark:text-fuchsia-400 rounded-lg text-sm font-bold">Ban</button>
-                            <button
-                                class="flex-1 py-2 bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400 rounded-lg text-sm font-bold">Ignore</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View: Analytics -->
-            <div id="view-analytics"
-                class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold dark:text-white">Deep Analytics</h2>
-                </div>
-                <!-- Placeholder for future analytics -->
-                <div class="p-12 text-center border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-3xl">
-                    <i data-lucide="bar-chart-2" class="w-12 h-12 text-zinc-400 mx-auto mb-4"></i>
-                    <h3 class="text-lg font-bold dark:text-white">Advanced Reports</h3>
-                    <p class="text-zinc-700">More detailed charts coming soon.</p>
-                </div>
-            </div>
-
-            <!-- View: Settings -->
-            <div id="view-settings"
-                class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
-                <div class="max-w-3xl">
-                    <h2 class="text-2xl font-bold dark:text-white mb-6">Platform Settings</h2>
                     <div
-                        class="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 space-y-6">
-                        <div class="space-y-2">
-                            <label class="font-bold text-sm dark:text-zinc-300">Site Name</label>
-                            <input type="text" value="DealSquare"
-                                class="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 dark:text-white outline-none focus:ring-2 focus:ring-cyan-500">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-bold text-sm dark:text-zinc-300">Maintenance Mode</label>
-                            <div class="flex items-center gap-3">
-                                <button
-                                    class="w-12 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full relative transition-colors">
-                                    <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm"></div>
-                                </button>
-                                <span class="text-sm text-zinc-700">Off</span>
-                            </div>
-                        </div>
-                        <button class="px-6 py-3 bg-cyan-600 text-white font-bold rounded-xl hover:bg-cyan-700">Save
-                            Changes</button>
+                        class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-zinc-50 dark:bg-zinc-800/50">
+                                <tr>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">User</th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Status</th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Joined</th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
+                                <tr>
+                                    <td class="p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center text-cyan-600 font-bold">
+                                                A</div>
+                                            <div>
+                                                <p class="font-bold dark:text-white">Alice Cooper</p>
+                                                <p class="text-xs text-zinc-700">alice@example.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 rounded-lg text-xs font-bold bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">Active</span>
+                                    </td>
+                                    <td class="p-4 text-sm dark:text-zinc-300">Jan 12, 2024</td>
+                                    <td class="p-4"><button class="text-zinc-400 hover:text-cyan-500"><i
+                                                data-lucide="more-horizontal" class="w-4 h-4"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 font-bold">
+                                                B</div>
+                                            <div>
+                                                <p class="font-bold dark:text-white">Bob Smith</p>
+                                                <p class="text-xs text-zinc-700">bob@example.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">Pending</span>
+                                    </td>
+                                    <td class="p-4 text-sm dark:text-zinc-300">Jan 10, 2024</td>
+                                    <td class="p-4"><button class="text-zinc-400 hover:text-cyan-500"><i
+                                                data-lucide="more-horizontal" class="w-4 h-4"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
 
-            <div class="p-4 lg:p-8 max-w-7xl mx-auto">
-
-                <!-- Footer -->
-                <!-- Footer -->
-                <footer
-                    class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
-                    </div>
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-
-                            <!-- Brand -->
-                            <div class="space-y-6 animate-fade-in-up brand-glow cursor-default">
-                                <div class="flex items-center space-x-3">
-                                    <div class="logo-bg bg-cyan-600 p-3 rounded-xl transition-all duration-300">
-                                        <span class="text-white font-black text-2xl">DS</span>
-                                    </div>
-                                    <span class="text-2xl font-black text-white tracking-tight">DealSquare</span>
-                                </div>
-                                <p class="text-white text-sm leading-relaxed max-w-xs">
-                                    The world’s most modern classified ads platform. Sell your items, find services, and
-                                    connect
-                                    with your community.
-                                </p>
-                            </div>
-
-                            <!-- Quick Links -->
-                            <div class="animate-fade-in-up delay-200">
-                                <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Quick Links <div
-                                        class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
-                                </h4>
-                                <ul class="space-y-3 text-sm font-medium">
-                                    <li><a href="index.html" class="footer-link block">Home Page</a></li>
-                                    <li><a href="about.html" class="footer-link block">About Us</a></li>
-                                    <li><a href="services.html" class="footer-link block">Our Services</a></li>
-                                    <li><a href="contact.html" class="footer-link block">Contact Support</a></li>
-                                </ul>
-                            </div>
-
-                            <!-- Account -->
-                            <div class="animate-fade-in-up delay-400">
-                                <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Account <div
-                                        class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
-                                </h4>
-                                <ul class="space-y-3 text-sm font-medium">
-                                    <li><a href="user_dashboard.html"
-                                            class="footer-link block group flex items-center gap-2"><i
-                                                data-lucide="layout-dashboard"
-                                                class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
-                                            User Dashboard</a></li>
-                                    <li><a href="admin_dashboard.html"
-                                            class="footer-link block group flex items-center gap-2"><i
-                                                data-lucide="shield"
-                                                class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
-                                            Admin Dashboard</a></li>
-                                    <li><a href="login.html" class="footer-link block group flex items-center gap-2"><i
-                                                data-lucide="log-in"
-                                                class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
-                                            Login / Sign Up</a></li>
-                                    <li><a href="#" class="footer-link block group flex items-center gap-2"><i
-                                                data-lucide="file-text"
-                                                class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
-                                            Terms of Service</a></li>
-                                </ul>
-                            </div>
-
-                            <!-- Newsletter -->
-                            <div class="animate-fade-in-up delay-600">
-                                <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Newsletter <div
-                                        class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
-                                </h4>
-                                <p class="text-white text-sm mb-4">Stay updated with the latest ads.</p>
-                                <div class="relative group">
-                                    <input type="email" placeholder="Email address"
-                                        class="bg-zinc-800/50 border border-zinc-700 text-white text-sm rounded-xl w-full pl-4 pr-16 rtl:pl-16 rtl:pr-4 py-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all placeholder-zinc-500 group-hover:bg-zinc-800">
-                                    <button
-                                        class="absolute right-1 rtl:right-auto rtl:left-1 top-1 bottom-1 bg-cyan-600 text-white px-4 rounded-lg font-bold hover:bg-cyan-500 transition-all hover:scale-105 active:scale-95 shadow-lg">Go</button>
-                                </div>
-                            </div>
+                <!-- View: Listings -->
+                <div id="view-listings"
+                    class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-white">All Listings</h2>
+                            <p class="text-zinc-400">Review and moderate ads.</p>
                         </div>
-
-                        <!-- Bottom Bar -->
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Listing Card 1 -->
                         <div
-                            class="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-zinc-400 animate-fade-in-up delay-600">
-                            <p>© 2026 DealSquare Inc. All rights reserved.</p>
-                            <div class="flex gap-6">
-                                <a href="#" class="social-icon transition-all duration-300"><i data-lucide="facebook"
-                                        class="w-5 h-5"></i></a>
-                                <a href="#" class="social-icon transition-all duration-300"><i data-lucide="twitter"
-                                        class="w-5 h-5"></i></a>
-                                <a href="#" class="social-icon transition-all duration-300"><i data-lucide="instagram"
-                                        class="w-5 h-5"></i></a>
+                            class="bg-white dark:bg-zinc-900 rounded-2xl p-4 border border-zinc-200 dark:border-zinc-800 group">
+                            <div
+                                class="aspect-video bg-zinc-100 dark:bg-zinc-800 rounded-xl mb-4 relative overflow-hidden">
+                                <img src="Assets/camera.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="absolute top-2 right-2 px-2 py-1 bg-fuchsia-500 text-white text-xs font-bold rounded">Reported</span>
+                            </div>
+                            <h3 class="font-bold dark:text-white mb-1">Vintage Canon AE-1</h3>
+                            <p class="text-xs text-zinc-700 dark:text-zinc-400 mb-4">Posted by Alex Rivera</p>
+                            <div class="flex gap-2">
+                                <button
+                                    class="flex-1 py-2 bg-fuchsia-50 text-fuchsia-600 dark:bg-fuchsia-900/20 dark:text-fuchsia-400 rounded-lg text-sm font-bold hover:bg-fuchsia-100 transition-colors">Ban
+                                    Ad</button>
+                                <button
+                                    class="flex-1 py-2 bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400 rounded-lg text-sm font-bold hover:bg-cyan-100 transition-colors">Ignore</button>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 2 -->
+                        <div
+                            class="bg-white dark:bg-zinc-900 rounded-2xl p-4 border border-zinc-200 dark:border-zinc-800 group">
+                            <div
+                                class="aspect-video bg-zinc-100 dark:bg-zinc-800 rounded-xl mb-4 relative overflow-hidden">
+                                <img src="Assets/neo-hero.png"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="absolute top-2 right-2 px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded">Active</span>
+                            </div>
+                            <h3 class="font-bold dark:text-white mb-1">iPhone 14 Pro Max</h3>
+                            <p class="text-xs text-zinc-700 dark:text-zinc-400 mb-4">Posted by Sarah Jenkins</p>
+                            <div class="flex gap-2">
+                                <button
+                                    class="flex-1 py-2 bg-fuchsia-50 text-fuchsia-600 dark:bg-fuchsia-900/20 dark:text-fuchsia-400 rounded-lg text-sm font-bold hover:bg-fuchsia-100 transition-colors">Take
+                                    Down</button>
+                                <button
+                                    class="flex-1 py-2 bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400 rounded-lg text-sm font-bold hover:bg-cyan-100 transition-colors">Promote</button>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 3 -->
+                        <div
+                            class="bg-white dark:bg-zinc-900 rounded-2xl p-4 border border-zinc-200 dark:border-zinc-800 group">
+                            <div
+                                class="aspect-video bg-zinc-100 dark:bg-zinc-800 rounded-xl mb-4 relative overflow-hidden">
+                                <img src="Assets/typewriter.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="absolute top-2 right-2 px-2 py-1 bg-amber-500 text-white text-xs font-bold rounded">Pending</span>
+                            </div>
+                            <h3 class="font-bold dark:text-white mb-1">Retro Typewriter</h3>
+                            <p class="text-xs text-zinc-700 dark:text-zinc-400 mb-4">Posted by Michael Chen</p>
+                            <div class="flex gap-2">
+                                <button
+                                    class="flex-1 py-2 bg-fuchsia-50 text-fuchsia-600 dark:bg-fuchsia-900/20 dark:text-fuchsia-400 rounded-lg text-sm font-bold hover:bg-fuchsia-100 transition-colors">Verify</button>
+                                <button
+                                    class="flex-1 py-2 bg-cyan-50 text-cyan-600 dark:bg-cyan-900/20 dark:text-cyan-400 rounded-lg text-sm font-bold hover:bg-cyan-100 transition-colors">Edit</button>
                             </div>
                         </div>
                     </div>
-                </footer>
+                </div>
+
+                <!-- View: Analytics -->
+                <div id="view-analytics"
+                    class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold dark:text-white">Deep Analytics</h2>
+                    </div>
+                    <!-- Placeholder for future analytics -->
+                    <div
+                        class="p-12 text-center border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-3xl">
+                        <i data-lucide="bar-chart-2" class="w-12 h-12 text-zinc-400 mx-auto mb-4"></i>
+                        <h3 class="text-lg font-bold dark:text-white">Advanced Reports</h3>
+                        <p class="text-zinc-700">More detailed charts coming soon.</p>
+                    </div>
+                </div>
+
+                <!-- View: Settings -->
+                <div id="view-settings"
+                    class="admin-view p-4 lg:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in-up scroll-mt-24">
+                    <div class="max-w-3xl">
+                        <h2 class="text-2xl font-bold dark:text-white mb-6">Platform Settings</h2>
+                        <div
+                            class="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 space-y-6">
+                            <div class="space-y-2">
+                                <label class="font-bold text-sm dark:text-zinc-300">Site Name</label>
+                                <input type="text" value="DealSquare"
+                                    class="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 dark:text-white outline-none focus:ring-2 focus:ring-cyan-500">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-bold text-sm dark:text-zinc-300">Maintenance Mode</label>
+                                <div class="flex items-center gap-3">
+                                    <button
+                                        class="w-12 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full relative transition-colors">
+                                        <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm">
+                                        </div>
+                                    </button>
+                                    <span class="text-sm text-zinc-700">Off</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-cyan-600 text-white font-bold rounded-xl hover:bg-cyan-700">Save
+                                Changes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <!-- Brand -->
+                <div class="space-y-6 animate-fade-in-up brand-glow cursor-default">
+                    <div class="flex items-center gap-3">
+                        <div class="logo-bg bg-cyan-600 p-3 rounded-xl transition-all duration-300">
+                            <span class="text-white font-black text-2xl">DS</span>
+                        </div>
+                        <span class="text-2xl font-black text-white tracking-tight">DealSquare</span>
+                    </div>
+                    <p class="text-white text-sm leading-relaxed max-w-xs">
+                        The world’s most modern classified ads platform. Sell your items, find services, and connect
+                        with your community.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="animate-fade-in-up delay-200">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Quick Links <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="index.html" class="footer-link block">Home Page</a></li>
+                        <li><a href="about.html" class="footer-link block">About Us</a></li>
+                        <li><a href="services.html" class="footer-link block">Our Services</a></li>
+                        <li><a href="contact.html" class="footer-link block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Account -->
+                <div class="animate-fade-in-up delay-400">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Account <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="user_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="layout-dashboard"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                User Dashboard</a></li>
+                        <li><a href="admin_dashboard.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="shield"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Admin Dashboard</a></li>
+                        <li><a href="login.html" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="log-in"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Login / Sign Up</a></li>
+                        <li><a href="#" class="footer-link block group flex items-center gap-2"><i
+                                    data-lucide="file-text"
+                                    class="w-4 h-4 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"></i>
+                                Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="animate-fade-in-up delay-600">
+                    <h4 class="text-white font-bold mb-6 text-lg relative inline-block">Newsletter <div
+                            class="absolute -bottom-2 left-0 w-1/2 h-1 bg-cyan-500 rounded-full"></div>
+                    </h4>
+                    <p class="text-white text-sm mb-4">Stay updated with the latest ads.</p>
+                    <div class="relative group">
+                        <input type="email" placeholder="Email address"
+                            class="bg-zinc-800/50 border border-zinc-700 text-white text-sm rounded-xl w-full pl-4 pr-16 rtl:pl-16 rtl:pr-4 py-3 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all placeholder-zinc-500 group-hover:bg-zinc-800">
+                        <button
+                            class="absolute right-1 rtl:right-auto rtl:left-1 top-1 bottom-1 bg-cyan-600 text-white px-4 rounded-lg font-bold hover:bg-cyan-500 transition-all hover:scale-105 active:scale-95 shadow-lg">Go</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-zinc-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-zinc-400 animate-fade-in-up delay-600">
+                <p>© 2026 DealSquare Inc. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="twitter"
+                            class="w-5 h-5"></i></a>
+                    <a href="#" class="social-icon transition-all duration-300"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="rtltoggle.js"></script>

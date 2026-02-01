@@ -244,6 +244,61 @@ b {
   scrollbar-width: none;
 }
 
+.header-glow {
+  box-shadow:
+    0 0 20px rgba(6, 182, 212, 0.2),
+    0 0 40px rgba(99, 102, 241, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+  backdrop-filter: blur(16px);
+  position: relative;
+}
+
+.header-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #06b6d4, #6366f1, #d946ef, #06b6d4);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.4;
+  animation: border-glow 6s linear infinite;
+}
+
+@keyframes border-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dark .header-glow {
+  box-shadow:
+    0 0 30px rgba(6, 182, 212, 0.25),
+    0 0 60px rgba(99, 102, 241, 0.15),
+    inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-image: linear-gradient(to bottom right, rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.5));
+}
+
+.dark .header-glow::before {
+  opacity: 0.6;
+}
+
 .transition-all-300 {
   transition: all 0.3s ease-in-out;
 }
@@ -266,12 +321,18 @@ body::before {
 
 /* Page-Specific Backgrounds */
 .bg-home-v1::before {
-  background-image: url('Assets/index.jpg');
+  background-image: url('Assets/premium_bg_home1.png');
+}
+
+.dark .bg-home-v1::before {
+  background-image: none !important;
+  background-color: #1e3a8a !important;
+  /* Dark Blue */
 }
 
 .bg-home-v2::before {
   /* background-image: url('Assets/index2.jpeg'); */
-  background-image: none;
+  background-image: url('Assets/neon_bg_home2.png');
   background-color: #0f172a;
   /* Fallback dark color */
 }
@@ -291,35 +352,50 @@ body::before {
 }
 
 .bg-about::before {
-  background-image: url('Assets/about bg.jpeg');
+  background-image: url('Assets/1.jpeg');
 }
 
 .bg-services::before {
-  background-image: url('Assets/service.jpeg');
+  background-image: url('Assets/neo-hero.png');
 }
 
+.bg-services {
+  position: relative;
+  background-color: #020617 !important;
+}
+
+.bg-services::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -40;
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+
 .bg-contact::before {
-  background-image: url('Assets/service.jpeg');
+  background-image: url('Assets/18.jpeg');
 }
 
 .bg-user-dash::before {
-  background-image: url('Assets/dashboard.jpeg');
+  background-image: url('Assets/4.jpeg');
 }
 
 .bg-admin-dash::before {
-  background-image: url('Assets/dashboard.jpeg');
+  background-image: url('Assets/5.jpeg');
 }
 
 .bg-login::before {
-  background-image: url('Assets/35.jpeg');
+  background-image: url('Assets/31.jpeg');
 }
 
 .bg-404::before {
-  background-image: url('Assets/36.jpeg');
+  background-image: url('Assets/38.jpeg');
 }
 
 .bg-pricing::before {
-  background-image: url('Assets/33.jpeg');
+  background-image: url('Assets/45.jpeg');
 }
 
 @keyframes breathe {
@@ -349,14 +425,22 @@ a {
   /* Pure Black for Light Mode */
 }
 
-.dark body,
-.dark p,
-.dark span,
-.dark div,
-.dark li {
-  color: #ffffff;
-  /* Pure White for Dark Mode */
+.dark :is(body, p, span, div, li, a, button, input, textarea, h1, h2, h3, h4, h5, h6):not([class*="dark:text-zinc-900"]):not([class*="dark:text-black"]):not([class*="dark:text-cyan-600"]) {
+  color: #ffffff !important;
 }
+
+.force-white-text,
+.force-white-text :is(h1, h2, h3, h4, h5, h6, p, span, div, li, a) {
+  color: #ffffff !important;
+}
+
+
+/* Section Spacing Utility */
+.section-spacer {
+  margin-bottom: 8rem !important;
+  /* Large gap for clear separation */
+}
+
 
 /* Specific Overrides for Muted Text to ensure they are high contrast */
 .text-zinc-500,
@@ -368,6 +452,10 @@ a {
   /* Force Black in Light Mode */
 }
 
+.dark .text-stone-400,
+.dark .text-stone-500,
+.dark .text-stone-600,
+.dark .text-zinc-300,
 .dark .text-zinc-400,
 .dark .text-zinc-500,
 .dark .text-zinc-600,
@@ -375,8 +463,9 @@ a {
 .dark .text-zinc-800,
 .dark .text-zinc-900 {
   color: #ffffff !important;
-  /* Force White in Dark Mode */
 }
+
+/* Standard high contrast rules below */
 
 /* Footer Exception - General Footer stays White */
 .footer-gradient p,
@@ -439,6 +528,24 @@ a:active {
 }
 
 /* Enhanced hover for text */
+/* Hero Section Overrides for Light Mode Visibility */
+.hero-dark-overlay :is(h1, p, .text-white) {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+.hero-dark-overlay .text-teal-400 {
+  color: #2dd4bf !important;
+}
+
+.hero-dark-overlay .text-purple-400 {
+  color: #c084fc !important;
+}
+
+.hero-dark-overlay .text-pink-400 {
+  color: #f472b6 !important;
+}
+
 h1:hover,
 h2:hover,
 h3:hover {
@@ -510,7 +617,7 @@ h3:hover {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .delay-100 {
@@ -1127,7 +1234,7 @@ h3:hover {
 
 /* Active Navbar Link Style */
 .active-nav-link {
-  color: #4f46e5 !important;
+  color: #0891b2 !important;
   /* cyan-600 */
   position: relative;
 }
@@ -1138,22 +1245,22 @@ h3:hover {
   position: absolute;
   width: 60%;
   height: 3px;
-  bottom: 0;
+  bottom: 0px;
   left: 20%;
-  background-color: #4f46e5;
+  background-color: #0891b2;
   border-radius: 99px;
-  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 2px 10px rgba(8, 145, 178, 0.3);
   pointer-events: none;
 }
 
 .dark .active-nav-link {
-  color: #ffffff !important;
+  color: #22d3ee !important;
+  /* cyan-400 */
 }
 
 .dark .active-nav-link::after {
-  background-color: #818cf8;
-  /* cyan-400 */
-  box-shadow: 0 2px 10px rgba(129, 140, 248, 0.3);
+  background-color: #22d3ee;
+  box-shadow: 0 2px 10px rgba(34, 211, 238, 0.4);
 }
 
 /* New Animation Classes for Design Overhaul */
@@ -1241,7 +1348,7 @@ h3:hover {
 /* Update Home Backgrounds */
 /* Update Home Backgrounds - Target Pseudo Element to override global animation */
 .bg-home-v1::before {
-  background-image: url('Assets/home1bg.jpg') !important;
+  background-image: url('Assets/premium_bg_home1.png') !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -1505,130 +1612,44 @@ h3:hover {
   background: #27272a;
 }
 
-/* The String */
 .hanging-card::before {
   content: '';
   position: absolute;
-  top: -40px;
-  /* Rope length */
+  top: -30px;
+  /* Rope is at 10px, card at 40px margin -> 30px span */
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, #a1a1aa);
+  height: 30px;
+  background: #a1a1aa;
   /* Zinc-400 */
   z-index: -1;
 }
 
-/* The Pin/Nail */
-.hanging-card::after {
-  content: '';
-  position: absolute;
-  top: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background: #d4d4d8;
-  /* Zinc-300 */
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
+/* --- PERFECTED SUSHI BELT ANIMATION --- */
 
-/* Sway Animation on Hover */
-@keyframes sway {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(2deg);
-  }
-
-  50% {
-    transform: rotate(-2deg);
-  }
-
-  75% {
-    transform: rotate(1deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-.hanging-card:hover {
-  animation: sway 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  z-index: 10;
-  /* Bring to front */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Glitter Effect */
-.hanging-card .glitter-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 50% 50%, white 1px, transparent 1px),
-    radial-gradient(circle at 20% 40%, white 1px, transparent 1px),
-    radial-gradient(circle at 80% 60%, white 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  mix-blend-mode: overlay;
-}
-
-.hanging-card:hover .glitter-overlay {
-  opacity: 1;
-  animation: glitter-sparkle 1s infinite linear;
-}
-
-@keyframes glitter-sparkle {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-/* Override existing hover transforms to avoid conflicts */
-.hanging-card.group:hover {
-  transform: none !important;
-  /* Let animation handle it */
-}
-
-
-/* --- Sushi Belt Animation (Explore Section) --- */
 .sushi-container {
   overflow: hidden;
   width: 100%;
   position: relative;
-  padding-top: 50px;
-  /* Space for ropes */
-  padding-bottom: 50px;
-  /* Space for hover expansion */
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  padding: 80px 0;
+  /* Space for hangers and depth */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .sushi-track {
   display: flex;
   gap: 2rem;
+  /* 32px gap */
   width: max-content;
-  animation: scroll-left 40s linear infinite;
-  padding-left: 2rem;
-  /* Initial offset */
+  animation: sushi-scroll 60s linear infinite;
+  padding-right: 2rem;
+  /* The phantom gap that makes the loop seamless */
+  position: relative;
+  will-change: transform;
 }
 
-/* Pause on hover over the track */
-.sushi-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll-left {
+@keyframes sushi-scroll {
   0% {
     transform: translateX(0);
   }
@@ -1638,32 +1659,103 @@ h3:hover {
   }
 }
 
-/* Sushi Card Specifics */
-.hanging-card {
-  flex: 0 0 260px;
-  /* Fixed width for consistent flow */
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* The Continuous Rope */
+.colorful-rope {
+  position: absolute;
+  top: 0;
+  /* Positioned relative to the track's content */
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg,
+      #06b6d4, #d946ef, #10b981, #f59e0b, #3b82f6, #06b6d4);
+  /* background-size matches exactly 10 cards: 10 * (280px + 32px gap) = 3120px */
+  background-size: 3120px 100%;
+  animation: rope-flow 25s linear infinite;
+  z-index: 5;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Hover Effects */
+@keyframes rope-flow {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 3120px 0;
+  }
+}
+
+/* HANGING CARDS */
+.hanging-card {
+  flex: 0 0 280px;
+  position: relative;
+  transform-origin: top center;
+  animation: hanging-swing 4s ease-in-out infinite alternate;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes hanging-swing {
+  0% {
+    transform: rotate(-1.5deg);
+  }
+
+  100% {
+    transform: rotate(1.5deg);
+  }
+}
+
+/* The Connector String */
+.hanging-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #d4d4d8 30%, #d4d4d8);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* The Node on the Rope */
+.hanging-card::after {
+  content: '';
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: #06b6d4;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}
+
 .hanging-card:hover {
-  transform: scale(1.15) rotate(0deg) !important;
-  z-index: 50;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
-  border-color: #06b6d4;
-  /* Cyan highlight */
+  animation-play-state: paused;
+  transform: scale(1.1) rotate(0deg) translateY(15px) !important;
+  z-index: 100;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5) !important;
+  border-color: #06b6d4 !important;
 }
 
 .dark .hanging-card:hover {
-  border-color: #22d3ee;
+  border-color: #22d3ee !important;
 }
 
-/* Dim siblings on hover */
+/* Dim others on hover */
 .sushi-track:hover>.hanging-card:not(:hover) {
-  opacity: 0.6;
-  filter: blur(2px) grayscale(50%);
-  transform: scale(0.95);
+  opacity: 0.4;
+  filter: blur(1px) grayscale(40%);
+  transform: scale(0.9) translateY(0);
 }
+
+
+
 
 /* User Fix: Remove Home 2 Background */
 .bg-home-v2::before {
@@ -1719,17 +1811,6 @@ h3:hover {
   animation-delay: 0.3s !important;
 }
 
-/* Snow Canvas Background Fix */
-#snow-canvas {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-  /* Above body bg, but below sticky nav with z-100 */
-}
 
 /* =========================================
    MOBILE RESPONSIVENESS & TOUCH OPTIMIZATION
@@ -1786,6 +1867,7 @@ h3:hover {
     text-align: center;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -1832,4 +1914,948 @@ h3:hover {
 
 .overflow-x-auto>* {
   scroll-snap-align: start;
+}
+
+/* Page Flip Transition Styles */
+.page-flip-container {
+  perspective: 2000px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.page-content {
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+  background-color: inherit;
+  /* Maintain background */
+}
+
+.page-flip-out {
+  transform: rotateY(-180deg);
+  opacity: 0;
+}
+
+.page-flip-in {
+  /* Starting state for incoming page (handled by JS effectively, but defined here if needed) */
+  transform: rotateY(180deg);
+  opacity: 0;
+}
+
+.page-flip-in-active {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+/* Ensure body doesn't scroll during transition if possible, or handle overflow */
+body.flipping {
+  overflow: hidden;
+}
+
+/* RTL FAQ Overrides */
+html[dir="rtl"] .door-left {
+  border-left: none !important;
+  border-right: 4px solid #06b6d4 !important;
+  padding-right: 0 !important;
+  padding-left: 2rem !important;
+  justify-content: flex-start !important;
+}
+
+html[dir="rtl"] .door-right {
+  border-left: none !important;
+  border-right: 1px solid #e4e4e7 !important;
+  padding-left: 0 !important;
+  padding-right: 2rem !important;
+  justify-content: flex-end !important;
+}
+
+html[dir="rtl"] .cupboard-item.open .door-left {
+  transform: translateX(100%) !important;
+}
+
+html[dir="rtl"] .cupboard-item.open .door-right {
+  transform: translateX(-100%) !important;
+}
+
+/* ============================================================
+   GLOBAL DARK MODE & HOME 2 THEME ENFORCEMENTS
+   ============================================================ */
+
+/* 1. UNIVERSAL DARK MODE NUCLEAR OVERRIDE */
+/* This forces every single element to white when the 'dark' class is present on the html element */
+/* It targets text, icons, and even utility classes with !important */
+.dark body,
+.dark body *,
+.dark body *::before,
+.dark body *::after {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 2. SPECIFIC HOME 2 THEME FIXES (Neon Theme) */
+/* We rely on theme-responsive Tailwind classes for visibility. */
+
+/* 3. RESTORE BLACK TEXT ONLY FOR BRIGHT WHITE CARDS/SECTIONS */
+/* This ensures that if we have a truly white container, we can see the text inside it. */
+/* We remove the .dark prefix from the general bg-white selector to prevent forcing black text in Dark Mode when dark:bg-zinc-950 is active */
+:is(.bg-white, .bg-zinc-100, .bg-zinc-50, .bg-cyan-50, .bg-teal-50, .bg-fuchsia-50, .bg-amber-50, .bg-purple-50, .bg-emerald-50):not([class*="dark:bg-"]) :is(h1, h2, h3, h4, h5, h6, p, span, li, a, i, div) {
+  color: #18181b !important;
+  /* zinc-900 */
+}
+
+/* Explicit black text for things that MUST stay white in both modes */
+.force-white-bg :is(h1, h2, h3, h4, h5, h6, p, span, li, a, i, div) {
+  color: #000000 !important;
+}
+
+/* Explicit white text for things that MUST stay dark/neon in both modes */
+
+
+/* Specific fix for white icons and white text on active cyan buttons */
+.bg-cyan-600 :is(p, span, div, li, a, i, h1, h2, h3, h4, h5, h6),
+.dark .bg-cyan-600 :is(p, span, div, li, a, i, h1, h2, h3, h4, h5, h6) {
+  color: #ffffff !important;
+}
+
+/* 4. RE-FORCE WHITE FOR OVERLAYS (Even inside white sections) */
+:is(.bg-gradient-to-t, .bg-black\/80, .bg-black\/60, .bg-zinc-950\/80) :is(h1, h2, h3, h4, h5, h6, p, span, i) {
+  color: #ffffff !important;
+}
+
+/* 5. WHITE & TEAL VISIBILITY ENHANCEMENTS (About & Home 2) */
+/* This section ensures the 'White and Teal' theme is consistent across dark mode */
+
+.dark .text-cyan-600,
+.dark .text-cyan-500,
+.dark .text-blue-600 {
+  color: #2dd4bf !important;
+  /* Force to teal-400 for better visibility in dark mode */
+}
+
+/* Ensure headings have white text and teal accents */
+.dark h1,
+.dark h2,
+.dark h3 {
+  color: #ffffff !important;
+}
+
+.dark h1 span,
+.dark h2 span,
+.dark h3 span {
+  color: #2dd4bf !important;
+}
+
+/* Target specific sections for maximum visibility */
+.dark :is(.bg-zinc-900, .bg-zinc-950, .bg-black, .bg-home-v2) :is(p, li, span) {
+  color: #f1f5f9 !important;
+  /* slate-100 (Almost white) */
+}
+
+.dark .text-teal-400 {
+  color: #2dd4bf !important;
+  text-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
+}
+
+/* Fix for descriptions that might still be dark */
+.dark .text-zinc-600,
+.dark .text-zinc-500,
+.dark .text-zinc-400 {
+  color: #cbd5e1 !important;
+  /* slate-300 */
+}
+
+/* Specific button visibility for the White/Teal theme */
+.dark .bg-cyan-600 {
+  background-color: #0d9488 !important;
+  /* teal-600 */
+}
+
+.dark .bg-cyan-600:hover {
+  background-color: #0f766e !important;
+  /* teal-700 */
+}
+
+/* 6. GLOBAL HEADER & NAVBAR OPTIMIZATIONS */
+/* Ensures high-contrast text and glowing icons across all page headers */
+
+nav :is(a, button, span):not(.bg-cyan-600):not(.text-white) {
+  color: #000000 !important;
+  /* Pure Black for Light Mode */
+}
+
+.dark nav :is(a, button, span):not(.bg-cyan-600) {
+  color: #d4d4d8 !important;
+  /* zinc-300: High-quality off-white */
+}
+
+
+/* Force branding text to follow theme */
+nav span.font-black,
+nav .text-xl.font-black {
+  color: #000000 !important;
+}
+
+.dark nav span.font-black,
+.dark nav .text-xl.font-black {
+  color: #ffffff !important;
+}
+
+/* Glowing Icons in Header */
+/* Adds a soft white shadow to icons to make them pop against any background */
+nav :is(i, svg) {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.dark nav :is(i, svg) {
+  /* Removed aggressive white glow to match light mode aesthetic */
+  filter: none;
+}
+
+
+nav :is(a, button):hover :is(i, svg) {
+  filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.8));
+  /* Cyan glow on hover */
+  transform: scale(1.1);
+}
+
+/* 7. CIRCULAR ORBIT ANIMATION (ENLARGED) */
+@keyframes orbit-large {
+  from {
+    transform: rotate(0deg) translateX(280px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(280px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit-large 20s linear infinite;
+}
+
+/* Precise 120-degree Spacing for 3 Cards */
+.orbit-delay-1 {
+  animation-delay: 0s;
+}
+
+.orbit-delay-2 {
+  animation-delay: -6.66s;
+}
+
+.orbit-delay-3 {
+  animation-delay: -13.33s;
+}
+
+/* 8. ULTRA-VISIBILITY OVERRIDES FOR DARK MODE */
+.dark .text-zinc-400,
+.dark .text-zinc-500,
+.dark .text-zinc-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-cyan-600,
+.dark .text-teal-600 {
+  color: #22d3ee !important;
+}
+
+.dark .text-amber-600,
+.dark .text-orange-600 {
+  color: #fbbf24 !important;
+}
+
+.dark .text-red-600 {
+  color: #f87171 !important;
+}
+
+.dark .text-purple-600 {
+  color: #c084fc !important;
+}
+
+.dark .text-violet-600 {
+  color: #a78bfa !important;
+}
+
+.dark .text-green-600 {
+  color: #4ade80 !important;
+}
+
+.dark .text-pink-600 {
+  color: #f472b6 !important;
+}
+
+/* Ensure Icon Clarity (Removed aggressive drop-shadow) */
+.dark i,
+.dark svg {
+  filter: none !important;
+  fill: none;
+  /* Default to none for outline icons; explicitly filled icons will override this via classes */
+}
+
+/* 9. PREMIUM COMPONENT FIXES (FORCED CONTRAST) */
+/* Force Dark Text on White Buttons in Dark Mode */
+.premium-btn-fix.dark\:text-zinc-900 {
+  color: #18181b !important;
+}
+
+.premium-btn-fix.dark\:text-cyan-600 {
+  color: #0891b2 !important;
+}
+
+
+.premium-icon-box i,
+.premium-icon-box svg {
+  color: #ffffff !important;
+}
+
+.dark .bg-red-600,
+.dark .bg-pink-600,
+.dark .bg-teal-600 {
+  color: #ffffff !important;
+}
+
+/* 10. PREMIUM SCREEN TRANSITION (ENTRANCE ANIMATION) */
+
+.animation_wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: all;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  font-size: 13.333333333vw;
+  /* Scoped root for animation scaling */
+}
+
+.animation_wrapper.animation-finished {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.animation_title01 {
+  color: #fff;
+  font-size: 0.7em;
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+.animation_title01_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8em;
+  text-align: center;
+  z-index: 100;
+}
+
+.animation_title01 span {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Staggered Text Animations (16 characters max) */
+.animation_title01 span:nth-child(1) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.05s forwards, animation_font02 0.4s ease-in-out 0.9s forwards;
+}
+
+.animation_title01 span:nth-child(2) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s forwards, animation_font02 0.4s ease-in-out 0.925s forwards;
+}
+
+.animation_title01 span:nth-child(3) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.15s forwards, animation_font02 0.4s ease-in-out 0.95s forwards;
+}
+
+.animation_title01 span:nth-child(4) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards, animation_font02 0.4s ease-in-out 0.975s forwards;
+}
+
+.animation_title01 span:nth-child(5) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s forwards, animation_font02 0.4s ease-in-out 1.0s forwards;
+}
+
+.animation_title01 span:nth-child(6) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s forwards, animation_font02 0.4s ease-in-out 1.025s forwards;
+}
+
+.animation_title01 span:nth-child(7) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.35s forwards, animation_font02 0.4s ease-in-out 1.05s forwards;
+}
+
+.animation_title01 span:nth-child(8) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s forwards, animation_font02 0.4s ease-in-out 1.075s forwards;
+}
+
+.animation_title01 span:nth-child(9) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.45s forwards, animation_font02 0.4s ease-in-out 1.1s forwards;
+}
+
+.animation_title01 span:nth-child(10) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s forwards, animation_font02 0.4s ease-in-out 1.125s forwards;
+}
+
+.animation_title01 span:nth-child(11) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.55s forwards, animation_font02 0.4s ease-in-out 1.15s forwards;
+}
+
+.animation_title01 span:nth-child(12) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s forwards, animation_font02 0.4s ease-in-out 1.175s forwards;
+}
+
+.animation_title01 span:nth-child(13) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s forwards, animation_font02 0.4s ease-in-out 1.2s forwards;
+}
+
+.animation_title01 span:nth-child(14) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.7s forwards, animation_font02 0.4s ease-in-out 1.225s forwards;
+}
+
+.animation_title01 span:nth-child(15) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.75s forwards, animation_font02 0.4s ease-in-out 1.25s forwards;
+}
+
+.animation_title01 span:nth-child(16) {
+  animation: animation_font01 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.8s forwards, animation_font02 0.4s ease-in-out 1.275s forwards;
+}
+
+.animation_bg01 {
+  position: absolute;
+  background-color: #0c4a6e;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.animation_common_bg01 {
+  position: absolute;
+  bottom: 0;
+  left: -300%;
+  width: 300%;
+  height: 300%;
+  transform-origin: bottom right;
+  z-index: 10;
+}
+
+.animation_common_bg02 {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+.animation_common_bg03 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  transform: scale3d(0, 0, 0);
+  transform-origin: bottom right;
+  z-index: 30;
+}
+
+.animation_common_bg04 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  transform: scale3d(0, 0, 0);
+  transform-origin: top left;
+  z-index: 40;
+}
+
+.animation_common_bg05 {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  transform: scale3d(0, 0, 0);
+  transform-origin: center;
+  z-index: 50;
+}
+
+.animation_common_bg06 {
+  position: absolute;
+  bottom: 0;
+  right: -300%;
+  width: 300%;
+  height: 300%;
+  transform-origin: bottom left;
+  z-index: 60;
+}
+
+.animation_common_bg07 {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  transform: scale3d(0, 0, 0);
+  transform-origin: center;
+  z-index: 70;
+}
+
+.animation_common_bg08 {
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+}
+
+.animation_common_bg09 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  transform: scale3d(0, 0, 0);
+  transform-origin: bottom left;
+  z-index: 90;
+}
+
+.animation_common_bg10 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  transform: scale3d(0, 0, 0);
+  transform-origin: top right;
+  z-index: 95;
+}
+
+.animation_bg02 {
+  background-color: #0ea5e9;
+  animation: animation_bg01 0.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.animation_bg03 {
+  background-color: #0284c7;
+  animation: animation_bg01 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.05s forwards;
+}
+
+.animation_bg04 {
+  background-color: #0369a1;
+  animation: animation_bg01 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.1s forwards;
+}
+
+.animation_bg05 {
+  background-color: #075985;
+  animation: animation_bg01 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.15s forwards;
+}
+
+.animation_bg06 {
+  background-color: #1e1b4b;
+  animation: animation_bg02 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s forwards;
+}
+
+.animation_bg07 {
+  background-color: #312e81;
+  animation: animation_bg03 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.25s forwards;
+}
+
+.animation_bg08 {
+  background-color: #3730a3;
+  animation: animation_bg04 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
+}
+
+.animation_bg09 {
+  background-color: #4338ca;
+  animation: animation_bg05 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.35s forwards;
+}
+
+.animation_bg10 {
+  border-top: 100vh solid transparent;
+  border-right: 100vw solid #fff;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.4s forwards;
+}
+
+.animation_bg11 {
+  border-bottom: 100vh solid transparent;
+  border-left: 100vw solid #fff;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.4s forwards;
+}
+
+.animation_bg12 {
+  border-top: 100vh solid transparent;
+  border-right: 100vw solid #0ea5e9;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.45s forwards;
+}
+
+.animation_bg13 {
+  border-bottom: 100vh solid transparent;
+  border-left: 100vw solid #0ea5e9;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.45s forwards;
+}
+
+.animation_bg14 {
+  border-top: 100vh solid transparent;
+  border-right: 100vw solid #1e1b4b;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+}
+
+.animation_bg15 {
+  border-bottom: 100vh solid transparent;
+  border-left: 100vw solid #1e1b4b;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+}
+
+.animation_bg16 {
+  border-top: 100vh solid transparent;
+  border-right: 100vw solid #14b8a6;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.55s forwards;
+}
+
+.animation_bg17 {
+  border-bottom: 100vh solid transparent;
+  border-left: 100vw solid #14b8a6;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.55s forwards;
+}
+
+.animation_bg18 {
+  bottom: 0;
+  background-color: #111827;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards;
+}
+
+.animation_bg19 {
+  bottom: 20%;
+  background-color: #1f2937;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.65s forwards;
+}
+
+.animation_bg20 {
+  bottom: 40%;
+  background-color: #374151;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.7s forwards;
+}
+
+.animation_bg21 {
+  bottom: 60%;
+  background-color: #4b5563;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.75s forwards;
+}
+
+.animation_bg22 {
+  bottom: 80%;
+  background-color: #6b7280;
+  animation: animation_bg07 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.8s forwards;
+}
+
+.animation_bg23 {
+  background-color: #0ea5e9;
+  animation: animation_bg08 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.825s forwards;
+}
+
+.animation_bg24 {
+  background-color: #06b6d4;
+  animation: animation_bg08 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.875s forwards;
+}
+
+.animation_bg25 {
+  background-color: #0d9488;
+  animation: animation_bg08 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.925s forwards;
+}
+
+.animation_bg26 {
+  background-color: #0f766e;
+  animation: animation_bg08 0.25s cubic-bezier(0.19, 1, 0.22, 1) 0.975s forwards;
+}
+
+.animation_bg27 {
+  left: 0;
+  background-color: #1e1b4b;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 1.075s forwards;
+}
+
+.animation_bg28 {
+  left: 20%;
+  background-color: #312e81;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 1.125s forwards;
+}
+
+.animation_bg29 {
+  left: 40%;
+  background-color: #3730a3;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 1.175s forwards;
+}
+
+.animation_bg30 {
+  left: 60%;
+  background-color: #4338ca;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 1.225s forwards;
+}
+
+.animation_bg31 {
+  left: 80%;
+  background-color: #4f46e5;
+  animation: animation_bg07 0.3s cubic-bezier(0.19, 1, 0.22, 1) 1.275s forwards;
+}
+
+.animation_bg32 {
+  background-color: #000;
+  animation: animation_bg10 0.6s cubic-bezier(0.19, 1, 0.22, 1) 1.3s forwards;
+}
+
+.animation_bg33 {
+  background-color: #0ea5e9;
+  animation: animation_bg11 0.6s cubic-bezier(0.19, 1, 0.22, 1) 1.35s forwards;
+}
+
+.animation_bg34 {
+  background-color: #312e81;
+  animation: animation_bg12 0.6s cubic-bezier(0.19, 1, 0.22, 1) 1.4s forwards;
+}
+
+.animation_bg35 {
+  background-color: #1e1b4b;
+  animation: animation_bg13 0.6s cubic-bezier(0.19, 1, 0.22, 1) 1.45s forwards;
+}
+
+.animation_bg36 {
+  border-top: 100vh solid transparent;
+  border-left: 100vw solid #fff;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.5s forwards;
+}
+
+.animation_bg37 {
+  border-bottom: 100vh solid transparent;
+  border-right: 100vw solid #fff;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.5s forwards;
+}
+
+.animation_bg38 {
+  border-top: 100vh solid transparent;
+  border-left: 100vw solid #0ea5e9;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.55s forwards;
+}
+
+.animation_bg39 {
+  border-bottom: 100vh solid transparent;
+  border-right: 100vw solid #0ea5e9;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.55s forwards;
+}
+
+.animation_bg40 {
+  border-top: 100vh solid transparent;
+  border-left: 100vw solid #1e1b4b;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.6s forwards;
+}
+
+.animation_bg41 {
+  border-bottom: 100vh solid transparent;
+  border-right: 100vw solid #1e1b4b;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.6s forwards;
+}
+
+.animation_bg42 {
+  border-top: 100vh solid transparent;
+  border-left: 100vw solid #14b8a6;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.65s forwards;
+}
+
+.animation_bg43 {
+  border-bottom: 100vh solid transparent;
+  border-right: 100vw solid #14b8a6;
+  animation: animation_bg06 0.5s cubic-bezier(0.19, 1, 0.22, 1) 1.65s forwards;
+}
+
+@keyframes animation_bg01 {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes animation_bg02 {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animation_bg03 {
+  100% {
+    transform: translateX(75%);
+  }
+}
+
+@keyframes animation_bg04 {
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes animation_bg05 {
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+@keyframes animation_bg06 {
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animation_bg07 {
+  0% {
+    transform: scale3d(0, 1, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animation_bg08 {
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes animation_bg09 {
+  0% {
+    transform: scale3d(1, 0, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes animation_bg10 {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes animation_bg11 {
+  100% {
+    transform: translateX(-75%);
+  }
+}
+
+@keyframes animation_bg12 {
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes animation_bg13 {
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes animation_font01 {
+  0% {
+    transform: translateX(-15%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animation_font02 {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(180px);
+    opacity: 0;
+  }
+}
+
+@keyframes animation_title01 {
+  0% {
+    opacity: 0;
+    transform: scale3d(1.5, 1.5, 1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* ============================================================
+   GLOBAL NAVIGATION Z-INDEX OVERRIDES
+   Ensures Header & Mobile Menu stay above the Entrance Animation (z-index 9999)
+   ============================================================ */
+nav.fixed {
+  z-index: 10000 !important;
+}
+
+#mobile-menu-overlay {
+  z-index: 10100 !important;
+}
+
+#mobile-menu {
+  z-index: 10200 !important;
+}
+
+/* ============================================================
+   TORCH LIGHT ANIMATION
+   ============================================================ */
+@keyframes torch-sweep {
+  0% {
+    background-position: -150% center;
+  }
+
+  100% {
+    background-position: 250% center;
+  }
+}
+
+.torch-text {
+  background: radial-gradient(circle, #ffffff 0%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.1) 70%) no-repeat;
+  background-size: 300px 100%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: torch-sweep 5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.dark .torch-text {
+  background: radial-gradient(circle,
+      #5eead4 0%,
+      rgba(94, 234, 212, 0.6) 30%,
+      rgba(34, 211, 238, 0.2) 60%,
+      rgba(255, 255, 255, 0.05) 100%) no-repeat;
+  background-size: 400px 100%;
+  animation: torch-sweep 7s ease-in-out infinite;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.dark .torch-text:hover {
+  filter: brightness(1.5) drop-shadow(0 0 15px rgba(94, 234, 212, 0.6));
+  transform: scale(1.02);
+  cursor: pointer;
 }

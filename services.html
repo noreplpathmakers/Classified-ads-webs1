@@ -51,63 +51,63 @@
 
 <body class="bg-cyan-50 dark:bg-zinc-900 transition-colors duration-300 bg-services">
 
-    <!-- Navbar -->
-    <nav
-        class="sticky top-0 z-[100] bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-200 dark:border-zinc-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+    <!-- Navbar (Floating Container) -->
+    <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
+        <div
+            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
                     <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
                         <div
-                            class="w-12 h-12 bg-cyan-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
+                            class="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
                             DS</div>
-                        <span class="text-2xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
-                                class="text-blue-900 dark:text-blue-400">Square</span></span>
+                        <span class="text-xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                                class="text-blue-900">Square</span></span>
                     </a>
 
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex items-center gap-1">
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Home</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="index.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
                                 <a href="index2.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     2</a>
                             </div>
                         </div>
 
                         <a href="about.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
                         <a href="services.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
                         <a href="contact.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
 
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Dashboards</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="user_dashboard.html"
-                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="user" class="w-4 h-4"></i>
                                     <span>User Dashboard</span>
                                 </a>
                                 <a href="admin_dashboard.html"
-                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-zinc-300 hover:text-cyan-600">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="shield-check" class="w-4 h-4"></i>
                                     <span>Admin Control</span>
                                 </a>
@@ -116,27 +116,36 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-3">
+                    <!-- REORDERED: Login -> Get Started -> Theme -> RTL -->
+
                     <a href="login.html"
-                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
-                        In</a>
-                    <button id="dir-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-cyan-600 hover:text-white transition-all shadow-sm">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                    <a href="login.html#register"
-                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        class="hidden md:block px-5 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all hover:text-cyan-600 dark:hover:text-cyan-400">
+                        Log In
+                    </a>
+
+                    <a href="signup.html"
+                        class="hidden md:block px-5 py-2 bg-cyan-600 text-white text-sm font-bold rounded-full hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95">
                         Get Started
                     </a>
+
+                    <div class="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-1 hidden md:block"></div>
+
+                    <button id="theme-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+
+                    <button id="dir-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2.5 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95 ml-2">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -185,61 +194,104 @@
                 </a>
             </div>
 
-            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                <a href="login.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                    Log In
-                </a>
-                <a href="signup.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
-                    Get Started
-                </a>
-            </div>
+
         </div>
     </div>
 
-    <!-- 1. Hero Section -->
-    <div
-        class="relative py-20 overflow-hidden bg-gradient-to-br from-cyan-900 via-blue-900 to-violet-900 animate-gradient-xy">
-        <!-- Floating Elements -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
-        </div>
-        <div class="absolute top-20 left-20 w-72 h-72 bg-white/5 rounded-full blur-[100px] animate-float"></div>
-        <div
-            class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse-slow">
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-black text-white font-outfit mb-8 animate-fade-in-up">
-                Powerful Advertising Services <br><span class="text-cyan-300">That Sell Faster</span>
-            </h1>
-            <p class="text-xl text-zinc-200 max-w-3xl mx-auto mb-12 font-medium animate-fade-in-up delay-200">
-                Promote your listings, reach verified buyers, and boost visibility using our 15+ smart classified
-                advertising tools.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6 animate-zoom-in delay-400">
-                <a href="pricing-booking.html"
-                    class="px-10 py-5 bg-cyan-500 text-white font-black rounded-full hover:scale-105 hover:bg-cyan-400 transition-all shadow-lg btn-glow">Post
-                    an Ad</a>
-                <a href="pricing-booking.html"
-                    class="px-10 py-5 bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold rounded-full hover:bg-white/20 transition-all btn-glow">View
-                    Pricing</a>
-                <a href="#core-services"
-                    class="px-10 py-5 bg-cyan-500 text-white font-black rounded-full hover:scale-105 hover:bg-cyan-400 transition-all shadow-lg btn-glow">Explore
-                    Categories</a>
+    <!-- 1. Hero Section: THE QUANTUM UPGRADE -->
+    <div class="relative min-h-[90vh] flex items-center pt-32 pb-24 overflow-hidden bg-[#020617]">
+        <!-- Holographic Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f633,transparent_50%)]">
+            </div>
+            <div
+                class="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px] animate-pulse-slow">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px] animate-float">
             </div>
 
-            <!-- Image Removed as per request -->
         </div>
 
-        <!-- Wave Bottom -->
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0 transform rotate-180">
-            <svg class="relative block w-[calc(100%+1.3px)] h-[100px]" data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                    class="fill-cyan-50 dark:fill-zinc-900"></path>
-            </svg>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 w-full">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="flex-1 text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-400/10 border border-teal-400/20 text-teal-400 text-sm font-black mb-8 animate-fade-in-up uppercase tracking-widest">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                        </span>
+                        Next-Gen Advertising
+                    </div>
+
+                    <h1
+                        class="text-5xl sm:text-7xl md:text-8xl font-black text-white leading-[0.9] font-outfit mb-10 animate-fade-in-up">
+                        ELIMINATE <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500">LIMITS.</span>
+                    </h1>
+
+                    <p
+                        class="text-xl text-zinc-400 max-w-2xl mb-12 font-medium leading-relaxed animate-fade-in-up delay-200">
+                        Stop blending in. Leverage our 15+ hyper-precision tools to dominate search results, 10x your
+                        CTR, and connect with serious buyers instantly.
+                    </p>
+
+                    <div class="flex flex-wrap gap-6 animate-fade-in-up delay-300">
+                        <a href="pricing-booking.html"
+                            class="group relative px-10 py-5 bg-teal-400 text-zinc-950 font-black rounded-2xl hover:scale-105 transition-all shadow-[0_0_30px_rgba(45,212,191,0.4)] flex items-center gap-3">
+                            <span>Get Started Now</span>
+                            <i data-lucide="arrow-right"
+                                class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#core-services"
+                            class="px-10 py-5 bg-white/5 backdrop-blur-xl text-white border border-white/10 font-bold rounded-2xl hover:bg-white/10 transition-all">
+                            Explore Tools
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Element: Floating Cards (Orbiting Constellation) -->
+                <div class="flex-1 relative hidden lg:block">
+                    <div class="relative w-full aspect-square flex items-center justify-center">
+
+                        <!-- Floating Service Cards (Orbital Motion) -->
+                        <div class="absolute bg-white/10 backdrop-blur-2xl p-6 rounded-[2rem] border border-white/20 shadow-2xl animate-orbit orbit-delay-1"
+                            style="width: 180px;">
+                            <div
+                                class="w-12 h-12 bg-teal-400 rounded-xl flex items-center justify-center text-zinc-950 mb-4">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-white font-black text-lg">Instant Boost</div>
+                            <div class="text-teal-400 font-bold text-sm">Active Now</div>
+                        </div>
+
+                        <div class="absolute bg-white/10 backdrop-blur-2xl p-6 rounded-[2rem] border border-white/20 shadow-2xl animate-orbit orbit-delay-2"
+                            style="width: 180px;">
+                            <div
+                                class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white mb-4">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-white font-black text-lg">Verified</div>
+                            <div class="text-blue-400 font-bold text-sm">Trusted</div>
+                        </div>
+
+                        <div class="absolute bg-white/10 backdrop-blur-2xl p-6 rounded-[2rem] border border-white/20 shadow-2xl animate-orbit orbit-delay-3"
+                            style="width: 180px;">
+                            <div
+                                class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-white mb-4">
+                                <i data-lucide="eye" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-white font-black text-lg">Growth</div>
+                            <div class="text-purple-400 font-bold text-sm">+240% View</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -281,7 +333,7 @@
             <div
                 class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-amber-500/50 transition-all group">
                 <div class="h-48 overflow-hidden rounded-2xl mb-6 relative">
-                    <img src="Assets/52.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/1.jpeg" onclick="toggleColor(this)"
                         class="w-full h-full object-cover grayscale-start">
                     <div
                         class="absolute top-2 right-2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
@@ -302,7 +354,7 @@
             <div
                 class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-red-500/50 transition-all group">
                 <div class="h-48 overflow-hidden rounded-2xl mb-6 relative">
-                    <img src="Assets/53.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/2.jpeg" onclick="toggleColor(this)"
                         class="w-full h-full object-cover grayscale-start">
                 </div>
                 <h3 class="text-2xl font-black dark:text-white mb-2">3. Geo-Targeting</h3>
@@ -318,7 +370,7 @@
             <div
                 class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-blue-500/50 transition-all group">
                 <div class="h-48 overflow-hidden rounded-2xl mb-6 relative">
-                    <img src="Assets/54.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/3.jpeg" onclick="toggleColor(this)"
                         class="w-full h-full object-cover grayscale-start">
                 </div>
                 <h3 class="text-2xl font-black dark:text-white mb-2">4. Storefronts</h3>
@@ -335,7 +387,7 @@
             <div
                 class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-purple-500/50 transition-all group">
                 <div class="h-48 overflow-hidden rounded-2xl mb-6 relative">
-                    <img src="Assets/55.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/4.jpeg" onclick="toggleColor(this)"
                         class="w-full h-full object-cover grayscale-start">
                 </div>
                 <h3 class="text-2xl font-black dark:text-white mb-2">5. Banner Ads</h3>
@@ -351,7 +403,7 @@
             <div
                 class="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl border border-zinc-100 dark:border-zinc-800 hover:border-teal-500/50 transition-all group">
                 <div class="h-48 overflow-hidden rounded-2xl mb-6 relative">
-                    <img src="Assets/56.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/5.jpeg" onclick="toggleColor(this)"
                         class="w-full h-full object-cover grayscale-start">
                 </div>
                 <h3 class="text-2xl font-black dark:text-white mb-2">6. Sponsored Search</h3>
@@ -375,19 +427,19 @@
             <!-- 7. Category Top -->
             <div class="flex flex-col lg:flex-row items-center gap-12 group">
                 <div class="lg:w-1/2">
-                    <img src="Assets/57.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/6.jpg" onclick="toggleColor(this)"
                         class="rounded-3xl shadow-2xl skew-on-scroll grayscale-start w-full object-cover h-[400px]">
                 </div>
                 <div class="lg:w-1/2">
                     <div
-                        class="w-16 h-16 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl mb-6">
+                        class="w-16 h-16 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl mb-6 premium-icon-box">
                         <i data-lucide="arrow-up-circle" class="w-8 h-8"></i>
                     </div>
                     <h2 class="text-4xl font-black dark:text-white mb-6">7. Category Dominance</h2>
                     <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-6">Own the header of the "Electronics" or
                         "Fashion" page. ensuring maximum brand recall for every visitor browsing that category.</p>
                     <a href="pricing-booking.html"
-                        class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:scale-105 transition-transform inline-block">Secure
+                        class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:scale-105 transition-transform inline-block premium-btn-fix">Secure
                         Spot</a>
                 </div>
             </div>
@@ -399,13 +451,15 @@
                         class="rounded-3xl shadow-2xl skew-on-scroll grayscale-start w-full object-cover h-[400px]">
                 </div>
                 <div class="lg:w-1/2">
-                    <div class="w-16 h-16 bg-red-100 text-red-600 flex items-center justify-center rounded-2xl mb-6"><i
-                            data-lucide="flame" class="w-8 h-8"></i></div>
+                    <div
+                        class="w-16 h-16 bg-red-100 text-red-600 flex items-center justify-center rounded-2xl mb-6 premium-icon-box">
+                        <i data-lucide="flame" class="w-8 h-8"></i>
+                    </div>
                     <h2 class="text-4xl font-black dark:text-white mb-6">8. Urgent Sale</h2>
                     <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-6">Need cash fast? Get the red "URGENT" border
                         and flame icon. Proven to sell items 3x faster than standard listings.</p>
                     <a href="pricing-booking.html"
-                        class="px-8 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors inline-block">Mark
+                        class="px-8 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors inline-block premium-btn-fix">Mark
                         Urgent</a>
                 </div>
             </div>
@@ -417,13 +471,15 @@
                         class="rounded-3xl shadow-2xl skew-on-scroll grayscale-start w-full object-cover h-[400px]">
                 </div>
                 <div class="lg:w-1/2">
-                    <div class="w-16 h-16 bg-zinc-800 text-white flex items-center justify-center rounded-2xl mb-6"><i
-                            data-lucide="briefcase" class="w-8 h-8"></i></div>
+                    <div
+                        class="w-16 h-16 bg-zinc-800 text-white flex items-center justify-center rounded-2xl mb-6 premium-icon-box">
+                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                    </div>
                     <h2 class="text-4xl font-black dark:text-white mb-6">9. Dealer & Agency Pro</h2>
                     <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-6">Bulk management tools for car dealers and
                         real estate agencies. Sync your inventory automatically via API or XML feed.</p>
                     <a href="pricing-booking.html"
-                        class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:scale-105 transition-transform inline-block">Join
+                        class="px-8 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:scale-105 transition-transform inline-block premium-btn-fix">Join
                         as Agency</a>
                 </div>
             </div>
@@ -431,18 +487,19 @@
             <!-- 10. Event Ads -->
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 group">
                 <div class="lg:w-1/2">
-                    <img src="Assets/60.jpeg" onclick="toggleColor(this)"
+                    <img src="Assets/7.jpg" onclick="toggleColor(this)"
                         class="rounded-3xl shadow-2xl skew-on-scroll grayscale-start w-full object-cover h-[400px]">
                 </div>
                 <div class="lg:w-1/2">
-                    <div class="w-16 h-16 bg-pink-100 text-pink-600 flex items-center justify-center rounded-2xl mb-6">
+                    <div
+                        class="w-16 h-16 bg-pink-100 text-pink-600 flex items-center justify-center rounded-2xl mb-6 premium-icon-box">
                         <i data-lucide="calendar" class="w-8 h-8"></i>
                     </div>
                     <h2 class="text-4xl font-black dark:text-white mb-6">10. Event Promotion</h2>
                     <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-6">Promote your garage sale, concert, or store
                         opening. Includes calendar sync and RSVP tracking for attendees.</p>
                     <a href="pricing-booking.html"
-                        class="px-8 py-3 bg-pink-600 text-white font-bold rounded-xl hover:bg-pink-700 transition-colors inline-block">Promote
+                        class="px-8 py-3 bg-pink-600 text-white font-bold rounded-xl hover:bg-pink-700 transition-colors inline-block premium-btn-fix">Promote
                         Event</a>
                 </div>
             </div>
@@ -458,7 +515,7 @@
             <!-- 11. Jobs -->
             <div
                 class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl flex gap-4 hover:bg-white dark:hover:bg-zinc-900 transition-colors cursor-pointer group border border-transparent hover:border-green-200">
-                <img src="Assets/15.jpeg" onclick="toggleColor(this)"
+                <img src="Assets/8.jpg" onclick="toggleColor(this)"
                     class="w-20 h-20 rounded-xl object-cover grayscale-start flex-shrink-0">
                 <div>
                     <h4 class="font-bold text-lg dark:text-white mb-1">11. Recruitment</h4>
@@ -471,7 +528,7 @@
             <!-- 12. Real Estate -->
             <div
                 class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl flex gap-4 hover:bg-white dark:hover:bg-zinc-900 transition-colors cursor-pointer group border border-transparent hover:border-cyan-200">
-                <img src="Assets/16.jpeg" onclick="toggleColor(this)"
+                <img src="Assets/9.jpg" onclick="toggleColor(this)"
                     class="w-20 h-20 rounded-xl object-cover grayscale-start flex-shrink-0">
                 <div>
                     <h4 class="font-bold text-lg dark:text-white mb-1">12. Real Estate</h4>
@@ -484,7 +541,7 @@
             <!-- 13. Vehicle -->
             <div
                 class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl flex gap-4 hover:bg-white dark:hover:bg-zinc-900 transition-colors cursor-pointer group border border-transparent hover:border-zinc-200">
-                <img src="Assets/17.jpeg" onclick="toggleColor(this)"
+                <img src="Assets/10.jpg" onclick="toggleColor(this)"
                     class="w-20 h-20 rounded-xl object-cover grayscale-start flex-shrink-0">
                 <div>
                     <h4 class="font-bold text-lg dark:text-white mb-1">13. Auto Spec</h4>
@@ -510,7 +567,7 @@
             <!-- 15. Fraud -->
             <div
                 class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl flex gap-4 hover:bg-white dark:hover:bg-zinc-900 transition-colors cursor-pointer group border border-transparent hover:border-green-200">
-                <img src="Assets/19.jpeg" onclick="toggleColor(this)"
+                <img src="Assets/58.jpeg" onclick="toggleColor(this)"
                     class="w-20 h-20 rounded-xl object-cover grayscale-start flex-shrink-0">
                 <div>
                     <h4 class="font-bold text-lg dark:text-white mb-1">15. Fraud Shield</h4>
@@ -522,8 +579,11 @@
 
         </div>
 
+        <!-- Section Spacer to prevent collision with Pricing -->
+        <div class="section-spacer"></div>
+
         <!-- 3. Pricing Section (Glassmorphism) -->
-        <div class="py-24 bg-[url('Assets/20.jpeg')] bg-cover bg-fixed relative">
+        <div class="py-24 bg-[url('Assets/45.jpeg')] bg-cover bg-fixed relative">
             <div class="absolute inset-0 bg-zinc-900/80 backdrop-blur-sm"></div>
             <div class="relative z-10 max-w-7xl mx-auto px-4">
                 <h2 class="text-5xl font-black text-center text-white font-outfit mb-16">SIMPLE <span
@@ -584,68 +644,67 @@
         </div>
 
         <!-- 4. Trust & Performance -->
-        <div class="py-24 bg-white dark:bg-zinc-950">
-            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+        <div class="py-24 bg-[#020617] relative overflow-hidden">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-teal-400/5 to-transparent">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16 relative z-10">
                 <div class="flex-1">
-                    <h2 class="text-4xl font-black text-zinc-900 dark:text-white font-outfit mb-8">BUILT FOR <span
-                            class="text-cyan-600">SPEED</span> AND TRUST.</h2>
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">99.9%</h4>
-                            <p class="font-bold text-zinc-700">Uptime Guarantee</p>
+                    <h2 class="text-4xl font-black text-white font-outfit mb-8 leading-tight">
+                        ENGINEERED FOR <br />
+                        <span class="text-teal-400">ABSOLUTE DOMINANCE.</span>
+                    </h2>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div
+                            class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all group">
+                            <div
+                                class="text-4xl font-black text-teal-400 mb-2 group-hover:scale-110 transition-transform">
+                                99.9%</div>
+                            <p class="text-zinc-400 font-bold uppercase tracking-widest text-xs">Uptime Guarantee</p>
                         </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">0.01s</h4>
-                            <p class="font-bold text-zinc-700">Search Latency</p>
+                        <div
+                            class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all group">
+                            <div
+                                class="text-4xl font-black text-blue-400 mb-2 group-hover:scale-110 transition-transform">
+                                0.01s</div>
+                            <p class="text-zinc-400 font-bold uppercase tracking-widest text-xs">Search Latency</p>
                         </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">24/7</h4>
-                            <p class="font-bold text-zinc-700">Moderation</p>
+                        <div
+                            class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all group">
+                            <div
+                                class="text-4xl font-black text-purple-400 mb-2 group-hover:scale-110 transition-transform">
+                                24/7</div>
+                            <p class="text-zinc-400 font-bold uppercase tracking-widest text-xs">AI Moderation</p>
                         </div>
-                        <!-- New Stats -->
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">200+</h4>
-                            <p class="font-bold text-zinc-700">Global CDNs</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2"><i data-lucide="lock"
-                                    class="w-8 h-8 inline"></i></h4>
-                            <p class="font-bold text-zinc-700">SSL Encrypted</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">Daily</h4>
-                            <p class="font-bold text-zinc-700">Auto Backups</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">0%</h4>
-                            <p class="font-bold text-zinc-700">Bot Traffic</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">100</h4>
-                            <p class="font-bold text-zinc-700">SEO Score</p>
-                        </div>
-                        <!-- 4 More Stats -->
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">Zero</h4>
-                            <p class="font-bold text-zinc-700">Downtime</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">5ms</h4>
-                            <p class="font-bold text-zinc-700">API Latency</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">100%</h4>
-                            <p class="font-bold text-zinc-700">Refund Lock</p>
-                        </div>
-                        <div class="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-2xl">
-                            <h4 class="text-4xl font-black text-cyan-600 mb-2">Multi</h4>
-                            <p class="font-bold text-zinc-700">Region Auth</p>
+                        <div
+                            class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all group">
+                            <div
+                                class="text-4xl font-black text-pink-400 mb-2 group-hover:scale-110 transition-transform">
+                                100</div>
+                            <p class="text-zinc-400 font-bold uppercase tracking-widest text-xs">SEO Performance</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="flex-1 relative">
-                    <div class="absolute inset-0 bg-cyan-500/10 blur-[80px]"></div>
-                    <img src="Assets/21.jpeg" class="relative rounded-[3rem] shadow-2xl animate-float">
+                    <div class="absolute inset-0 bg-teal-400/20 blur-[100px] animate-pulse-slow"></div>
+                    <div
+                        class="relative p-2 bg-gradient-to-br from-white/20 to-transparent rounded-[3.5rem] shadow-2xl backdrop-blur-3xl">
+                        <img src="Assets/31.jpeg"
+                            class="rounded-[3rem] w-full object-cover aspect-[4/5] shadow-inner animate-float">
+
+                        <!-- Floating Micro-UI Overlays -->
+                        <div
+                            class="absolute top-10 -right-8 bg-teal-400 text-zinc-950 p-4 rounded-2xl font-black shadow-2xl animate-bounce-slow">
+                            10X Reach
+                        </div>
+                        <div
+                            class="absolute bottom-20 -left-10 bg-white/10 backdrop-blur-xl border border-white/20 text-white p-4 rounded-2xl font-bold shadow-2xl animate-float">
+                            Global Sync
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -660,10 +719,10 @@
                         Already Searching</h2>
                     <div class="flex flex-col sm:flex-row justify-center gap-6">
                         <a href="pricing-booking.html"
-                            class="px-10 py-4 bg-white text-cyan-600 font-bold rounded-full hover:scale-105 transition-transform shadow-xl">Post
+                            class="px-10 py-4 bg-white text-cyan-600 dark:text-cyan-600 font-bold rounded-full hover:scale-105 transition-transform shadow-xl premium-btn-fix">Post
                             Your Ad</a>
                         <a href="pricing-booking.html"
-                            class="px-10 py-4 bg-cyan-900/40 backdrop-blur border border-white/30 text-white font-bold rounded-full hover:bg-cyan-900/60 transition-all">View
+                            class="px-10 py-4 bg-cyan-900/40 backdrop-blur border border-white/30 text-white font-bold rounded-full hover:bg-cyan-900/60 transition-all premium-btn-fix">View
                             Pricing</a>
                     </div>
                 </div>

@@ -23,23 +23,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navbar Dropdown Logic (Hover for Desktop)
+    // Navbar Dropdown Logic
     const navDropdowns = document.querySelectorAll('.dropdown-trigger');
     navDropdowns.forEach(trigger => {
         const menu = trigger.nextElementSibling;
         if (menu) {
             const wrapper = trigger.parentElement;
-            wrapper.addEventListener('mouseenter', () => {
+            let timeoutId;
+
+            // Helper to open
+            const openMenu = () => {
+                clearTimeout(timeoutId);
                 menu.classList.remove('hidden');
-                setTimeout(() => {
+                // Small delay to allow display:block to apply before opacity transition
+                requestAnimationFrame(() => {
                     menu.classList.remove('opacity-0', 'translate-y-2');
-                }, 10);
-            });
-            wrapper.addEventListener('mouseleave', () => {
-                menu.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => {
-                    menu.classList.add('hidden');
+                });
+            };
+
+            // Helper to close
+            const closeMenu = () => {
+                timeoutId = setTimeout(() => {
+                    menu.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => {
+                        menu.classList.add('hidden');
+                    }, 200);
                 }, 200);
+            };
+
+            // Hover Events
+            wrapper.addEventListener('mouseenter', openMenu);
+            wrapper.addEventListener('mouseleave', closeMenu);
+
+            // Click Event (Robust Toggle)
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = menu.classList.contains('hidden') || menu.classList.contains('opacity-0');
+
+                // Close all others immediately
+                navDropdowns.forEach(other => {
+                    if (other !== trigger) {
+                        const otherMenu = other.nextElementSibling;
+                        if (otherMenu) {
+                            otherMenu.classList.add('hidden', 'opacity-0', 'translate-y-2');
+                        }
+                    }
+                });
+
+                if (isHidden) {
+                    openMenu();
+                } else {
+                    // Close immediately on click toggle
+                    menu.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => {
+                        menu.classList.add('hidden');
+                    }, 200);
+                }
+            });
+
+            // Prevent closing when clicking inside the menu
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) {
+                    menu.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => {
+                        menu.classList.add('hidden');
+                    }, 200);
+                }
             });
         }
     });
@@ -478,39 +532,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Active Navbar Link Logic */
 document.addEventListener('DOMContentLoaded', () => {
-    // Get current filename, default to index.html if empty or root
-    let currentPath = window.location.pathname.split('/').pop();
-    if (currentPath === '' || currentPath === '/') currentPath = 'index.html';
+    // Unified Active Link Logic
+    const fullPath = window.location.pathname;
+    const fileName = fullPath.split('/').pop() || 'index.html';
 
-    const navLinks = document.querySelectorAll('nav a');
-    const navButtons = document.querySelectorAll('nav button.dropdown-trigger');
-
-    // Remove any existing active classes just in case
-    document.querySelectorAll('.active-nav-link').forEach(el => el.classList.remove('active-nav-link'));
-
-    // Helper to set active
-    const setActive = (el) => {
-        el.classList.add('active-nav-link');
-    };
-
-    // Check Dropdown Triggers first (Parents)
-    if (currentPath === 'index.html' || currentPath === 'index2.html') {
-        navButtons.forEach(btn => {
-            if (btn.innerText.includes('Home')) setActive(btn);
-        });
-    } else if (currentPath === 'user_dashboard.html' || currentPath === 'admin_dashboard.html') {
-        navButtons.forEach(btn => {
-            if (btn.innerText.includes('Dashboards')) setActive(btn);
-        });
-    } else {
-        // Direct Links (About, Services, Contact)
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPath) {
-                setActive(link);
-            }
-        });
+    // Explicitly exclude signup page from having an active underline anywhere
+    if (fileName === 'signup.html') {
+        document.querySelectorAll('.active-nav-link').forEach(el => el.classList.remove('active-nav-link'));
+        return;
     }
+
+    const navLinks = document.querySelectorAll('nav a, nav button.dropdown-trigger');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        let isActive = false;
+
+        // Direct matching
+        if (href) {
+            const linkFile = href.split('/').pop();
+            // Don't show active for empty '#' links or login/signup
+            if (linkFile && linkFile !== '#' && linkFile !== 'signup.html') {
+                if (linkFile === fileName) isActive = true;
+            }
+        }
+
+        // Dropdown Parent matching
+        const text = link.innerText.trim();
+        if (text === 'Home' && (fileName === 'index.html' || fileName === 'index2.html')) isActive = true;
+        if (text === 'Dashboards' && fileName.includes('dashboard')) isActive = true;
+
+        // Apply class if active
+        if (isActive) {
+            link.classList.add('active-nav-link');
+        } else {
+            link.classList.remove('active-nav-link');
+        }
+    });
     // Generic Scroll Revealer (New Skew Effect)
     const revealElements = document.querySelectorAll('.skew-on-scroll');
     const revealObserver = new IntersectionObserver((entries) => {

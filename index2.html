@@ -42,67 +42,65 @@
 </head>
 
 <body class="bg-[#fdfcf9] dark:bg-zinc-950 transition-colors duration-500 bg-home-v2 relative">
-    <canvas id="snow-canvas"></canvas>
 
-    <!-- Navbar (Standard) -->
-    <nav
-        class="sticky top-0 z-[100] bg-white/60 dark:bg-zinc-950/60 backdrop-blur-xl border-b border-white/50 dark:border-zinc-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+
+    <!-- Navbar (Floating Container) -->
+    <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
+        <div
+            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
-                    <!-- Logo (Forced LTR for brand consistency) -->
-                    <a href="index.html" class="flex flex-row items-center gap-3 group flex-shrink-0" dir="ltr">
+                    <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
                         <div
-                            class="w-12 h-12 bg-zinc-900 dark:bg-white rounded-2xl flex items-center justify-center text-white dark:text-zinc-900 font-bold text-2xl shadow-xl group-hover:rotate-6 transition-transform">
+                            class="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-cyan-500/20 group-hover:rotate-6 transition-transform">
                             DS</div>
-                        <span
-                            class="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-white hidden sm:block whitespace-nowrap">Deal<span
-                                class="text-blue-900">Square</span></span>
+                        <span class="text-xl font-black tracking-tighter dark:text-white hidden sm:block">Deal<span
+                                class="text-blue-900 dark:text-cyan-400">Square</span></span>
                     </a>
 
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex items-center gap-1">
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Home</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="index.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
                                 <a href="index2.html"
-                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Home
+                                    class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     2</a>
                             </div>
                         </div>
 
                         <a href="about.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">About</a>
                         <a href="services.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Services</a>
                         <a href="contact.html"
-                            class="px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
+                            class="px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Contact</a>
 
                         <div class="relative group">
                             <button
-                                class="dropdown-trigger flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-bold text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                                class="dropdown-trigger flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-bold text-zinc-600 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
                                 <span>Dashboards</span>
                                 <i data-lucide="chevron-down"
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200">
+                                class="absolute top-full left-0 w-56 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 mt-2">
                                 <a href="user_dashboard.html"
-                                    class="flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="user" class="w-4 h-4"></i>
                                     <span>User Dashboard</span>
                                 </a>
                                 <a href="admin_dashboard.html"
-                                    class="flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">
                                     <i data-lucide="shield-check" class="w-4 h-4"></i>
                                     <span>Admin Control</span>
                                 </a>
@@ -111,26 +109,36 @@
                     </div>
                 </div>
 
-                <div class="flex flex-row items-center gap-4 sm:gap-6">
+                <div class="flex items-center gap-3">
+                    <!-- REORDERED: Login -> Get Started -> Theme -> RTL -->
+
                     <a href="login.html"
-                        class="hidden lg:block px-6 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all border border-cyan-500/30 dark:border-cyan-500 shadow-[0_0_10px_rgba(99,102,241,0.2)] dark:shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:border-cyan-500 rounded-xl hover:text-cyan-600 dark:hover:text-white bg-white/50 dark:bg-zinc-900/50">Log
-                        In</a>
-                    <button id="dir-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm flex-shrink-0">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all shadow-sm flex-shrink-0">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
-                    </button>
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden p-3 rounded-2xl bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 flex-shrink-0">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                    <a href="login.html#register"
-                        class="px-6 py-3 bg-cyan-600 text-white font-black rounded-2xl hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-600/20 active:scale-95 hidden lg:block">
+                        class="hidden md:block px-5 py-2 text-sm font-bold text-zinc-600 dark:text-white transition-all hover:text-cyan-600 dark:hover:text-cyan-400">
+                        Log In
+                    </a>
+
+                    <a href="signup.html"
+                        class="hidden md:block px-5 py-2 bg-cyan-600 text-white text-sm font-bold rounded-full hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95">
                         Get Started
                     </a>
+
+                    <div class="w-px h-6 bg-zinc-200 dark:bg-zinc-800 mx-1 hidden md:block"></div>
+
+                    <button id="theme-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+
+                    <button id="dir-toggle"
+                        class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-all">
+                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2.5 rounded-full bg-cyan-600 text-white hover:bg-cyan-700 transition-all shadow-lg shadow-cyan-600/20 active:scale-95 ml-2">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -179,16 +187,7 @@
                 </a>
             </div>
 
-            <div class="flex flex-col gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                <a href="login.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 font-bold dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
-                    Log In
-                </a>
-                <a href="signup.html"
-                    class="flex items-center justify-center px-4 py-3 rounded-xl bg-cyan-600 text-white font-black hover:bg-cyan-700 shadow-xl shadow-cyan-600/20 active:scale-95 transition-all">
-                    Get Started
-                </a>
-            </div>
+
         </div>
     </div>
 
@@ -204,41 +203,56 @@
     </div>
 
     <!-- Electric Hero -->
-    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden py-20">
         <div class="absolute inset-0">
-            <!-- Background Image removed as per user request, relying on canvas/body bg -->
+            <canvas id="snow-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/80">
             </div>
         </div>
-        <div class="max-w-6xl mx-auto px-4 text-center relative z-10 animate-fade-in-up">
-            <span
-                class="inline-block py-2 px-6 rounded-full bg-cyan-900/30 text-cyan-400 font-bold tracking-[0.3em] uppercase text-xs mb-8 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-pulse">
-                System Online: Thunder Mode
-            </span>
-            <h1
-                class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black italic text-white leading-[0.9] mb-8 tracking-tighter drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]">
-                STRIKE <br>
-                <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-cyan-400 bg-[length:200%_auto] animate-shine">WITH
-                    POWER.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-cyan-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-                The world's first <span
-                    class="font-bold text-white shadow-[0_0_10px_rgba(255,255,255,0.5)]">high-voltage
-                    marketplace</span>.
-                Secure assets, flash deals, and
-                <span class="font-bold text-cyan-400 border-b-2 border-cyan-400">instant transfers.</span>
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-8">
-                <button
-                    class="group px-12 py-6 bg-cyan-600 text-white font-black rounded-full border-2 border-cyan-400 hover:bg-cyan-500 hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(6,182,212,0.6)] text-lg uppercase tracking-wider">
-                    <span class="relative z-10 flex items-center gap-3">Ignite Search <i data-lucide="zap"
-                            class="w-6 h-6 fill-white group-hover:animate-bounce"></i></span>
-                </button>
-                <button
-                    class="px-12 py-6 bg-transparent text-white font-black rounded-full border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all text-lg uppercase tracking-wider backdrop-blur-md">
-                    Upload Asset
-                </button>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up text-start">
+                    <span
+                        class="inline-block py-2 px-6 rounded-full bg-cyan-900/30 text-cyan-400 font-bold tracking-[0.3em] uppercase text-xs mb-8 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-pulse">
+                        System Online: Thunder Mode
+                    </span>
+                    <h1
+                        class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black italic text-white leading-[0.9] mb-8 tracking-tighter drop-shadow-[0_0_30px_rgba(6,182,212,0.6)] uppercase">
+                        STRIKE <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-white to-cyan-600 bg-[length:200%_auto] animate-shine">WITH
+                            POWER.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-teal-100 mb-12 max-w-xl font-light leading-relaxed">
+                        The world's first <span
+                            class="font-bold text-white shadow-[0_0_10px_rgba(255,255,255,0.5)]">high-voltage
+                            marketplace</span>.
+                        Secure assets, flash deals, and
+                        <span class="font-bold text-teal-400 border-b-2 border-teal-400">instant
+                            transfers.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-start items-center gap-6">
+                        <button
+                            class="group w-full sm:w-auto px-10 py-5 bg-cyan-600 text-white font-black rounded-full border-2 border-cyan-400 hover:bg-cyan-500 hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(6,182,212,0.6)] text-base uppercase tracking-wider">
+                            <span class="relative z-10 flex items-center gap-3 justify-center">Ignite Search <i
+                                    data-lucide="zap" class="w-5 h-5 fill-white group-hover:animate-bounce"></i></span>
+                        </button>
+                        <button
+                            class="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black rounded-full border-2 border-white/30 hover:bg-white/10 hover:border-white transition-all text-base uppercase tracking-wider backdrop-blur-md">
+                            Upload Asset
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative animate-on-scroll opacity-0">
+                    <!-- Decorative element or image can go here if needed, keeping it clean for now -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <img src="Assets/5.jpeg" alt="Hero"
+                            class="relative rounded-[2rem] border border-white/10 shadow-2xl transform rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -248,10 +262,10 @@
 
 
         <div
-            class="bg-zinc-900/40 backdrop-blur-xl p-3 md:p-4 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-cyan-500/30 flex items-center gap-4 transition-all hover:border-cyan-500/60 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)]">
-            <i data-lucide="search" class="w-6 h-6 text-cyan-400 ml-4"></i>
+            class="bg-white/90 dark:bg-zinc-900/40 backdrop-blur-xl p-3 md:p-4 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-cyan-500/30 flex items-center gap-4 transition-all hover:border-cyan-500 hover:shadow-[0_0_60px_rgba(6,182,212,0.2)]">
+            <i data-lucide="search" class="w-6 h-6 text-cyan-600 dark:text-cyan-400 ml-4"></i>
             <input type="text" placeholder="Scan for targets..."
-                class="flex-1 bg-transparent outline-none text-lg md:text-xl font-bold text-white placeholder-cyan-500/50 h-14">
+                class="flex-1 bg-transparent outline-none text-lg md:text-xl font-bold text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-cyan-500/50 h-14">
             <button
                 class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(6,182,212,0.8)]">
                 <i data-lucide="arrow-right" class="w-6 h-6"></i>
@@ -274,26 +288,24 @@
     </section>
 
     <!-- Brand Philosophy -->
-    <section class="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section
+        class="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden bg-zinc-950 rounded-[3rem] my-12 shadow-2xl force-white-text">
+        <!-- Background Decoration for the section -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-cyan-500/10 skew-x-12 translate-x-32 pointer-events-none">
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             <div class="order-2 lg:order-1 relative animate-on-scroll opacity-0">
-                <div
-                    class="absolute -top-10 -left-10 w-32 h-32 bg-cyan-100 dark:bg-cyan-900/30 rounded-full blur-2xl opacity-60">
-                </div>
                 <img src="Assets/4.jpeg"
-                    class="rounded-[2rem] shadow-2xl relative z-10 w-full object-cover h-[600px] grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                    class="rounded-[2rem] shadow-2xl relative z-10 w-full object-cover h-[600px] transition-all duration-700 ease-in-out border-4 border-white/10 dark:border-zinc-800"
                     alt="Philosophy">
-                <div
-                    class="absolute -bottom-6 -right-6 w-full h-full border-2 border-cyan-100 dark:border-zinc-800 rounded-[2rem] -z-0">
-                </div>
             </div>
             <div class="order-1 lg:order-2 lg:pl-10 rtl:lg:pl-0 rtl:lg:pr-10 animate-on-scroll opacity-0">
-                <span class="text-cyan-500 font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Our
+                <span class="text-cyan-400 font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Our
                     Philosophy</span>
-                <h2 class="text-5xl md:text-6xl font-serif italic text-zinc-800 dark:text-white mb-8 leading-tight">
-                    Curating for the <br><span class="text-cyan-600 dark:text-cyan-400">Mindful Eye.</span>
+                <h2 class="text-5xl md:text-6xl font-serif italic text-white mb-8 leading-tight">
+                    Curating for the <br><span class="text-teal-400">Mindful Eye.</span>
                 </h2>
-                <div class="space-y-6 text-lg text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
+                <div class="space-y-6 text-lg text-white font-light leading-relaxed">
                     <p>
                         DealSquare isn’t just a marketplace; it’s a
                         collection of stories, a gallery of intentional objects that bring joy and utility to your life.
@@ -304,23 +316,24 @@
                     </p>
                 </div>
                 <div class="mt-10 flex items-center gap-4">
-                    <div class="h-px flex-1 bg-zinc-200 dark:bg-zinc-800"></div>
-                    <span class="font-serif italic text-zinc-400 text-xl">Est. 2026</span>
+                    <div class="h-px flex-1 bg-white/20"></div>
+                    <span class="font-serif italic text-zinc-300 text-xl">Est. 2026</span>
                 </div>
             </div>
         </div>
     </section>
-
-    </section>
-
     <!-- Category Highlights Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="flex justify-between items-end mb-12">
-            <h2 class="text-3xl md:text-4xl font-serif italic text-zinc-800 dark:text-white">Curated Categories</h2>
-            <a href="#" class="text-cyan-600 font-bold hover:underline flex items-center gap-1">View All <i
+    <section
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-zinc-900 rounded-[3rem] mb-12 shadow-xl relative overflow-hidden">
+        <div
+            class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-cyan-500/5 to-transparent pointer-events-none">
+        </div>
+        <div class="relative z-10 flex justify-between items-end mb-12 border-b border-white/10 pb-6">
+            <h2 class="text-3xl md:text-4xl font-serif italic text-white">Curated Categories</h2>
+            <a href="#" class="text-teal-400 font-bold hover:underline flex items-center gap-1">View All <i
                     data-lucide="arrow-right" class="w-4 h-4"></i></a>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             <!-- Cat 1 -->
             <a href="#"
                 class="group flex flex-col items-center p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
@@ -384,8 +397,9 @@
         </div>
     </section>
 
+
     <!-- System Protocols (Features) -->
-    <section class="py-12 bg-zinc-900/40 relative overflow-hidden text-white">
+    <section class="py-12 bg-zinc-900/5 dark:bg-zinc-900/40 relative overflow-hidden text-zinc-900 dark:text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <!-- Left Column: Image -->
@@ -401,7 +415,7 @@
                 <!-- Right Column: Text Content -->
                 <div class="space-y-6">
                     <h2
-                        class="text-3xl md:text-4xl font-black italic text-white mb-2 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                        class="text-3xl md:text-4xl font-black italic text-zinc-900 dark:text-white mb-2 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
                         SYSTEM PROTOCOLS</h2>
 
                     <div class="space-y-4">
@@ -412,9 +426,11 @@
                                 <i data-lucide="search-check" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Quantum Sort</h3>
-                                <p class="text-sm text-zinc-300 leading-relaxed">Neural engines <span
-                                        class="text-cyan-400 font-bold">predict</span> exactly what you need.</p>
+                                <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-1">Quantum Sort</h3>
+                                <p class="text-sm text-zinc-300 leading-relaxed">Neural engines
+                                    <span class="text-cyan-400 font-bold">predict</span> exactly
+                                    what you need.
+                                </p>
                             </div>
                         </div>
 
@@ -426,9 +442,10 @@
                                 <i data-lucide="shield-check" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Titanium Grade</h3>
+                                <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-1">Titanium Grade</h3>
                                 <p class="text-sm text-zinc-300 leading-relaxed"><span
-                                        class="text-white font-bold">Encrypted</span> seller identities for maximum
+                                        class="text-zinc-900 dark:text-white font-bold">Encrypted</span> seller
+                                    identities for maximum
                                     safety.</p>
                             </div>
                         </div>
@@ -441,9 +458,10 @@
                                 <i data-lucide="zap" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Warp Speed</h3>
-                                <p class="text-sm text-zinc-300 leading-relaxed">Zero-latency negotiations via <span
-                                        class="text-purple-400 font-bold">Direct-Link</span>.</p>
+                                <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-1">Warp Speed</h3>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">Zero-latency
+                                    negotiations via <span class="text-purple-400 font-bold">Direct-Link</span>.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -456,8 +474,8 @@
     <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-end mb-16">
-                <h2 class="text-4xl font-black text-white italic drop-shadow-lg">ELITE <span
-                        class="text-cyan-500">INVENTORY</span></h2>
+                <h2 class="text-4xl font-black text-zinc-900 dark:text-white italic drop-shadow-lg">ELITE <span
+                        class="text-teal-400">INVENTORY</span></h2>
                 <div class="h-1 bg-zinc-800 flex-1 ml-8 relative top-[-10px] hidden md:block overflow-hidden">
                     <div class="h-full bg-cyan-500 w-1/3 animate-loading-bar"></div>
                 </div>
@@ -472,11 +490,11 @@
                             class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-cyan-500/30">
                             <i data-lucide="star" class="w-4 h-4 text-cyan-400 fill-cyan-400"></i>
                         </div>
-                        <img src="Assets/6.jpeg"
+                        <img src="Assets/6.jpg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                             alt="Item">
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1 truncate">Neo-Tokyo Kicks</h3>
+                    <h3 class="text-lg font-bold text-zinc-800 dark:text-white mb-1 truncate">Neo-Tokyo Kicks</h3>
                     <p class="text-sm text-cyan-400 font-mono">$120.00 <span
                             class="text-zinc-500 line-through text-xs ml-2">$300</span></p>
                 </div>
@@ -484,11 +502,11 @@
                 <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
                     <div
                         class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
-                        <img src="Assets/7.jpeg"
+                        <img src="Assets/7.jpg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                             alt="Item">
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1 truncate">Cyber-Deck v2</h3>
+                    <h3 class="text-lg font-bold text-zinc-800 dark:text-white mb-1 truncate">Cyber-Deck v2</h3>
                     <p class="text-sm text-cyan-400 font-mono">$850.00</p>
                 </div>
                 <!-- Item 3 -->
@@ -498,33 +516,33 @@
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
                             <span class="text-xs text-white font-bold uppercase tracking-wider">Rare Find</span>
                         </div>
-                        <img src="Assets/8.jpeg"
+                        <img src="Assets/8.jpg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                             alt="Item">
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1 truncate">Holo-Emitter</h3>
+                    <h3 class="text-lg font-bold text-zinc-800 dark:text-white mb-1 truncate">Holo-Emitter</h3>
                     <p class="text-sm text-cyan-400 font-mono">$1,210.00</p>
                 </div>
                 <!-- Item 4 -->
                 <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
                     <div
                         class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
-                        <img src="Assets/9.jpeg"
+                        <img src="Assets/9.jpg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                             alt="Item">
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1 truncate">Smart-Fibre Pack</h3>
+                    <h3 class="text-lg font-bold text-zinc-800 dark:text-white mb-1 truncate">Smart-Fibre Pack</h3>
                     <p class="text-sm text-cyan-400 font-mono">$140.00</p>
                 </div>
                 <!-- Item 5 -->
                 <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
                     <div
                         class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-900 border border-zinc-700 shadow-lg group-hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group-hover:border-cyan-500 relative">
-                        <img src="Assets/10.jpeg"
+                        <img src="Assets/10.jpg"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                             alt="Item">
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-1 truncate">Zero-G Vase</h3>
+                    <h3 class="text-lg font-bold text-zinc-800 dark:text-white mb-1 truncate">Zero-G Vase</h3>
                     <p class="text-sm text-cyan-400 font-mono">$65.00</p>
                 </div>
             </div>
@@ -562,9 +580,9 @@
     <!-- Why Choose Us (Expandable) -->
     <section class="max-w-4xl mx-auto px-6 py-24">
         <div class="text-center mb-16">
-            <span class="text-cyan-600 dark:text-cyan-400 font-bold tracking-widest uppercase text-sm mb-4 block">The
+            <span class="text-teal-400 font-bold tracking-widest uppercase text-sm mb-4 block">The
                 Advantage</span>
-            <h2 class="text-4xl md:text-5xl font-serif italic text-zinc-800 dark:text-white">Why Choose DealSquare?
+            <h2 class="text-4xl md:text-5xl font-serif italic text-zinc-900 dark:text-white">Why Choose DealSquare?
             </h2>
         </div>
         <div class="space-y-4">
@@ -583,8 +601,7 @@
                     </div>
                     <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
                 </button>
-                <div
-                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                <div class="hidden p-8 pt-0 text-zinc-600 dark:text-white leading-relaxed border-t border-transparent">
                     <p class="pl-[4.5rem]">We employ advanced encryption and fraud detection algorithms to ensure every
                         interaction on our platform is safe. Your data is our top priority.</p>
                 </div>
@@ -604,8 +621,7 @@
                     </div>
                     <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
                 </button>
-                <div
-                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                <div class="hidden p-8 pt-0 text-zinc-600 dark:text-white leading-relaxed border-t border-transparent">
                     <p class="pl-[4.5rem]">With presence in over 50 countries, we connect you to a worldwide audience
                         while providing hyper-local filters to find exactly what's next door.</p>
                 </div>
@@ -625,8 +641,7 @@
                     </div>
                     <i data-lucide="plus" class="icon-plus w-6 h-6 text-zinc-400 transition-transform duration-300"></i>
                 </button>
-                <div
-                    class="hidden p-8 pt-0 text-zinc-600 dark:text-zinc-300 leading-relaxed border-t border-transparent">
+                <div class="hidden p-8 pt-0 text-zinc-600 dark:text-white leading-relaxed border-t border-transparent">
                     <p class="pl-[4.5rem]">We are more than a platform; we are a collective of enthusiasts. Our
                         community guidelines ensure respectful and meaningful exchanges.</p>
                 </div>
@@ -634,35 +649,35 @@
         </div>
     </section>
 
-    <!-- Trending & New Listings (Carousel Style) - Forced Dark Mode -->
-    <section class="py-24 bg-zinc-900 text-white overflow-hidden relative">
+    <!-- Trending & New Listings (Carousel Style) -->
+    <section class="py-24 bg-zinc-50 dark:bg-zinc-900 overflow-hidden relative">
         <div
             class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20">
         </div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex justify-between items-end mb-16">
                 <div>
-                    <span class="text-white font-bold tracking-widest uppercase text-xs mb-2 block animate-pulse">Live
+                    <span
+                        class="text-teal-400 font-bold tracking-widest uppercase text-xs mb-2 block animate-pulse">Live
                         Feed</span>
-                    <h2 class="text-4xl md:text-5xl font-serif italic text-white"
-                        style="color: white !important; text-shadow: 0 0 15px rgba(0,0,0,0.9);">
+                    <h2 class="text-4xl md:text-5xl font-serif italic text-zinc-900 dark:text-white">
                         Trending Now</h2>
                 </div>
                 <div class="flex gap-2">
                     <button
-                        class="p-3 rounded-full border border-zinc-700 bg-zinc-800 text-white hover:bg-white hover:text-zinc-900 transition-colors"><i
+                        class="p-3 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-zinc-900 transition-colors"><i
                             data-lucide="arrow-left" class="w-5 h-5"></i></button>
                     <button
-                        class="p-3 rounded-full border border-zinc-700 bg-zinc-800 text-white hover:bg-white hover:text-zinc-900 transition-colors"><i
+                        class="p-3 rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-white hover:bg-zinc-900 dark:hover:bg-white hover:text-white dark:hover:text-zinc-900 transition-colors"><i
                             data-lucide="arrow-right" class="w-5 h-5"></i></button>
                 </div>
             </div>
             <!-- Scroll Container -->
-            <div class="flex overflow-x-auto gap-8 pb-8 scrollbar-hide snap-x">
+            <div class="flex overflow-x-auto gap-8 pb-8 px-4 scrollbar-hide snap-x">
                 <!-- Card 1 -->
                 <div class="flex-shrink-0 w-80 snap-center">
                     <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
-                        <img src="Assets/11.jpeg"
+                        <img src="Assets/1.jpeg"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute top-4 left-4">
                             <span
@@ -677,7 +692,7 @@
                 <!-- Card 2 -->
                 <div class="flex-shrink-0 w-80 snap-center">
                     <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
-                        <img src="Assets/12.jpeg"
+                        <img src="Assets/2.jpeg"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute top-4 left-4">
                             <span
@@ -692,7 +707,7 @@
                 <!-- Card 3 -->
                 <div class="flex-shrink-0 w-80 snap-center">
                     <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
-                        <img src="Assets/13.jpeg"
+                        <img src="Assets/3.jpeg"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
                             <h4 class="text-xl font-bold mb-1 text-white">Macbook Pro M3</h4>
@@ -701,9 +716,9 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="flex-shrink-0 w-80 snap-center">
+                <div class="flex-shrink-0 w-80 snap-center mr-8">
                     <div class="relative aspect-[4/5] rounded-[2rem] overflow-hidden group">
-                        <img src="Assets/14.jpeg"
+                        <img src="Assets/4.jpeg"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
                             <h4 class="text-xl font-bold mb-1 text-white">Gibson Les Paul</h4>
@@ -799,7 +814,7 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="Assets/15.jpeg"
+                    <img src="Assets/18.jpeg"
                         class="rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 border-4 border-white/20">
                 </div>
             </div>
@@ -831,7 +846,7 @@
     <!-- How It Works (Steps) - Simplified version kept for flow -->
     <section class="py-12 bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-serif italic text-zinc-800 dark:text-white text-center mb-16 opacity-50">It's
+            <h2 class="text-3xl font-serif italic text-zinc-800 dark:text-white text-center mb-16">It's
                 simple.</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
 
@@ -841,28 +856,28 @@
                 <!-- Step 1 -->
                 <div class="relative flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        class="w-24 h-24 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
                         1</div>
-                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Discover</h3>
-                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Browse through our curated collection
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-white mb-4">Discover</h3>
+                    <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">Browse through our curated collection
                         of high-quality items from trusted sellers.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="relative flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        class="w-24 h-24 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
                         2</div>
-                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Connect</h3>
-                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Reach out to sellers directly through
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-white mb-4">Connect</h3>
+                    <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">Reach out to sellers directly through
                         our calm, distraction-free messaging system.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="relative flex flex-col items-center text-center">
                     <div
-                        class="w-24 h-24 bg-white dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
+                        class="w-24 h-24 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-zinc-700 rounded-full flex items-center justify-center text-2xl font-serif italic text-zinc-800 dark:text-white z-10 mb-8 shadow-lg">
                         3</div>
-                    <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Exchange</h3>
-                    <p class="text-zinc-500 dark:text-zinc-200 leading-relaxed">Complete the trade securely and enjoy
+                    <h3 class="text-xl font-bold text-zinc-800 dark:text-white mb-4">Exchange</h3>
+                    <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">Complete the trade securely and enjoy
                         your new unique possession.</p>
                 </div>
             </div>
@@ -874,7 +889,7 @@
                 <!-- Item 1 -->
                 <div class="border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden">
                     <button
-                        class="w-full flex justify-between items-center p-6 bg-white dark:bg-zinc-900 text-left hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                        class="w-full flex justify-between items-center p-6 bg-white dark:bg-zinc-900 text-left rtl:text-right hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
                         onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
                         <span class="font-bold text-zinc-800 dark:text-white">Is shipping insured?</span>
                         <i data-lucide="chevron-down"
@@ -1031,46 +1046,50 @@
             <div
                 class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x rtl:divide-x-reverse divide-cyan-200 dark:divide-zinc-800">
                 <div class="p-4">
-                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                    <div class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mb-2 counter"
                         data-target="15000" data-suffix="+">0</div>
-                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Active Listings</div>
+                    <div class="text-sm font-bold text-teal-400 uppercase tracking-widest">Active Listings</div>
                 </div>
                 <div class="p-4">
-                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                    <div class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mb-2 counter"
                         data-target="98" data-suffix="%">0</div>
-                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Satisfaction</div>
+                    <div class="text-sm font-bold text-teal-400 uppercase tracking-widest">Satisfaction</div>
                 </div>
                 <div class="p-4">
-                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                    <div class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mb-2 counter"
                         data-target="2500" data-suffix="+">0</div>
-                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Verified Sellers</div>
+                    <div class="text-sm font-bold text-teal-400 uppercase tracking-widest">Verified Sellers</div>
                 </div>
                 <div class="p-4">
-                    <div class="text-4xl md:text-5xl font-black text-zinc-800 dark:text-white mb-2 counter"
+                    <div class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mb-2 counter"
                         data-target="4" data-suffix="M+">0</div>
-                    <div class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Community Value</div>
+                    <div class="text-sm font-bold text-teal-400 uppercase tracking-widest">Community Value</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Curated Collections (Scrollable Tabbed Content for Home 2) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-zinc-100 dark:border-zinc-800">
-        <h2 class="text-4xl font-serif italic text-zinc-800 dark:text-white mb-10 text-center">Curated Collections</h2>
+    <section
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 rounded-[3rem] my-12 shadow-2xl relative overflow-hidden">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/5 to-cyan-500/5 pointer-events-none">
+        </div>
+        <h2 class="text-4xl font-serif italic text-white mb-10 text-center relative z-10">Curated Collections</h2>
 
         <!-- Centered Tab Chips -->
         <div class="flex justify-center flex-wrap gap-4 mb-16">
             <button
-                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border border-transparent shadow-lg transition-transform hover:scale-105 active:scale-95"
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-cyan-600 text-white border border-transparent shadow-lg transition-transform hover:scale-105 active:scale-95"
                 data-tab-target="#collection-minimal">Minimalist</button>
             <button
-                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-zinc-900 text-white/70 border border-white/10 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-white/30"
                 data-tab-target="#collection-vintage">Vintage</button>
             <button
-                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-zinc-900 text-white/70 border border-white/10 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-white/30"
                 data-tab-target="#collection-artisan">Artisan</button>
             <button
-                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-zinc-400"
+                class="tab-btn px-8 py-3 rounded-full font-serif italic bg-zinc-900 text-white/70 border border-white/10 shadow-sm transition-transform hover:scale-105 active:scale-95 hover:border-white/30"
                 data-tab-target="#collection-audio">Audiophile</button>
         </div>
 
@@ -1079,15 +1098,15 @@
             <!-- 5 Minimal Items -->
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/16.jpeg"
+                    <img src="Assets/1.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Concrete Lamp</h4>
+                <h4 class="font-serif text-white">Concrete Lamp</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Lighting</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/17.jpeg"
+                    <img src="Assets/2.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">White Vase</h4>
@@ -1095,7 +1114,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/18.jpeg"
+                    <img src="Assets/8.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Oak Chair</h4>
@@ -1103,7 +1122,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/19.jpeg"
+                    <img src="Assets/3.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Glass Carafe</h4>
@@ -1111,7 +1130,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/20.jpeg"
+                    <img src="Assets/4.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Linen Throw</h4>
@@ -1123,7 +1142,7 @@
         <div id="collection-vintage" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/21.jpeg"
+                    <img src="Assets/typewriter.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Typewriter</h4>
@@ -1131,7 +1150,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/22.jpeg"
+                    <img src="Assets/camera.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Film Camera</h4>
@@ -1139,7 +1158,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/23.jpeg"
+                    <img src="Assets/leather trunks.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Leather Trunk</h4>
@@ -1147,7 +1166,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/24.jpeg"
+                    <img src="Assets/desk fans.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Desk Fan</h4>
@@ -1155,7 +1174,7 @@
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/25.jpeg"
+                    <img src="Assets/9.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Brass Telescope</h4>
@@ -1167,39 +1186,39 @@
         <div id="collection-artisan" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/26.jpeg"
+                    <img src="Assets/clay mugs.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Ceramic Bowl</h4>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Artisan Mug</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Handmade</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/27.jpeg"
+                    <img src="Assets/wooden spoons.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Woven Basket</h4>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Wooden Spoons</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Craft</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/28.jpeg"
+                    <img src="Assets/1.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Wooden Spoon</h4>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Ceramic Bowl</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Kitchen</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/29.jpeg"
+                    <img src="Assets/2.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Clay Mug</h4>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Clay Plate</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Drinkware</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/30.jpeg"
+                    <img src="Assets/3.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
                 <h4 class="font-serif text-zinc-900 dark:text-white">Wall Hanging</h4>
@@ -1211,43 +1230,43 @@
         <div id="collection-audio" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/31.jpeg"
+                    <img src="Assets/mics.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Turntable</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">High Fidelity</p>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Condenser Mic</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Recording</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/32.jpeg"
+                    <img src="Assets/guiters.jpg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Headphones</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Studio</p>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Hollow Body Guitar</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Instrument</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/33.jpeg"
+                    <img src="Assets/1.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Speaker</h4>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Hi-Fi Speaker</h4>
                 <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Wireless</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/34.jpeg"
+                    <img src="Assets/2.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Amplifier</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Tube</p>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Tube Amp</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Audio</p>
             </div>
             <div class="group cursor-pointer">
                 <div class="aspect-square rounded-[2rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 mb-4">
-                    <img src="Assets/35.jpeg"
+                    <img src="Assets/3.jpeg"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 </div>
-                <h4 class="font-serif text-zinc-900 dark:text-white">Microphone</h4>
-                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Recording</p>
+                <h4 class="font-serif text-zinc-900 dark:text-white">Studio Headphones</h4>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest mt-1">Monitor</p>
             </div>
         </div>
 
@@ -1256,13 +1275,13 @@
     <!-- Elite Members -->
     <section class="py-20 bg-zinc-50 dark:bg-zinc-900/50">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-5xl font-serif italic text-zinc-800 dark:text-white mb-16">Distinguished Collectors</h2>
+            <h2 class="text-5xl font-serif italic text-zinc-800 dark:text-white mb-16">Distinguished Leaders</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Member 1 -->
                 <div class="text-center group">
                     <div
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
-                        <img src="Assets/36.jpeg" class="w-full h-full object-cover">
+                        <img src="Assets/profile9.jpg" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Eleanor P.</h4>
                     <p class="text-cyan-500 font-serif italic text-sm">Antique Specialist</p>
@@ -1271,7 +1290,7 @@
                 <div class="text-center group">
                     <div
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
-                        <img src="Assets/37.jpeg" class="w-full h-full object-cover">
+                        <img src="Assets/profile10.jpg" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Marcus T.</h4>
                     <p class="text-cyan-500 font-serif italic text-sm">Horology Expert</p>
@@ -1280,7 +1299,7 @@
                 <div class="text-center group">
                     <div
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
-                        <img src="Assets/38.jpeg" class="w-full h-full object-cover">
+                        <img src="Assets/profile1.jpg" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-xl font-bold text-zinc-800 dark:text-white">Julia R.</h4>
                     <p class="text-cyan-500 font-serif italic text-sm">Design Curator</p>
@@ -1289,7 +1308,7 @@
                 <div class="text-center group">
                     <div
                         class="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 border-4 border-white dark:border-zinc-800 shadow-xl group-hover:scale-105 transition-transform">
-                        <img src="Assets/39.jpeg" class="w-full h-full object-cover">
+                        <img src="Assets/profile2.jpg" class="w-full h-full object-cover">
                     </div>
                     <h4 class="text-xl font-bold text-zinc-800 dark:text-white">David B.</h4>
                     <p class="text-cyan-500 font-serif italic text-sm">Automotive</p>
@@ -1319,11 +1338,11 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                     </div>
-                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"I found a rare vintage
+                    <p class="text-lg text-zinc-600 dark:text-white font-light italic mb-8">"I found a rare vintage
                         Eames chair that I've been hunting for years. The transaction was seamless and the seller was
                         incredibly knowledgeable."</p>
                     <div class="flex items-center gap-4">
-                        <img src="Assets/40.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <img src="Assets/profile4.jpg" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Sarah Jenkins</h4>
                             <p class="text-cyan-500 text-xs uppercase tracking-wider">Interior Designer</p>
@@ -1340,11 +1359,11 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                     </div>
-                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"DealSquare feels
+                    <p class="text-lg text-zinc-600 dark:text-white font-light italic mb-8">"DealSquare feels
                         different. It's not just a marketplace; it feels like a gallery. Selling my camera collection
                         here felt respectful to the items."</p>
                     <div class="flex items-center gap-4">
-                        <img src="Assets/41.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <img src="Assets/profile5.jpg" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Michael Chen</h4>
                             <p class="text-cyan-500 text-xs uppercase tracking-wider">Photographer</p>
@@ -1361,11 +1380,11 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current star-funny"></i>
                     </div>
-                    <p class="text-lg text-zinc-600 dark:text-zinc-300 font-light italic mb-8">"Finally, a platform
+                    <p class="text-lg text-zinc-600 dark:text-white font-light italic mb-8">"Finally, a platform
                         that values aesthetics and trust. I've bought three pieces of art here and each experience was
                         delightful."</p>
                     <div class="flex items-center gap-4">
-                        <img src="Assets/42.jpeg" class="w-12 h-12 rounded-full object-cover">
+                        <img src="Assets/profile6.jpg" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-zinc-900 dark:text-white text-sm">Emma Wilson</h4>
                             <p class="text-cyan-500 text-xs uppercase tracking-wider">Collector</p>
