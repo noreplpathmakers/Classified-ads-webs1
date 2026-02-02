@@ -584,21 +584,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Cupboard FAQ Logic */
 document.addEventListener('DOMContentLoaded', () => {
-    // Cupboard / Split-Door FAQ Logic (Dynamic Height)
     const cupboards = document.querySelectorAll('.cupboard-item');
-
     cupboards.forEach(item => {
         item.addEventListener('click', () => {
-            // Close others (Accordion style - optional, but cleaner)
+            const isOpen = item.classList.contains('open');
+            // Close others
             cupboards.forEach(other => {
-                if (other !== item) {
-                    other.classList.remove('open');
-                    other.style.height = '90px'; // Reset to base height
-                }
+                if (other !== item) other.classList.remove('open');
             });
-
             // Toggle current
-            item.classList.toggle('open');
+            if (isOpen) {
+                item.classList.remove('open');
+            } else {
+                item.classList.add('open');
+            }
         });
     });
 });

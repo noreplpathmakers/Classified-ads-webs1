@@ -122,14 +122,15 @@ b {
 /* 3. Skew Slide Up (New Scroll Reveal) */
 .skew-on-scroll {
   opacity: 0;
-  transform: translateY(100px) skewY(10deg);
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Backwards easing */
+  transform: translateY(20px);
+  /* Flatter, no skew */
+  transition: all 0.6s ease-out;
+  /* Simpler easing */
 }
 
 .skew-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0) skewY(0);
+  transform: translateY(0);
 }
 
 /* 4. Jitter (Continuous fast vibration) */
@@ -225,8 +226,8 @@ b {
 }
 
 .animate-float {
-  animation: jitter 3s infinite !important;
-  /* Replace float with jitter */
+  animation: none !important;
+  /* Disabled for flatter feel */
 }
 
 .animate-pulse {
@@ -352,25 +353,31 @@ body::before {
 }
 
 .bg-about::before {
-  background-image: url('Assets/1.jpeg');
+  background-image: url('Assets/aboutbg.jpg');
 }
 
 .bg-services::before {
-  background-image: url('Assets/neo-hero.png');
+  display: none !important;
 }
 
 .bg-services {
   position: relative;
+}
+
+.bg-services::before {
+  position: absolute !important;
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.dark .bg-services {
   background-color: #020617 !important;
 }
 
 .bg-services::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -40;
-  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
-  pointer-events: none;
+  display: none !important;
 }
 
 
@@ -528,10 +535,38 @@ a:active {
 }
 
 /* Enhanced hover for text */
-/* Hero Section Overrides for Light Mode Visibility */
-.hero-dark-overlay :is(h1, p, .text-white) {
+/* Hero Section Overrides for Visibility on Pastels */
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li) {
+  color: #18181b !important;
+  /* Force dark text for light mode pastels */
+  text-shadow: none !important;
+}
+
+.dark .hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li) {
   color: #ffffff !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li) {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow for light mode */
+}
+
+/* Maintain specific brand colors and gradients */
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li)[class*="text-teal-"],
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li)[class*="text-cyan-"],
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li)[class*="text-purple-"],
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li)[class*="text-pink-"],
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li)[class*="text-transparent"] {
+  color: inherit !important;
+}
+
+.hero-dark-overlay :is(a, button, span).text-white {
+  color: #ffffff !important;
+}
+
+.hero-dark-overlay :is(h1, h2, h3, h4, h5, h6, p, span, li).text-zinc-900 {
+  color: #18181b !important;
 }
 
 .hero-dark-overlay .text-teal-400 {
@@ -544,6 +579,35 @@ a:active {
 
 .hero-dark-overlay .text-pink-400 {
   color: #f472b6 !important;
+}
+
+.dark .premium-icon-box i,
+.dark .premium-icon-box svg {
+  color: inherit !important;
+}
+
+.dark .premium-btn-fix {
+  color: inherit !important;
+}
+
+.dark .premium-btn-fix {
+  color: #ffffff !important;
+}
+
+.text-white-on-light {
+  color: #ffffff !important;
+}
+
+.dark .text-white-on-light {
+  color: #ffffff !important;
+}
+
+.text-dark-on-light {
+  color: #18181b !important;
+}
+
+.dark .text-dark-on-light {
+  color: #ffffff !important;
 }
 
 h1:hover,
@@ -1384,17 +1448,23 @@ h3:hover {
 }
 
 /* Cupboard / Split-Door FAQ Animation */
+/* Default height for cupboard item */
 .cupboard-item {
   position: relative;
   overflow: hidden;
   height: 90px;
-  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: transparent;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .cupboard-item.open height is handled by JS for dynamic content */
+/* Expanded height when open */
+.cupboard-item.open {
+  height: 220px !important;
+  border-color: #06b6d4 !important;
+  box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.3) !important;
+}
 
 
 .cupboard-content {
@@ -1478,13 +1548,53 @@ h3:hover {
   color: white;
 }
 
-/* Animation Transforms */
+@media (max-width: 768px) {
+  .cupboard-item {
+    height: 110px !important;
+    /* Taller for mobile questions */
+  }
+
+  .cupboard-item.open {
+    height: 280px !important;
+    /* Large enough for answers */
+  }
+
+  .cupboard-content {
+    padding: 1rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .door-text {
+    font-size: 0.9rem !important;
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 0 1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .door-left {
+    padding-right: 1rem !important;
+  }
+
+  .door-right {
+    padding-left: 1rem !important;
+  }
+}
+
 .cupboard-item.open .door-left {
   transform: translateX(-100%);
 }
 
 .cupboard-item.open .door-right {
   transform: translateX(100%);
+}
+
+html[dir="rtl"] .cupboard-item.open .door-left {
+  transform: translateX(100%) !important;
+}
+
+html[dir="rtl"] .cupboard-item.open .door-right {
+  transform: translateX(-100%) !important;
 }
 
 
@@ -1647,7 +1757,7 @@ h3:hover {
   gap: 2rem;
   /* 32px gap */
   width: max-content;
-  animation: sushi-scroll 60s linear infinite;
+  animation: sushi-scroll 40s linear infinite;
   padding-right: 2rem;
   /* The phantom gap that makes the loop seamless */
   position: relative;
@@ -1676,7 +1786,7 @@ h3:hover {
       #06b6d4, #d946ef, #10b981, #f59e0b, #3b82f6, #06b6d4);
   /* background-size matches exactly 10 cards: 10 * (280px + 32px gap) = 3120px */
   background-size: 3120px 100%;
-  animation: rope-flow 25s linear infinite;
+  animation: rope-flow 40s linear infinite;
   z-index: 5;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -1741,7 +1851,8 @@ h3:hover {
 }
 
 .hanging-card:hover {
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
+  /* Removed to keep animation looping even on hover */
   transform: scale(1.1) rotate(0deg) translateY(15px) !important;
   z-index: 100;
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5) !important;
@@ -2863,4 +2974,162 @@ nav.fixed {
   filter: brightness(1.5) drop-shadow(0 0 15px rgba(94, 234, 212, 0.6));
   transform: scale(1.02);
   cursor: pointer;
+}
+
+/* ============================================================
+   MOBILE VIEW OPTIMIZATIONS (GLOBAL)
+   ============================================================ */
+
+/* Prevent horizontal overflow globally */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Fix for background animations and large elements that might cause overflow */
+.animation_wrapper,
+.animation_bg01,
+.bg-home2,
+.bg-user-dash,
+.bg-contact,
+main,
+section {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}
+
+/* Typography scaling for mobile */
+@media (max-width: 768px) {
+
+  /* Scale down exceptionally large headlines */
+  .text-9xl {
+    font-size: 3.5rem !important;
+    line-height: 1 !important;
+  }
+
+  .text-8xl {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  .text-7xl {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .text-6xl {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .text-5xl {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .text-4xl {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Gaps and Spacing */
+  .gap-8,
+  .gap-10,
+  .gap-12 {
+    gap: 1.25rem !important;
+  }
+
+  .gap-20,
+  .gap-24 {
+    gap: 1.5rem !important;
+  }
+
+  /* Space-y overrides */
+  .space-y-20> :not([hidden])~ :not([hidden]) {
+    margin-top: 2rem !important;
+  }
+
+  .space-y-12> :not([hidden])~ :not([hidden]) {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Performance & Layout */
+  .skew-on-scroll {
+    transform: none !important;
+  }
+
+  .h-\[400px\] {
+    height: 280px !important;
+  }
+
+  /* Hero section specific adjustments */
+  h1 {
+    word-break: break-all;
+    hyphens: auto;
+  }
+
+  /* Padding normalization for mobile */
+  .p-12,
+  .p-16,
+  .p-20,
+  .p-24 {
+    padding: 1.25rem !important;
+  }
+
+  .py-20,
+  .py-24,
+  .py-32 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .px-8,
+  .px-12,
+  .px-16 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Card scaling */
+  .rounded-\[2\.5rem\],
+  .rounded-\[3rem\],
+  .rounded-\[4rem\] {
+    border-radius: 1.25rem !important;
+  }
+
+  /* Floating navigation bar adjustment for mobile */
+  nav.fixed {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  nav.fixed>div {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Ensure tables can scroll horizontally on mobile */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* dashboard table fix */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Utility to hide elements only on very small screens if needed */
+@media (max-width: 480px) {
+  .hide-on-xs {
+    display: none !important;
+  }
+
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
 }

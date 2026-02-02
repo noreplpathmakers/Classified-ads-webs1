@@ -300,7 +300,7 @@
 
     <!-- Brand Philosophy -->
     <section
-        class="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden bg-zinc-950 rounded-[3rem] my-12 shadow-2xl force-white-text">
+        class="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden bg-indigo-50 dark:bg-zinc-950 rounded-[3rem] my-12 shadow-2xl">
         <!-- Background Decoration for the section -->
         <div class="absolute top-0 right-0 w-1/3 h-full bg-cyan-500/10 skew-x-12 translate-x-32 pointer-events-none">
         </div>
@@ -313,10 +313,10 @@
             <div class="order-1 lg:order-2 lg:pl-10 rtl:lg:pl-0 rtl:lg:pr-10 animate-on-scroll opacity-0">
                 <span class="text-cyan-400 font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Our
                     Philosophy</span>
-                <h2 class="text-5xl md:text-6xl font-serif italic text-white mb-8 leading-tight">
-                    Curating for the <br><span class="text-teal-400">Mindful Eye.</span>
+                <h2 class="text-5xl md:text-6xl font-serif italic text-zinc-900 dark:text-white mb-8 leading-tight">
+                    Curating for the <br><span class="text-indigo-600 dark:text-teal-400">Mindful Eye.</span>
                 </h2>
-                <div class="space-y-6 text-lg text-white font-light leading-relaxed">
+                <div class="space-y-6 text-lg text-zinc-800 dark:text-white font-light leading-relaxed">
                     <p>
                         DealSquare isn’t just a marketplace; it’s a
                         collection of stories, a gallery of intentional objects that bring joy and utility to your life.
@@ -335,14 +335,15 @@
     </section>
     <!-- Category Highlights Section -->
     <section
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-zinc-900 rounded-[3rem] mb-12 shadow-xl relative overflow-hidden">
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-amber-50 dark:bg-zinc-900 rounded-[3rem] mb-12 shadow-xl relative overflow-hidden">
         <div
             class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-cyan-500/5 to-transparent pointer-events-none">
         </div>
-        <div class="relative z-10 flex justify-between items-end mb-12 border-b border-white/10 pb-6">
-            <h2 class="text-3xl md:text-4xl font-serif italic text-white">Curated Categories</h2>
-            <a href="#" class="text-teal-400 font-bold hover:underline flex items-center gap-1">View All <i
-                    data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <div
+            class="relative z-10 flex justify-between items-end mb-12 border-b border-zinc-200 dark:border-white/10 pb-6">
+            <h2 class="text-3xl md:text-4xl font-serif italic text-zinc-900 dark:text-white">Curated Categories</h2>
+            <a href="#" class="text-amber-600 dark:text-teal-400 font-bold hover:underline flex items-center gap-1">View
+                All <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
         </div>
         <div class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             <!-- Cat 1 -->
@@ -410,12 +411,12 @@
 
 
     <!-- System Protocols (Features) -->
-    <section class="py-12 bg-zinc-900/5 dark:bg-zinc-900/40 relative overflow-hidden text-zinc-900 dark:text-white">
+    <section class="py-12 bg-emerald-50 dark:bg-zinc-900/40 relative overflow-hidden text-zinc-900 dark:text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <!-- Left Column: Image -->
                 <div
-                    class="relative animate-on-scroll opacity-0 scale-95 transition-all duration-1000 max-w-sm mx-auto lg:mr-auto lg:ml-0 group w-full">
+                    class="relative animate-on-scroll opacity-0 scale-95 transition-all duration-1000 max-w-full sm:max-w-sm mx-auto lg:mr-auto lg:ml-0 group w-full">
                     <div
                         class="absolute inset-0 bg-cyan-500/20 rounded-[2.5rem] blur-xl group-hover:bg-cyan-500/30 transition-all">
                     </div>
@@ -482,7 +483,7 @@
     </section>
 
     <!-- Elite Inventory (Gallery) -->
-    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-black/20">
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-fuchsia-50 dark:bg-black/20">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-end mb-16">
                 <h2 class="text-4xl font-black text-zinc-900 dark:text-white italic drop-shadow-lg">ELITE <span
@@ -492,7 +493,7 @@
                 </div>
             </div>
             <!-- Adjusted for exactly 5 items -->
-            <div class="flex flex-wrap justify-center gap-10">
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
                 <!-- Item 1 -->
                 <div class="group cursor-pointer w-full md:w-[calc(50%-2rem)] lg:w-[calc(20%-2rem)]">
                     <div
@@ -560,14 +561,15 @@
         </div>
     </section>
 
-    <!-- Hyper-Spotlight Parallax -->
-    <section class="relative py-32 bg-fixed bg-cover bg-center my-12 group overflow-hidden"
-        style="background-image: url('https://picsum.photos/seed/cyber-city/1920/1080');">
+    <!-- Hyper-Spotlight Parallax (Disabled) -->
+    <section class="relative py-32 bg-scroll bg-cover bg-center my-12 group overflow-hidden"
+        style="background-image: url('Assets/explore5.jpg');">
         <div
             class="absolute inset-0 bg-zinc-950/70 backdrop-blur-[2px] group-hover:backdrop-blur-none transition-all duration-1000">
         </div>
         <div class="absolute inset-0 bg-gradient-to-r from-cyan-900/50 to-purple-900/50 mix-blend-overlay"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center animate-on-scroll opacity-0">
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center animate-on-scroll opacity-0">
             <span
                 class="inline-block py-2 px-6 rounded-full bg-black/50 backdrop-blur-md border border-cyan-500 text-cyan-400 font-bold tracking-widest text-xs uppercase mb-6 shadow-[0_0_20px_rgba(6,182,212,0.4)] animate-pulse">
                 System Recommendation
@@ -661,7 +663,7 @@
     </section>
 
     <!-- Trending & New Listings (Carousel Style) -->
-    <section class="py-24 bg-zinc-50 dark:bg-zinc-900 overflow-hidden relative">
+    <section class="py-24 bg-sky-50 dark:bg-zinc-900 overflow-hidden relative">
         <div
             class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20">
         </div>
@@ -834,7 +836,7 @@
 
     <!-- Call to Action -->
     <section class="max-w-5xl mx-auto px-6 pb-24 text-center">
-        <div class="relative py-20">
+        <div class="relative py-20 flex flex-col items-center">
             <!-- Glow Effects -->
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-teal-500/20 blur-[80px] rounded-full pointer-events-none">
