@@ -581,17 +581,9 @@ a:active {
   color: #f472b6 !important;
 }
 
-.dark .premium-icon-box i,
-.dark .premium-icon-box svg {
+.premium-icon-box i,
+.premium-icon-box svg {
   color: inherit !important;
-}
-
-.dark .premium-btn-fix {
-  color: inherit !important;
-}
-
-.dark .premium-btn-fix {
-  color: #ffffff !important;
 }
 
 .text-white-on-light {
