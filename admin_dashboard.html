@@ -156,6 +156,41 @@
                 background-position: -200% 0;
             }
         }
+
+        .dashboard-card {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .dark .dashboard-card {
+            background-color: #1e293b;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .dashboard-card:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .dark .dashboard-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .charts-section-wrapper {
+            background: rgba(248, 250, 252, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 3rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .charts-section-wrapper {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -325,7 +360,7 @@
 
         <!-- Sidebar (Sticky on LG) -->
         <aside id="sidebar"
-            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-zinc-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:sticky lg:top-28 lg:h-[calc(100vh-112px)] shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
+            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-zinc-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:fixed lg:top-28 lg:h-[calc(100vh-112px)] shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
             <div class="p-4 flex flex-col h-full">
                 <!-- Mobile Close Button & User Info -->
                 <div class="flex flex-col gap-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/50 pb-4">
@@ -394,7 +429,7 @@
         </div>
 
         <!-- Main Content -->
-        <main id="mainContent" class="flex-1 relative bg-zinc-50 dark:bg-zinc-950 min-w-0">
+        <main id="mainContent" class="flex-1 lg:ms-64 relative bg-zinc-50 dark:bg-zinc-950 min-w-0">
             <div class="pt-8">
                 <!-- Mobile Sidebar Toggle -->
                 <div class="lg:hidden p-4 flex items-center gap-2">
@@ -431,130 +466,143 @@
                         </div>
                     </div>
 
-                    <!-- 10 Charts Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- 10 Charts Grid Container -->
+                    <div class="charts-section-wrapper">
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-                        <!-- 1. Line Chart: Revenue -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.2s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 1. Line Chart: Revenue -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.2s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Monthly Revenue</h3>
+                                <div id="revenueLineChart"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Monthly Revenue</h3>
-                            <div id="revenueLineChart"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 2. Stacked Bar: Category Sales -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.25s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 2. Stacked Bar: Category Sales -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.25s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Sales by Category</h3>
+                                <div id="categoryStackedBar"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Sales by Category</h3>
-                            <div id="categoryStackedBar"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 3. Area Chart: Traffic Growth -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.3s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 3. Area Chart: Traffic Growth -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.3s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Growth</h3>
+                                <div id="trafficAreaChart"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Growth</h3>
-                            <div id="trafficAreaChart"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 4. Multi-Line: User vs Seller -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.35s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 4. Multi-Line: User vs Seller -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.35s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User vs Seller Growth</h3>
+                                <div id="userSellerLineChart"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User vs Seller Growth</h3>
-                            <div id="userSellerLineChart"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 5. Heatmap: Activity -->
-                        <div class="col-span-1 md:col-span-2 card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.4s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 5. Heatmap: Activity -->
+                            <div class="col-span-1 md:col-span-2 card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.4s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Activity Heatmap</h3>
+                                <div id="activityHeatmap"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Activity Heatmap</h3>
-                            <div id="activityHeatmap"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 6. Funnel: Onboarding -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.45s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 6. Funnel: Onboarding -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.45s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Conversion Funnel</h3>
+                                <div id="conversionFunnel"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Conversion Funnel</h3>
-                            <div id="conversionFunnel"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 7. Scatter: Price vs Demand -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.5s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 7. Scatter: Price vs Demand -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.5s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Price vs Demand Analysis</h3>
+                                <div id="priceDemandScatter"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Price vs Demand Analysis</h3>
-                            <div id="priceDemandScatter"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 8. Horizontal Bar: Top Categories -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.55s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 8. Horizontal Bar: Top Categories -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.55s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Top Performing Categories</h3>
+                                <div id="topCategoriesBar"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Top Performing Categories</h3>
-                            <div id="topCategoriesBar"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
-                        <!-- 9. Gauge: System Health -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.6s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 9. Gauge: System Health -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.6s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health</h3>
+                                <div id="systemHealthGauge"
+                                    class="h-64 flex items-center justify-center chart-container opacity-0 transition-opacity duration-1000">
+                                </div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health</h3>
-                            <div id="systemHealthGauge"
-                                class="h-64 flex items-center justify-center chart-container opacity-0 transition-opacity duration-1000">
-                            </div>
-                        </div>
 
-                        <!-- 10. Radar Chart: Performance Metrics -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.65s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 10. Radar Chart: Performance Metrics -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.65s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Platform Metrics</h3>
+                                <div id="performanceRadar"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Platform Metrics</h3>
-                            <div id="performanceRadar"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
-                        </div>
 
 
-                        <!-- 11. Pie Chart: Device Distribution -->
-                        <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
-                            style="animation-delay: 0.7s;">
-                            <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
-                                <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse"></div>
+                            <!-- 11. Pie Chart: Device Distribution -->
+                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                                style="animation-delay: 0.7s;">
+                                <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
+                                    <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Device Distribution</h3>
+                                <div id="devicePieChart"
+                                    class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                             </div>
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Device Distribution</h3>
-                            <div id="devicePieChart"
-                                class="h-64 chart-container opacity-0 transition-opacity duration-1000"></div>
                         </div>
                     </div>
                     <!-- Advanced Analytics II (New Section) -->
@@ -562,58 +610,66 @@
                         <h2 class="text-2xl font-bold dark:text-white mb-2">Advanced Analytics II</h2>
                         <p class="text-zinc-500">Deeper insights into platform performance.</p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
-                        <!-- 1. Revenue Stream (Area) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Revenue Stream</h3>
-                            <div id="advRevenueArea" class="h-64"></div>
-                        </div>
-                        <!-- 2. User Acquisition (Bar) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Acquisition</h3>
-                            <div id="advUserAcqBar" class="h-64"></div>
-                        </div>
-                        <!-- 3. Category Distribution (Donut) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Category Distribution</h3>
-                            <div id="advCatDonut" class="h-64"></div>
-                        </div>
-                        <!-- 4. System Health (Radial) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health (Radial)</h3>
-                            <div id="advSysHealthRadial" class="h-64"></div>
-                        </div>
-                        <!-- 5. Traffic Sources (Polar) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Sources</h3>
-                            <div id="advTrafficPolar" class="h-64"></div>
-                        </div>
-                        <!-- 6. Ticket Volume (Line) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Ticket Volume</h3>
-                            <div id="advTicketLine" class="h-64"></div>
-                        </div>
-                        <!-- 7. Ad Postings vs Sales (Double Line) -->
-                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Postings vs Sales</h3>
-                            <div id="advPostSalesLine" class="h-64"></div>
-                        </div>
-                        <!-- 8. Server Load (Gauge) -->
-                        <div class="dashboard-card rounded-2xl p-6">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Server Load</h3>
-                            <div id="advServerGauge"
-                                class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
+                    <div class="charts-section-wrapper">
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+                            <!-- 1. Revenue Stream (Area) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Revenue Stream</h3>
+                                <div id="advRevenueArea" class="h-64"></div>
                             </div>
-                        </div>
-                        <!-- 9. User Demographics (Stacked Bar) -->
-                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Demographics</h3>
-                            <div id="advDemoStacked" class="h-64"></div>
-                        </div>
-                        <!-- 10. Peak Activity (Heatmap) -->
-                        <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
-                            <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Peak Activity Times</h3>
-                            <div id="advPeakHeatmap" class="h-64"></div>
+                            <!-- 2. User Acquisition (Bar) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Acquisition</h3>
+                                <div id="advUserAcqBar" class="h-64"></div>
+                            </div>
+                            <!-- 3. Category Distribution (Donut) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Category Distribution</h3>
+                                <div id="advCatDonut" class="h-64"></div>
+                            </div>
+                            <!-- 4. System Health (Radial) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health (Radial)</h3>
+                                <div id="advSysHealthRadial" class="h-64"></div>
+                            </div>
+                            <!-- 5. Traffic Sources (Polar) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Sources</h3>
+                                <div id="advTrafficPolar" class="h-64"></div>
+                            </div>
+                            <!-- 6. Ticket Volume (Line) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Ticket Volume</h3>
+                                <div id="advTicketLine" class="h-64"></div>
+                            </div>
+                            <!-- 7. Ad Postings vs Sales (Double Line) -->
+                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Postings vs Sales</h3>
+                                <div id="advPostSalesLine" class="h-64"></div>
+                            </div>
+                            <!-- 8. Server Load (Gauge) -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Server Load</h3>
+                                <div id="advServerGauge"
+                                    class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
+                                </div>
+                            </div>
+                            <!-- 9. User Demographics (Stacked Bar) -->
+                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Demographics</h3>
+                                <div id="advDemoStacked" class="h-64"></div>
+                            </div>
+
+                            <!-- 9.5 User Status Pie -->
+                            <div class="dashboard-card rounded-2xl p-6">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Status Distribution</h3>
+                                <div id="userStatusPie" class="h-64"></div>
+                            </div>
+                            <!-- 10. Peak Activity (Heatmap) -->
+                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
+                                <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Peak Activity Times</h3>
+                                <div id="advPeakHeatmap" class="h-64"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -633,9 +689,12 @@
                             <thead class="bg-zinc-50 dark:bg-zinc-800/50">
                                 <tr class="whitespace-nowrap">
                                     <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">User</th>
-                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Status</th>
-                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Joined</th>
-                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Action</th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Status
+                                    </th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Joined
+                                    </th>
+                                    <th class="p-4 text-sm font-bold text-zinc-700 dark:text-zinc-200">Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-zinc-100 dark:divide-zinc-800">
@@ -804,7 +863,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+    <footer
+        class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden lg:ms-64">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -990,7 +1050,19 @@
             theme: { mode: 'dark' },
             grid: { borderColor: 'transparent', strokeDashArray: 0 },
             dataLabels: { enabled: false },
-            tooltip: { theme: 'dark', style: { fontSize: '13px' } }
+            tooltip: { theme: 'dark', style: { fontSize: '13px' } },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    type: "vertical",
+                    shadeIntensity: 0.5,
+                    inverseColors: true,
+                    opacityFrom: 0.85,
+                    opacityTo: 0.55,
+                    stops: [0, 80, 100]
+                }
+            }
         };
 
         // Render ALL 10 Charts
@@ -1065,7 +1137,18 @@
                 colors: c.neon,
                 labels: ['12am-4am', '4am-8am', '8am-12pm', '12pm-4pm', '4pm-8pm', '8pm-12am'],
                 stroke: { colors: ['transparent'] },
-                fill: { opacity: 0.8 },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        type: "vertical",
+                        shadeIntensity: 0.5,
+                        inverseColors: true,
+                        opacityFrom: 0.9,
+                        opacityTo: 0.7,
+                        stops: [0, 100]
+                    }
+                },
                 yaxis: { show: false },
                 legend: { position: 'right', labels: { colors: c.text } }
             }).render();
@@ -1301,8 +1384,20 @@
         const advCommonOptions = {
             chart: { background: 'transparent', toolbar: { show: false } },
             theme: { mode: document.documentElement.classList.contains('dark') ? 'dark' : 'light' },
-            stroke: { curve: 'smooth' },
-            dataLabels: { enabled: false }
+            stroke: { curve: 'smooth', width: 2 },
+            dataLabels: { enabled: false },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    type: "vertical",
+                    shadeIntensity: 0.5,
+                    inverseColors: true,
+                    opacityFrom: 0.85,
+                    opacityTo: 0.55,
+                    stops: [0, 80, 100]
+                }
+            }
         };
 
         // 1. Revenue Stream
@@ -1394,6 +1489,19 @@
             ],
             chart: { type: 'bar', height: 250, stacked: true, background: 'transparent', toolbar: { show: false } },
             colors: ['#6366f1', '#8b5cf6', '#ec4899', '#06b6d4']
+        }).render();
+
+        // 9.5 User Status Pie
+        new ApexCharts(document.querySelector("#userStatusPie"), {
+            ...advCommonOptions,
+            series: [45, 25, 20, 10],
+            labels: ['Active', 'Idle', 'Banned', 'New'],
+            chart: { type: 'pie', height: 250, background: 'transparent' },
+            colors: ['#10b981', '#f59e0b', '#f43f5e', '#06b6d4'],
+            legend: {
+                position: 'bottom',
+                labels: { colors: 'inherit' }
+            }
         }).render();
 
         // 10. Peak Activity Heatmap

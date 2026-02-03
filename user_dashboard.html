@@ -277,7 +277,7 @@
         class="dashboard-wrapper flex min-h-[calc(100vh-80px)] bg-zinc-50 dark:bg-[#0f172a] text-zinc-900 dark:text-[#f3f4f6]">
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="dashboard-sidebar fixed inset-y-0 lg:sticky lg:top-28 start-0 lg:h-[calc(100vh-80px)] w-64 z-[110] lg:z-40 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 transition-transform duration-300 overflow-y-auto bg-white/95 dark:bg-[#0f172a]/95 border-e border-zinc-200 dark:border-white/10 shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
+            class="dashboard-sidebar fixed inset-y-0 lg:fixed lg:top-28 start-0 lg:h-[calc(100vh-80px)] w-64 z-[110] lg:z-40 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 transition-transform duration-300 overflow-y-auto bg-white/95 dark:bg-[#0f172a]/95 border-e border-zinc-200 dark:border-white/10 shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
             <div class="flex flex-col h-full p-4">
                 <!-- Navigation -->
                 <div class="lg:hidden flex justify-end mb-4">
@@ -347,7 +347,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="flex-1 lg:ml-0 pt-32 min-h-screen min-w-0">
+        <main class="flex-1 lg:ms-64 pt-32 min-h-screen min-w-0">
             <!-- Mobile Sidebar Toggle -->
             <button id="contentMenuBtn"
                 class="lg:hidden mx-4 mb-4 p-2 bg-white dark:bg-[#1e293b] text-zinc-600 dark:text-zinc-300 rounded-lg border border-zinc-200 dark:border-zinc-700">
@@ -1142,7 +1142,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden">
+    <footer
+        class="footer-gradient text-zinc-300 pt-16 pb-8 border-t border-zinc-700/50 relative overflow-hidden lg:ms-64">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1518,7 +1519,20 @@
                     }
                 },
                 legend: { position: 'bottom', labels: { colors: getTextShowColor() }, fontSize: '12px' },
-                stroke: { show: false }
+                stroke: { show: false },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        type: 'vertical',
+                        shadeIntensity: 0.5,
+                        gradientToColors: undefined,
+                        inverseColors: true,
+                        opacityFrom: 1,
+                        opacityTo: 0.8,
+                        stops: [0, 100]
+                    }
+                }
             };
             var pieChart = new ApexCharts(document.querySelector("#adCategoryChart"), pieOptions);
             pieChart.render();
@@ -1541,7 +1555,18 @@
                 },
                 theme: { mode: getThemeMode() },
                 stroke: { width: 2, colors: ['#10b981'] },
-                fill: { opacity: 0.1, colors: ['#10b981'] },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        gradientToColors: ['#00ff9f'],
+                        shadeIntensity: 1,
+                        type: 'horizontal',
+                        opacityFrom: 0.2,
+                        opacityTo: 0.5,
+                        stops: [0, 100]
+                    }
+                },
                 markers: { size: 4, colors: ['#10b981'] },
                 yaxis: { show: false }
             };
@@ -1579,7 +1604,19 @@
                     labels: { style: { colors: getTextShowColor() } }
                 },
                 grid: { borderColor: getGridColor() },
-                fill: { opacity: 1 },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        type: "vertical",
+                        shadeIntensity: 0.5,
+                        gradientToColors: ['#a855f7'], // Indio to Purple
+                        inverseColors: true,
+                        opacityFrom: 1,
+                        opacityTo: 0.8,
+                        stops: [0, 100]
+                    }
+                },
                 theme: { mode: getThemeMode() },
                 colors: ['#6366f1']
             };
@@ -1712,8 +1749,20 @@
             const usrCommonOptions = {
                 chart: { background: 'transparent', toolbar: { show: false } },
                 theme: { mode: document.documentElement.classList.contains('dark') ? 'dark' : 'light' },
-                stroke: { curve: 'smooth' },
-                dataLabels: { enabled: false }
+                stroke: { curve: 'smooth', width: 2 },
+                dataLabels: { enabled: false },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        type: "vertical",
+                        shadeIntensity: 0.5,
+                        inverseColors: true,
+                        opacityFrom: 0.85,
+                        opacityTo: 0.55,
+                        stops: [0, 80, 100]
+                    }
+                }
             };
 
             // 1. Profile Views Sparkline

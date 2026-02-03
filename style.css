@@ -322,7 +322,8 @@ body::before {
 
 /* Page-Specific Backgrounds */
 .bg-home-v1::before {
-  background-image: url('Assets/premium_bg_home1.png');
+  background-image: url('Assets/home1bg.jpg');
+  filter: blur(2px) brightness(0.9);
 }
 
 .dark .bg-home-v1::before {
