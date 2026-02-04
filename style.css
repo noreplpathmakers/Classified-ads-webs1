@@ -49,8 +49,8 @@ b {
 }
 
 .dark .bold-pattern {
-  background-color: #09090b;
-  background-image: radial-gradient(#27272a 1.5px, transparent 1.5px), radial-gradient(#27272a 1.5px, #09090b 1.5px);
+  background-color: #0f172a;
+  background-image: radial-gradient(#1e293b 1.5px, transparent 1.5px), radial-gradient(#1e293b 1.5px, #0f172a 1.5px);
 }
 
 /* --- NEW ANIMATIONS: GLITCH & ELASTIC --- */
@@ -291,9 +291,9 @@ b {
   box-shadow:
     0 0 30px rgba(6, 182, 212, 0.25),
     0 0 60px rgba(99, 102, 241, 0.15),
-    inset 0 0 15px rgba(0, 0, 0, 0.3);
+    inset 0 0 15px rgba(15, 23, 42, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  background-image: linear-gradient(to bottom right, rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.5));
+  background-image: linear-gradient(to bottom right, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.5));
 }
 
 .dark .header-glow::before {
@@ -374,7 +374,7 @@ body::before {
 }
 
 .dark .bg-services {
-  background-color: #020617 !important;
+  background-color: #0f172a !important;
 }
 
 .bg-services::after {
@@ -655,7 +655,7 @@ h3:hover {
 
 .dark .glass-card {
   background: rgba(15, 23, 42, 0.85);
-  /* Increased opacity */
+  /* Indigo/Navy glass */
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
@@ -3125,4 +3125,24 @@ section {
   .text-3xl {
     font-size: 1.5rem !important;
   }
+}
+
+/* Chart Card Glow Effect */
+.chart-card-glow {
+  border-width: 4px !important;
+  border-color: #06b6d4 !important;
+  /* Cyan-500 */
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.dark .chart-card-glow {
+  border-color: #22d3ee !important;
+  /* Cyan-400 */
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4) !important;
+}
+
+.chart-card-glow:hover {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.7) !important;
+  transform: translateY(-8px);
 }

@@ -112,12 +112,12 @@
     </style>
 </head>
 
-<body class="bg-[#fafafa] dark:bg-zinc-950 transition-colors duration-300 bg-user-dash overflow-x-hidden">
+<body class="bg-[#fafafa] dark:bg-slate-900 transition-colors duration-300 bg-user-dash overflow-x-hidden">
 
     <!-- Navbar (Floating Container) -->
     <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
         <div
-            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            class="max-w-7xl w-full bg-white/80 dark:bg-slate-900/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
                     <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
@@ -138,7 +138,7 @@
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50 mt-2">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-slate-800 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50 mt-2">
                                 <a href="index.html"
                                     class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
@@ -221,7 +221,7 @@
 
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu"
-        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-zinc-950 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
+        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-slate-900 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
 
         <div class="flex items-center justify-between p-4 border-b border-zinc-100 dark:border-zinc-800">
             <span class="font-black text-xl tracking-tighter dark:text-white">Menu</span>
@@ -274,10 +274,10 @@
 
     <!-- Dashboard Content Wrapper -->
     <div
-        class="dashboard-wrapper flex min-h-[calc(100vh-80px)] bg-zinc-50 dark:bg-[#0f172a] text-zinc-900 dark:text-[#f3f4f6]">
+        class="dashboard-wrapper flex min-h-[calc(100vh-80px)] bg-zinc-50 dark:bg-slate-900 text-zinc-900 dark:text-[#f3f4f6]">
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="dashboard-sidebar fixed inset-y-0 lg:fixed lg:top-28 start-0 lg:h-[calc(100vh-80px)] w-64 z-[110] lg:z-40 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 transition-transform duration-300 overflow-y-auto bg-white/95 dark:bg-[#0f172a]/95 border-e border-zinc-200 dark:border-white/10 shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
+            class="dashboard-sidebar fixed inset-y-0 lg:fixed lg:top-28 start-0 lg:h-[calc(100vh-112px)] w-64 z-[110] lg:z-40 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 transition-transform duration-300 overflow-y-auto bg-white/95 dark:bg-slate-900/95 border-e border-zinc-200 dark:border-white/10 shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
             <div class="flex flex-col h-full p-4">
                 <!-- Navigation -->
                 <div class="lg:hidden flex justify-end mb-4">
@@ -285,7 +285,7 @@
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
-                <nav class="flex-1 space-y-1 mt-0">
+                <nav class="flex-1 space-y-1 mt-0 overflow-y-auto hide-scrollbar" id="sidebarNav">
                     <div
                         class="mx-3 mt-2 mb-1 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded w-fit uppercase tracking-wider">
                         USER</div>
@@ -326,8 +326,17 @@
                     </a>
                 </nav>
 
+                <!-- Logout Section -->
+                <div class="mt-2 pt-2 border-t border-zinc-200 dark:border-zinc-700/50 flex-shrink-0">
+                    <a href="login.html"
+                        class="sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-fuchsia-600 dark:text-fuchsia-400 hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20 transition-all group">
+                        <i data-lucide="log-out" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        <span class="font-medium">Logout</span>
+                    </a>
+                </div>
+
                 <!-- User Profile -->
-                <div class="mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-700/50">
+                <div class="mt-auto pt-4 border-t border-zinc-200 dark:border-zinc-700/50 flex-shrink-0">
 
                     <div class="flex items-center gap-3 p-2">
                         <img src="https://ui-avatars.com/api/?name=John+Doe&background=6366f1&color=fff"
@@ -478,19 +487,19 @@
                 <!-- New Charts Section -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- Pie Chart: Ad Categories -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="text-zinc-900 dark:text-white font-bold mb-4">Ad Distribution</h3>
                         <div id="adCategoryChart" class="h-64"></div>
                     </div>
 
                     <!-- Radar Chart: User Activity Profile -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="text-zinc-900 dark:text-white font-bold mb-4">Activity Profile</h3>
                         <div id="userActivityRadar" class="h-64"></div>
                     </div>
 
                     <!-- Bar Chart: Weekly Engagement -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="text-zinc-900 dark:text-white font-bold mb-4">Weekly Engagement</h3>
                         <div id="weeklyEngagementBar" class="h-64"></div>
                     </div>
@@ -549,7 +558,7 @@
                     </div>
 
                     <!-- 3. Performance Insights (Chart) -->
-                    <div class="dashboard-card rounded-2xl p-6 lg:col-span-2">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6 lg:col-span-2">
                         <div class="flex items-center justify-between mb-6">
                             <div>
                                 <h3 class="text-zinc-900 dark:text-white font-bold">Performance Insights</h3>
@@ -590,54 +599,54 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     <!-- 1. Profile Views (Sparkline Area) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Profile Views</h3>
                         <div id="usrProfileViewsSpark" class="h-64"></div>
                     </div>
                     <!-- 2. Listing Impressions (Bar) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Listing Impressions</h3>
                         <div id="usrImpressionsBar" class="h-64"></div>
                     </div>
                     <!-- 3. Sales History (Column) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Sales History</h3>
                         <div id="usrSalesColumn" class="h-64"></div>
                     </div>
                     <!-- 4. Spending Habits (Pie) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Spending Habits</h3>
                         <div id="usrSpendingPie" class="h-64"></div>
                     </div>
                     <!-- 5. Response Rate (Radial) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Response Rate</h3>
                         <div id="usrResponseRadial" class="h-64"></div>
                     </div>
                     <!-- 6. Category Interests (Radar) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Category Interests</h3>
                         <div id="usrInterestsRadar" class="h-64"></div>
                     </div>
                     <!-- 7. Message Activity (Line) -->
-                    <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Message Activity</h3>
                         <div id="usrMsgActivityLine" class="h-64"></div>
                     </div>
                     <!-- 8. Deal Success Rate (Gauge) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Success Rate</h3>
                         <div id="usrSuccessGauge"
                             class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
                         </div>
                     </div>
                     <!-- 9. Saved Items (Donut) -->
-                    <div class="dashboard-card rounded-2xl p-6">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Saved Items</h3>
                         <div id="usrSavedDonut" class="h-64"></div>
                     </div>
                     <!-- 10. Weekly Engagement (Heatmap) -->
-                    <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2 lg:col-span-2">
+                    <div class="chart-card-glow dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2 lg:col-span-2">
                         <h3 class="font-bold text-zinc-900 dark:text-white mb-4">Engagement Heatmap</h3>
                         <div id="usrEngageHeatmap" class="h-64"></div>
                     </div>

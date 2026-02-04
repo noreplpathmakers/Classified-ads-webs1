@@ -195,12 +195,12 @@
 </head>
 
 <body
-    class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 transition-colors duration-300 font-inter overflow-x-hidden">
+    class="bg-zinc-50 dark:bg-slate-900 text-zinc-800 dark:text-zinc-100 transition-colors duration-300 font-inter overflow-x-hidden">
 
     <!-- Navbar (Floating Container) -->
     <nav class="fixed top-4 left-0 right-0 z-[100] flex justify-center px-4">
         <div
-            class="max-w-7xl w-full bg-white/80 dark:bg-zinc-950/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
+            class="max-w-7xl w-full bg-white/80 dark:bg-slate-900/80 header-glow rounded-full px-6 py-3 transition-all duration-300">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-8">
                     <a href="index.html" class="flex items-center gap-2 group" dir="ltr">
@@ -221,7 +221,7 @@
                                     class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div
-                                class="absolute top-full left-0 w-48 bg-white dark:bg-zinc-900 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50 mt-2">
+                                class="absolute top-full left-0 w-48 bg-white dark:bg-slate-800 shadow-2xl rounded-2xl border border-zinc-100 dark:border-zinc-800 p-2 hidden opacity-0 translate-y-2 transition-all duration-200 z-50 mt-2">
                                 <a href="index.html"
                                     class="block px-4 py-3 text-sm font-semibold rounded-xl hover:bg-cyan-50 dark:hover:bg-cyan-900/30 text-zinc-700 dark:text-white hover:text-cyan-600">Home
                                     1</a>
@@ -304,7 +304,7 @@
 
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu"
-        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-zinc-950 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
+        class="fixed inset-y-0 left-0 w-[85%] sm:w-[50%] z-[200] bg-white dark:bg-slate-900 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col h-full overflow-y-auto border-r border-zinc-200 dark:border-zinc-800 lg:hidden rtl:right-0 rtl:left-auto rtl:translate-x-full">
 
         <div class="flex items-center justify-between p-4 border-b border-zinc-100 dark:border-zinc-800">
             <span class="font-black text-xl tracking-tighter dark:text-white">Menu</span>
@@ -360,7 +360,7 @@
 
         <!-- Sidebar (Sticky on LG) -->
         <aside id="sidebar"
-            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-zinc-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:fixed lg:top-28 lg:h-[calc(100vh-112px)] shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
+            class="fixed inset-y-0 start-0 z-[110] w-64 bg-white dark:bg-slate-900 border-e border-zinc-200 dark:border-zinc-800 flex flex-col transition-transform duration-300 transform -translate-x-full rtl:translate-x-full lg:translate-x-0 lg:rtl:translate-x-0 lg:fixed lg:top-28 lg:h-[calc(100vh-112px)] shadow-2xl lg:shadow-none rtl:right-0 rtl:left-auto">
             <div class="p-4 flex flex-col h-full">
                 <!-- Mobile Close Button & User Info -->
                 <div class="flex flex-col gap-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/50 pb-4">
@@ -429,7 +429,7 @@
         </div>
 
         <!-- Main Content -->
-        <main id="mainContent" class="flex-1 lg:ms-64 relative bg-zinc-50 dark:bg-zinc-950 min-w-0">
+        <main id="mainContent" class="flex-1 lg:ms-64 relative bg-zinc-50 dark:bg-slate-900 min-w-0">
             <div class="pt-8">
                 <!-- Mobile Sidebar Toggle -->
                 <div class="lg:hidden p-4 flex items-center gap-2">
@@ -471,7 +471,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
                             <!-- 1. Line Chart: Revenue -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.2s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -483,7 +483,7 @@
                             </div>
 
                             <!-- 2. Stacked Bar: Category Sales -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.25s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -495,7 +495,7 @@
                             </div>
 
                             <!-- 3. Area Chart: Traffic Growth -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.3s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -507,7 +507,7 @@
                             </div>
 
                             <!-- 4. Multi-Line: User vs Seller -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.35s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -531,7 +531,7 @@
                             </div>
 
                             <!-- 6. Funnel: Onboarding -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.45s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -543,7 +543,7 @@
                             </div>
 
                             <!-- 7. Scatter: Price vs Demand -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.5s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -555,7 +555,7 @@
                             </div>
 
                             <!-- 8. Horizontal Bar: Top Categories -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.55s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -567,7 +567,7 @@
                             </div>
 
                             <!-- 9. Gauge: System Health -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.6s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -580,7 +580,7 @@
                             </div>
 
                             <!-- 10. Radar Chart: Performance Metrics -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.65s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -593,7 +593,7 @@
 
 
                             <!-- 11. Pie Chart: Device Distribution -->
-                            <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
+                            <div class="chart-card-glow card-hover bg-white dark:bg-slate-800 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm relative overflow-hidden animate-fade-in-up"
                                 style="animation-delay: 0.7s;">
                                 <div class="skeleton-loader absolute inset-0 z-20 bg-white dark:bg-zinc-900 p-6">
                                     <div class="w-full h-full bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse">
@@ -613,60 +613,60 @@
                     <div class="charts-section-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
                             <!-- 1. Revenue Stream (Area) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Revenue Stream</h3>
                                 <div id="advRevenueArea" class="h-64"></div>
                             </div>
                             <!-- 2. User Acquisition (Bar) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Acquisition</h3>
                                 <div id="advUserAcqBar" class="h-64"></div>
                             </div>
                             <!-- 3. Category Distribution (Donut) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Category Distribution</h3>
                                 <div id="advCatDonut" class="h-64"></div>
                             </div>
                             <!-- 4. System Health (Radial) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">System Health (Radial)</h3>
                                 <div id="advSysHealthRadial" class="h-64"></div>
                             </div>
                             <!-- 5. Traffic Sources (Polar) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Traffic Sources</h3>
                                 <div id="advTrafficPolar" class="h-64"></div>
                             </div>
                             <!-- 6. Ticket Volume (Line) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Ticket Volume</h3>
                                 <div id="advTicketLine" class="h-64"></div>
                             </div>
                             <!-- 7. Ad Postings vs Sales (Double Line) -->
-                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Postings vs Sales</h3>
                                 <div id="advPostSalesLine" class="h-64"></div>
                             </div>
                             <!-- 8. Server Load (Gauge) -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Server Load</h3>
                                 <div id="advServerGauge"
                                     class="h-64 text-zinc-900 dark:text-white font-black text-2xl flex items-center justify-center">
                                 </div>
                             </div>
                             <!-- 9. User Demographics (Stacked Bar) -->
-                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6 col-span-1 md:col-span-2">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Demographics</h3>
                                 <div id="advDemoStacked" class="h-64"></div>
                             </div>
 
                             <!-- 9.5 User Status Pie -->
-                            <div class="dashboard-card rounded-2xl p-6">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">User Status Distribution</h3>
                                 <div id="userStatusPie" class="h-64"></div>
                             </div>
                             <!-- 10. Peak Activity (Heatmap) -->
-                            <div class="dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
+                            <div class="chart-card-glow dashboard-card rounded-2xl p-6 col-span-1 md:col-span-3">
                                 <h3 class="font-bold text-zinc-800 dark:text-white mb-4">Peak Activity Times</h3>
                                 <div id="advPeakHeatmap" class="h-64"></div>
                             </div>
